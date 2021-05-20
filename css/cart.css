@@ -1,0 +1,108 @@
+   /* 
+  CART CONTENT
+  */
+.cart-content{
+    width: 200px;
+    
+    background-color: lightcoral;
+    position: absolute;
+    right: 0px;
+    display: none;
+    padding: 0.5rem;
+}
+.sum{
+    background-color: rgb(230, 221, 221);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    color: rgb(66, 64, 64);
+    margin-bottom: 0.2rem;
+}
+.sum .cart-total{
+    color: rgb(66, 64, 64);
+    font-size: 1.2rem;
+}
+.place-order-btn{
+    
+    background: white;
+    color: gray;
+    border-radius: 3px;
+    border: 1px solid lightblue;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+}
+.place-order-btn:hover{
+    background: linear-gradient(60deg, rgba(15, 33, 131, 0.541), rgba(23, 138, 90, 0.466));
+    color: white;
+}
+.show-cart{
+    display: grid;
+
+}
+
+/* single product */
+.product-in-cart{
+    margin: 0.2rem 1rem;   
+    padding: 0.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.384);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.747);
+    border-radius: 5px;
+    background-color: rgb(228, 241, 241);
+    border: 1px solid black; 
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+}
+
+
+.product-in-cart-mini-img{
+    max-width: 170px;
+    height: 60px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* overflow: hidden; */
+}
+.product-in-cart-mini-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    outline: 1px solid rgb(223, 214, 214);
+    outline-offset: -2px;
+}
+.product-in-cart-name{
+    font-weight: bold;
+}
+
+.product-in-cart-quantity{
+    color: rgb(66, 64, 64);
+    font-size: 0.85rem;
+    display: grid;
+    gap: 0.2rem;
+}
+
+.remove-from-cart,
+.sub-one-btn,
+.add-one-btn{
+    border-radius: 3px;
+    background-color: rgb(232, 235, 240);
+    height: 1.2rem;
+    border: 1px solid cornflowerblue;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.remove-from-cart:hover,
+.sub-one-btn:hover,
+.add-one-btn:hover
+{
+    color: white;
+    background-color: cornflowerblue;
+    cursor: pointer;
+}
+
+.product-in-cart-price{
+    color: gray;
+}

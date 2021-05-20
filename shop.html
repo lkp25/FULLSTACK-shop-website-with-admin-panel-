@@ -7,6 +7,7 @@
   <title>Shop</title>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/shop.css">
+  <link rel="stylesheet" href="/css/cart.css">
   <script src="./js/main.js" defer></script>
   <script src="./js/shop.js" defer></script>
   <script src="./js/cart.js" defer></script>
@@ -29,9 +30,50 @@
     </div>
   </nav>
 </header>
+
+<!-- CART CONTENT -->
 <div class="cart-content">
+  <div class="sum">Total:  <span class="cart-total">543</span></div>
+  <button class="place-order-btn">PLACE ORDER</button>
   <!-- templ -->
-  <div class="sum">Total: <span class="cart-total"></span></div>
+  <div class="product-in-cart">
+    <div class="product-in-cart-mini-img">
+      <img src="./img/img-large/orange.png" alt="">
+    </div>
+    <div class="product-in-cart-name">ORANGE</div>
+    <div class="product-in-cart-quantity">
+      <p>quantity:</p>
+      <span>
+        <button class="sub-one-btn">-</button>
+        5
+        <button class="add-one-btn">+</button>
+      </span>
+    </div>
+    <div class="product-in-cart-price">120.00</div>
+    <button class="remove-from-cart">Remove product</button>
+
+  </div>
+  <!-- templ END -->
+  <!-- templ -->
+  <div class="product-in-cart">
+    <div class="product-in-cart-mini-img">
+      <img src="./img/img-large/orange.png" alt="">
+    </div>
+    <div class="product-in-cart-name">ORANGE</div>
+    <div class="product-in-cart-quantity">
+      <p>quantity:</p>
+      <span>
+        <button class="sub-one-btn">-</button>
+        5
+        <button class="add-one-btn">+</button>
+      </span>
+    </div>
+    <div class="product-in-cart-price">120.00</div>
+    <button class="remove-from-cart">Remove product</button>
+
+  </div>
+  <!-- templ END -->
+
 </div>
 
 <!-- MAIN CONTENT -->

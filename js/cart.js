@@ -1,9 +1,9 @@
 const cartIcon = document.querySelector('.cart-icon')
-const cartContent = document.querySelector('.cart-content')
+
 
 let itemsInCart = []
 //add to cart buttons logic
-productsGrid.addEventListener('click', (e)=>{
+document.addEventListener('click', (e)=>{
     if(e.target.classList.contains('product-add-to-cart-btn')){
      const product = e.target.closest('.product-card')
     
@@ -35,6 +35,8 @@ productsGrid.addEventListener('click', (e)=>{
 
 //cart icon is clicked - open/close cart
 cartIcon.addEventListener('click', ()=>{
+    const cartContent = document.querySelector('.cart-content')
+    console.log(cartContent);
     cartContent.classList.toggle('show-cart')
     
     //render items if cart is open
