@@ -4,48 +4,56 @@
         "name":"red",
         "priceInCents":1900,
         "category":"primary",
-        "image":""   
+        "image":"red.png",
+        "description":"Lorem ipsu elit. Accusadsgfsdgdsffedntium quaerat quibusdam quos volupt"   
     },
     {
         "id":"2",
         "name":"orange",
         "priceInCents":9900,
         "category":"secondary",
-        "image":""   
+        "image":"orange.png" ,
+        "description":"Lorem ipsu dfdsfdsaelit. Accusantium quaerat quibusdam quos volupt"  
     },
     {
         "id":"3",
         "name":"yellow",
         "priceInCents":1900,
         "category":"primary",
-        "image":""   
+        "image":"yellow.png" ,
+        "description":"Lorem ipsuds12312312 elit. Accusantium quaerat quibusdam quos volupt"  
     },
-    {
-        "id":"4",
-        "name":"grey",
-        "priceInCents":6900,
-        "category":"greys",
-        "image":""   
-    },
+    
     {
         "id":"5",
         "name":"black",
         "priceInCents":4900,
         "category":"greys",
-        "image":""   
+        "image":"black.png" ,
+        "description":"Lorem ipsu elit. Accusantium quaerae2112e21t quibusdam quos volupt"  
     },
     {
         "id":"6",
         "name":"green",
         "priceInCents":1900,
         "category":"secondary",
-        "image":""   
+        "image":"green.png"  ,
+        "description":"Lorem ipsu elit. Accusantium quaerat quibusdam quos volupt" 
+    },
+    {
+        "id":"4",
+        "name":"grey",
+        "priceInCents":6900,
+        "category":"greys",
+        "image":"grey.png"  ,
+        "description":"Lorem ipsu elit. Accusantium quaerat quibusda213 21312313123 12312343242342343223e2331em quos volupt" 
     },
     {
         "id":"7",
         "name":"blue",
         "priceInCents":2900,
         "category":"primary",
-        "image":""   
+        "image":"blue.png"  ,
+        "description":"Lorem ipsu elit. Accusantium quaerat quibusdam quos volupt" 
     }
 ]

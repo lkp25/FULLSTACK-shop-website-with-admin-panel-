@@ -40,6 +40,7 @@
     margin-bottom: -0.2rem;
     padding-top: 0.2rem;
     padding-left: 0.5rem;
+    text-transform: capitalize;
 }
 .product-category{
     background-color: rgba(100, 148, 237, 0.185);
@@ -48,11 +49,14 @@
     padding-top: 0.2rem;
     max-height: 1rem;
     color: rgb(110, 107, 107);
+    font-family: sans-serif;
 }
 
 .product-description{
     font-size: 0.7rem;
     padding: 0 0.5rem;
+    max-width: 10rem;
+    align-self: center;
 }
 .product-rest-info{
     padding: 0.5rem;
@@ -68,6 +72,7 @@
     border: 1px solid cornflowerblue;
     font-size: 0.6rem;
     text-transform: uppercase;
+    font-family: sans-serif;
 }
 .product-add-to-cart-btn:hover{
     color: white;
