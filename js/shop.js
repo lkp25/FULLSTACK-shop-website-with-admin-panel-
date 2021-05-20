@@ -1,9 +1,7 @@
 const productTemplate = document.querySelector('#product-template')
 const productsGrid = document.querySelector('.products-grid')
 
-productsGrid.addEventListener('click', (e)=>{
-    console.log(e.target.classList.contains('product-add-to-cart-btn'));
-})
+
 
 //get products from json database
 async function getProducts(){
@@ -26,6 +24,9 @@ function renderProducts(products){
         
         //give the id to card product
         template.querySelector('.product-card').dataset.id = `${product.id}`
+        template.querySelector('.product-card').dataset.name = `${product.name}`
+        template.querySelector('.product-card').dataset.priceInCents = `${product.priceInCents}`
+        template.querySelector('.product-card').dataset.image = `${product.image}`
         
         //fill all data
         template.querySelector('img').setAttribute('src', `./img/img-large/${product.image}`)
@@ -35,7 +36,7 @@ function renderProducts(products){
         template.querySelector('.product-description').innerText = `${product.description}`
         template.querySelector('.product-price').innerText = `${product.priceInCents}`
         
-        //add to cart button
+        
 
         //add product to all products
         productsGrid.appendChild(template)

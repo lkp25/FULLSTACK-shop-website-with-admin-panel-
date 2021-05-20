@@ -129,6 +129,21 @@ nav{
     }
   }
 
+   /* 
+  CART CONTENT
+  */
+.cart-content{
+    width: 200px;
+    height: 300px;
+    background-color: lightcoral;
+    position: absolute;
+    right: 0px;
+    display: none;
+}
+.show-cart{
+    display: grid;
+}
+
 
   /* 
   MAIN SECTION
