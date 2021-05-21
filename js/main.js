@@ -19,7 +19,7 @@ window.addEventListener('resize', ()=>{
 });
 
 nav.addEventListener('click', (e)=>{
-    // e.preventDefault()
+    
     if(window.innerWidth < 600 && 
         (e.target.classList.contains('nav-link') || e.target.classList.contains('cart-icon'))
         ){

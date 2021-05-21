@@ -31,7 +31,37 @@
 </header>
 
 <!-- CART CONTENT -->
-<div class="cart-content"></div>
+<div class="cart-content">
+  <div class="sum">Total:  <span class="cart-total">543</span></div>
+  <button class="place-order-btn">PLACE ORDER</button>
+  
+  <!-- templ -->
+  <template id="item-in-cart-template">
+    <div class="product-in-cart">
+      <div class="product-in-cart-mini-img">
+        <img src="./img/img-large/orange.png" alt="">
+      </div>
+      <div class="product-in-cart-name">ORANGE</div>
+      <div class="product-in-cart-quantity">
+        <p>quantity:</p>
+        <div class="quantity-modifier">
+          <button class="sub-one-btn">-</button>
+          <span class="quantity">
+            5
+          </span>
+          <button class="add-one-btn">+</button>
+
+        </div>
+      </div>
+      <div class="product-in-cart-price">120.00</div>
+      <button class="remove-from-cart">Remove product</button>
+  
+    </div>
+  </template>  
+  <!-- templ END -->
+  
+
+</div>
 
 <!-- MAIN CONTENT -->
 <main>
