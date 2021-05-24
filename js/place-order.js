@@ -78,8 +78,19 @@ function sendToserver(){
 }
 
 function getFormData(){
+    
+
     const completeOrderDetails = {
-        name: orderForm.querySelector('[name="name"]').value
+        name: orderForm.querySelector('.order-form-name').value,
+        surname: orderForm.querySelector('.order-form-surname').value,
+        email: orderForm.querySelector('.order-form-email').value,
+        city: orderForm.querySelector('.order-form-city').value,
+        street: orderForm.querySelector('.order-form-street').value,
+        houseNumber: orderForm.querySelector('.order-form-house-number').value,
+        postalCode: orderForm.querySelector('.order-form-postal-code').value,
+        
+        total: JSON.parse(sessionStorage.getItem('totalToPay')),
+        orderedItems: JSON.parse(sessionStorage.getItem('cart')),
     }
-    console.log(completeOrderDetails.name);
+    console.log(completeOrderDetails);
 }
