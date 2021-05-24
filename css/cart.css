@@ -26,7 +26,7 @@
     color: rgb(66, 64, 64);
     font-size: 1.2rem;
 }
-.place-order-btn{
+.place-order-btn, .clear-cart-btn{
     
     background: white;
     color: gray;
@@ -37,9 +37,20 @@
     font-weight: bold;
     letter-spacing: 1.3px;
 }
-.place-order-btn:hover{
+.clear-cart-btn{
+    margin-top: 1rem;
+    color: red;
+    border: 1px solid rgb(194, 22, 9);
+    display: none;
+}
+.place-order-btn:hover {
     background: linear-gradient(60deg, rgba(15, 33, 131, 0.541), rgba(23, 138, 90, 0.466));
     color: white;
+}
+.clear-cart-btn:hover{
+    background: linear-gradient(60deg, rgba(221, 19, 19, 0.541), rgba(23, 138, 90, 0.466));
+    color: white;
+    
 }
 
 /* single product */
@@ -123,4 +134,21 @@
 
 .product-in-cart-price{
     color: gray;
+}
+
+
+/* ALERT NO-items in cart */
+.alert-no-items{
+    position: absolute;
+    border-radius: 3px;
+    top: 50%;
+    
+    width: 100%;
+    color: white;
+    font-size: 1.4rem;
+    text-align: center;
+    background: linear-gradient(10deg, rgb(70, 3, 3), crimson);
+    place-items: center;
+    
+    padding: 2rem;
 }

@@ -86,10 +86,19 @@ cartIcon.addEventListener('click', ()=>{
 
         //CLEAR OLD VIEW of the cart
         document.querySelectorAll('.product-in-cart').forEach(p => p.remove())
-
+        
         //get data from ss
         const productsToRender = JSON.parse(sessionStorage.getItem("cart")) 
 
+        //clear cart button
+        const clearCartBtn =  document.querySelector('.clear-cart-btn')
+
+        clearCartBtn.style.display = 'none'
+        if(productsToRender.length > 0){
+            clearCartBtn.style.display = 'block'
+
+        }
+        
         
         console.log(productsToRender);
         productsToRender.forEach(product => {
@@ -117,7 +126,7 @@ cartIcon.addEventListener('click', ()=>{
 
 
 
-
+//===================================================================
 //listen for add / subtract quantity and remove item buttons
 cartContent.addEventListener('click', (e)=>{
     //subtract one
@@ -165,6 +174,14 @@ cartContent.addEventListener('click', (e)=>{
         e.target.closest('.product-in-cart').remove()
         //update session storage
     }
+    //CLEAR ALL ITEMS FROM CART
+    if (e.target.classList.contains('clear-cart-btn')) {
+        document.querySelectorAll('.product-in-cart').forEach(e => e.remove())
+        itemsInCart = []
+        e.target.style.display = 'none'
+    }
+    //place order listener
+    
     
     saveCartInSessionStorage()
     calculateTotalAmount()

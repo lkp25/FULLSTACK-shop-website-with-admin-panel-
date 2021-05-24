@@ -8,11 +8,76 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/shop.css">
   <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/css/order-modal.css">
   <script src="./js/main.js" defer></script>
   <script src="./js/shop.js" defer></script>
   <script src="./js/cart.js" defer></script>
+  <script src="./js/place-order.js" defer></script>
 </head>
 <body>
+<div class="order-modal">
+  <div class="order-modal-main-section">
+    <h1>You are about to order:</h1>
+    <div id="order-table">     
+      <div id="order-table-header" class="order-table-single-item">
+        <div>Item</div>
+        <div>Price</div>
+        <div>Quantity</div>
+      </div>
+      <template id="order-table-single-item-template">
+        <div class="order-table-single-item">
+          <div >Item</div>
+          <div>3333</div>
+          <div>42</div>
+        </div>
+      </template>
+           
+    </div>
+
+    <div class="order-modal-total">Total: <span id='grand-total'>453453</span></div>
+
+
+    <form class="order-form" action="">
+      <p>If order is correct, please fill out the form:</p>
+      <div>
+          <label>Name</label><br>
+          <input type="text" name="name" required placeholder="">
+      </div>
+      <div>
+          <label>Surname</label><br>
+          <input type="text" name="" required placeholder="">
+      </div>
+      <div>
+          <label>E-mail</label><br>
+          <input type="email" name="" required placeholder="">
+      </div>
+      <div>
+          <label>E-mail (confirm)</label><br>
+          <input type="email" name="" required placeholder="">
+      </div>
+      <div>
+          <label>City</label><br>
+          <input type="text" name="" required placeholder="">
+      </div>
+      <div>
+          <label>Street</label><br>
+          <input type="text" name="" required placeholder="">
+      </div>
+      <div>
+          <label>House number</label><br>
+          <input type="number" name="" required placeholder="">
+      </div>
+      <div>
+          <label>Postal code</label><br>
+          <input type="number" name="" required placeholder="">
+      </div>
+      
+      <input type="submit" class="order-now-btn" value="ORDER NOW">
+    </form>
+
+  </div>
+</div>
+
 <header>
   <nav class="hide-links">
     <div class="logo">SHOPLOGO</div>
@@ -35,6 +100,7 @@
 <div class="cart-content">
   <div class="sum">Total:  <span class="cart-total">543</span></div>
   <button class="place-order-btn">PLACE ORDER</button>
+  <button class="clear-cart-btn">CLEAR CART</button>
   
   <!-- templ -->
   <template id="item-in-cart-template">
