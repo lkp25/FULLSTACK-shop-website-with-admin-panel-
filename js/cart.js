@@ -39,9 +39,18 @@ document.addEventListener('click', (e)=>{
      const product = e.target.closest('.product-card')
     //animation:
     const productGhost = product.cloneNode(true)
-    productGhost.classList.add('to-cart-animation')
-    productGhost.style.top = `${product.getBoundingClientRect().top}px`
-    productGhost.style.left = `${product.getBoundingClientRect().left}px`
+    let root = document.documentElement;
+    root.style.setProperty(
+        '--top', -1 * 16 - product.getBoundingClientRect().bottom + document.body.scrollTop + "px"
+        );
+    root.style.setProperty(
+        '--left', cartIcon.getBoundingClientRect().left - product.getBoundingClientRect().left + "px"
+        );
+console.log(cartIcon.getBoundingClientRect().top,'  ' , product.getBoundingClientRect().top);
+
+productGhost.style.top = `${product.offsetTop}px`
+productGhost.style.left = `${product.offsetLeft}px`
+productGhost.classList.add('to-cart-animation')
     
      
 
