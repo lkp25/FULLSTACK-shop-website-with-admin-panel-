@@ -4,7 +4,7 @@
     
 }
 svg{
-    max-width: 40px;
+    max-width: 30px;
     pointer-events: none;
 }
 
@@ -32,13 +32,13 @@ nav{
 
 /* logo */
 .logo{
-    width: 200px;
-    height: 70px;
+    width: 130px;
+    height: 50px;
     background: linear-gradient(60deg, rgba(15, 33, 131, 0.541), rgba(23, 138, 90, 0.466));
     text-align: center;
     color: white;
     font-size: 2rem;
-    padding-top: 1rem;
+    padding: 0.3rem;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
 
@@ -56,7 +56,7 @@ nav{
     
 }
 .hide-links{
-    max-height: 100px;
+    max-height: 80px;
     overflow: hidden;
 }
 .nav-links a{
@@ -78,8 +78,8 @@ nav{
 
 /* menu icon */
 .menu-icon{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: cadetblue;
     display: grid;
@@ -93,13 +93,15 @@ nav{
 }
 /* cart icons */
 .cart-icon{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: cadetblue;
     display: grid;
     place-items: center;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top:1rem;
     margin-left: 0.5rem;
     cursor: pointer; 
 }
@@ -152,6 +154,11 @@ nav{
     .menu-icon{
         display: none;
     }
+    .cart-icon{
+        position: relative;
+        top:0;
+        left:0;
+    }
   }
 
 
@@ -164,7 +171,7 @@ nav{
 main{
     background-color: rgb(238, 225, 238);
     min-height: 70vh;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 

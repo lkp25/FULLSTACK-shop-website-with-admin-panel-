@@ -35,35 +35,37 @@ function calculateTotalAmount(){
 
 //add to cart buttons logic
 document.addEventListener('click', (e)=>{
+    
+
     if(e.target.classList.contains('product-add-to-cart-btn')){
-     const product = e.target.closest('.product-card')
-    //animation:
-    const productGhost = product.cloneNode(true)
-    let root = document.documentElement;
-    root.style.setProperty(
-        '--top', -1 * 16 - product.getBoundingClientRect().bottom + document.body.scrollTop + "px"
-        );
-    root.style.setProperty(
-        '--left', cartIcon.getBoundingClientRect().left - product.getBoundingClientRect().left + "px"
-        );
-console.log(cartIcon.getBoundingClientRect().top,'  ' , product.getBoundingClientRect().top);
+        const product = e.target.closest('.product-card')
+        
+        //ANIMATION LOGIC:
+        const productGhost = product.cloneNode(true)
+        let root = document.documentElement;
+        root.style.setProperty(
+            '--top', -1 * 16 - product.getBoundingClientRect().bottom + document.body.scrollTop + "px"
+            );
+        root.style.setProperty(
+            '--left', cartIcon.getBoundingClientRect().left - product.getBoundingClientRect().left + "px"
+            );
+        console.log(cartIcon.getBoundingClientRect().top,'  ' , product.getBoundingClientRect().top);
 
-productGhost.style.top = `${product.offsetTop}px`
-productGhost.style.left = `${product.offsetLeft}px`
-productGhost.classList.add('to-cart-animation')
-    
-     
+        productGhost.style.top = `${product.offsetTop}px`
+        productGhost.style.left = `${product.offsetLeft}px`
+        productGhost.classList.add('to-cart-animation')    
 
-    product.parentElement.appendChild(productGhost)
-    setTimeout(() => {
-        productGhost.remove()
-        cartIcon.classList.add('cart-icon-shake')
+        product.parentElement.appendChild(productGhost)
         setTimeout(() => {
-            cartIcon.classList.remove('cart-icon-shake')
-            
-        }, 1150);
-    }, 1300);
-    
+            productGhost.remove()
+            cartIcon.classList.add('cart-icon-shake')
+            setTimeout(() => {
+                cartIcon.classList.remove('cart-icon-shake')
+                
+            }, 1150);
+        }, 1300);
+        //end of animation logic
+
         //hide the cart if opened:
         cartContent.classList.remove('show-cart')
 

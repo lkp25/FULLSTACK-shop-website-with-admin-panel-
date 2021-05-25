@@ -68,29 +68,56 @@ orderModal.addEventListener('click', (e)=>{
 
     //order now logic
     if(e.target.classList.contains('order-now-btn')){
-        console.log('ORDERED');
+        
         sendToserver()
     }
 })
 
 function sendToserver(){
+    
     const orderDetails = getFormData()
+    //check if form input is valid - if not display error
+    if(!orderDetails){
+        console.log('intvalid input');
+        return
+    }
+    //send to server if valid
+    console.log(orderDetails);
 }
 
 function getFormData(){
     
+    let formValid = true
 
-    const completeOrderDetails = {
-        name: orderForm.querySelector('.order-form-name').value,
-        surname: orderForm.querySelector('.order-form-surname').value,
-        email: orderForm.querySelector('.order-form-email').value,
-        city: orderForm.querySelector('.order-form-city').value,
-        street: orderForm.querySelector('.order-form-street').value,
-        houseNumber: orderForm.querySelector('.order-form-house-number').value,
-        postalCode: orderForm.querySelector('.order-form-postal-code').value,
-        
-        total: JSON.parse(sessionStorage.getItem('totalToPay')),
-        orderedItems: JSON.parse(sessionStorage.getItem('cart')),
+    const inputFields = orderForm.querySelectorAll('input')
+    inputFields.forEach(field => {
+        //if any field input is invalid, make user aware
+        if(!field.value){
+            formValid = false
+            field.style.outline = '2px solid red'
+            setTimeout(() => {
+                field.style.outline = 'none'
+                
+            }, 1500);
+        }
+    })
+
+    let completeOrderDetails
+     
+    //only collect input data if all is valid
+    if(formValid){
+        completeOrderDetails = {
+            name: orderForm.querySelector('.order-form-name').value,
+            surname: orderForm.querySelector('.order-form-surname').value,
+            email: orderForm.querySelector('.order-form-email').value,
+            city: orderForm.querySelector('.order-form-city').value,
+            street: orderForm.querySelector('.order-form-street').value,
+            houseNumber: orderForm.querySelector('.order-form-house-number').value,
+            postalCode: orderForm.querySelector('.order-form-postal-code').value,
+            
+            total: JSON.parse(sessionStorage.getItem('totalToPay')),
+            orderedItems: JSON.parse(sessionStorage.getItem('cart')),
+        }
     }
-    
+    return completeOrderDetails
 }

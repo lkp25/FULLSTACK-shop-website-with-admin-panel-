@@ -6,7 +6,8 @@
 .products-grid{
     display: grid;
     grid-template-columns: 1fr;
-    padding: 2rem;
+    place-items: center;
+    padding: 1rem;
     gap: 2rem;
     
 }
@@ -15,7 +16,7 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.747);
     border-radius: 5px;
     background-color: rgb(228, 241, 241);
-    width: 180px;
+    width: 200px;
     height: 300px;
 
     display: grid;
