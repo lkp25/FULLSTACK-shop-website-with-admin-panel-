@@ -3,6 +3,16 @@ const orderModal = document.querySelector('.order-modal')
 const orderTable = document.querySelector('#order-table')
 const orderForm = document.querySelector('.order-form')
 
+//name all form fields:
+const formName = orderForm.querySelector('.order-form-name')
+const formSurname = orderForm.querySelector('.order-form-surname')
+const formEmail = orderForm.querySelector('.order-form-email')
+const formEmailConf = orderForm.querySelector('.order-form-email-conf')
+const formCity = orderForm.querySelector('.order-form-city')
+const formStreet = orderForm.querySelector('.order-form-street')
+const formHouseNumber = orderForm.querySelector('.order-form-house-number')
+const formPostalCode = orderForm.querySelector('.order-form-postal-code')
+
 
 //order button in cart - opens order modal
 placeOrderBtn.onclick = openOrderModal
@@ -39,8 +49,8 @@ function populateModalWithOrderData(){
         
         const row = singleItemTemplate.children[0]
         row.children[0].textContent = element.name
-        row.children[1].textContent = element.price
-        row.children[2].textContent = element.quantity
+        row.children[1].textContent = element.quantity
+        row.children[2].textContent = element.price
         
         orderTable.appendChild(singleItemTemplate)
     });
@@ -61,8 +71,11 @@ function closeOrderModal() {
 //order modal event listener
 orderModal.addEventListener('click', (e)=>{
     
-    //close modal if clicked on the edge
-    if(e.target.classList.contains('order-modal')){
+    //close modal if clicked on the edge or resign button
+    if(
+        e.target.classList.contains('order-modal')
+        || e.target.classList.contains('order-modal-resign-btn')
+    ){
         closeOrderModal()
     }
 
@@ -100,6 +113,15 @@ function getFormData(){
                 
             }, 1500);
         }
+        //email confirm fail
+        console.log(formEmail, formEmailConf);
+        if(formEmail !== formEmailConf){
+            console.log('nonononono');
+            formValid = false 
+            formEmailConf.value = ''
+            formEmailConf.placeholder = 'E-mail does not match!'           
+        }
+        
     })
 
     let completeOrderDetails
@@ -107,13 +129,13 @@ function getFormData(){
     //only collect input data if all is valid
     if(formValid){
         completeOrderDetails = {
-            name: orderForm.querySelector('.order-form-name').value,
-            surname: orderForm.querySelector('.order-form-surname').value,
-            email: orderForm.querySelector('.order-form-email').value,
-            city: orderForm.querySelector('.order-form-city').value,
-            street: orderForm.querySelector('.order-form-street').value,
-            houseNumber: orderForm.querySelector('.order-form-house-number').value,
-            postalCode: orderForm.querySelector('.order-form-postal-code').value,
+            name: formName.value,
+            surname: formSurname.value,
+            email: formEmail.value,
+            city: formCity.value,
+            street: formStreet.value,
+            houseNumber: formHouseNumber.value,
+            postalCode: formPostalCode.value,
             
             total: JSON.parse(sessionStorage.getItem('totalToPay')),
             orderedItems: JSON.parse(sessionStorage.getItem('cart')),
