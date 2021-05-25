@@ -1,6 +1,27 @@
    /* 
   CART CONTENT
   */
+  .close-cart-btn{
+      background-color: rgb(214, 93, 117);
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: -40px;
+      border-bottom-left-radius: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding-top: 0.3rem;
+      color: white;
+      font-family: sans-serif;
+      cursor: pointer;
+      transform-origin: top right;
+      transition: 0.4s ease;
+    }
+    .close-cart-btn:hover{
+        background-color: crimson;
+        transform: scale(1.1);
+    }
   .cart-content{
       width: 300px;
       

@@ -2,6 +2,11 @@ const cartIcon = document.querySelector('.cart-icon')
 const cartContent = document.querySelector('.cart-content')
 const numberOfItemsInCart = document.querySelector('.cart-counter')
 
+const closeCartButton = document.createElement('div')
+closeCartButton.classList.add('close-cart-btn')
+closeCartButton.textContent = "X"
+cartContent.appendChild(closeCartButton)
+
 //get items from session storage. if empty, return empty array
 let itemsInCart = JSON.parse(sessionStorage.getItem("cart")) || []
 
@@ -207,7 +212,10 @@ cartContent.addEventListener('click', (e)=>{
         itemsInCart = []
         e.target.style.display = 'none'
     }
-    //place order listener
+    //close cart button
+    if (e.target.classList.contains('close-cart-btn')) {
+        cartContent.classList.remove('show-cart')
+    }
     
     
     saveCartInSessionStorage()

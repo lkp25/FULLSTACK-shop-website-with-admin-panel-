@@ -7,12 +7,77 @@
   <title>Contact</title>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/css/order-modal.css">
   <script src="./js/main.js" defer></script>
   <script src="./js/cart.js" defer></script>
   <script src="./js/place-order.js" defer></script>
 
 </head>
 <body>
+
+  <div class="order-modal">
+    <div class="order-modal-main-section">
+      <h1>You are about to order:</h1>
+      <div id="order-table">     
+        <div id="order-table-header" class="order-table-single-item">
+          <div>Item</div>
+          <div>Quantity</div>
+          <div>Price</div>
+        </div>
+        <template id="order-table-single-item-template">
+          <div class="order-table-single-item">
+            <div >Item</div>
+            <div>3333</div>
+            <div>42</div>
+          </div>
+        </template>
+             
+      </div>
+  
+      <div class="order-modal-total">Total: <span id='grand-total'>453453</span></div>
+      <button class="order-modal-resign-btn">I'm not ready yet</button>
+  
+      <form class="order-form" action="">
+        <p>If order is correct, please fill out the form:</p>
+        <div>
+            <label>Name</label><br>
+            <input type="text" class="order-form-name" required placeholder="">
+        </div>
+        <div>
+            <label>Surname</label><br>
+            <input type="text" class="order-form-surname" required placeholder="">
+        </div>
+        <div>
+            <label>E-mail</label><br>
+            <input type="email" class="order-form-email" required placeholder="">
+        </div>
+        <div>
+            <label>E-mail (confirm)</label><br>
+            <input type="email" class="order-form-email-conf" required placeholder="">
+        </div>
+        <div>
+            <label>City</label><br>
+            <input type="text" class="order-form-city" required placeholder="">
+        </div>
+        <div>
+            <label>Street</label><br>
+            <input type="text" class="order-form-street" required placeholder="">
+        </div>
+        <div>
+            <label>House number</label><br>
+            <input type="number" class="order-form-house-number" required placeholder="">
+        </div>
+        <div>
+            <label>Postal code</label><br>
+            <input type="number" class="order-form-postal-code" required placeholder="">
+        </div>
+        
+        <input type="submit" class="order-now-btn" value="ORDER NOW">
+      </form>
+  
+    </div>
+  </div>
+
 <header>
   <nav class="hide-links">
     <div class="logo">SHOPLOGO</div>
