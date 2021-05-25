@@ -103,6 +103,26 @@ nav{
     margin-left: 0.5rem;
     cursor: pointer; 
 }
+.cart-icon-shake{
+    animation: shake 2s ease forwards;
+}
+@keyframes shake{
+    10%{
+        transform: scale(1.1) rotateZ(10deg);
+    }
+    20%{
+        transform: scale(1.1) rotateZ(-8deg);
+    }
+    30%{
+        transform: scale(1.1) rotateZ(6deg);
+    }
+    40%{
+        transform: scale(1.1) rotateZ(-4deg);
+    }
+    50%{
+        transform: scale(1.1) rotateZ(2deg);
+    }
+}
 
 .cart-counter{
     width: 20px;

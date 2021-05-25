@@ -26,7 +26,7 @@
 
     overflow: hidden;
     padding: 0.2rem;
-    transform-origin: top right;
+    transform-origin: bottom right;
 
 }
 .to-cart-animation{
@@ -34,7 +34,7 @@
     transform: scale(0.5);
     z-index: 50;
     border: 1px solid blueviolet;
-    animation: goToCart 2s forwards;
+    animation: goToCart 1.5s forwards;
 }
 @keyframes goToCart {
     0%{

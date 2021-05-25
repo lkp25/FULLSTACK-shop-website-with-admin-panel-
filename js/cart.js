@@ -57,7 +57,12 @@ productGhost.classList.add('to-cart-animation')
     product.parentElement.appendChild(productGhost)
     setTimeout(() => {
         productGhost.remove()
-    }, 3000);
+        cartIcon.classList.add('cart-icon-shake')
+        setTimeout(() => {
+            cartIcon.classList.remove('cart-icon-shake')
+            
+        }, 1150);
+    }, 1300);
     
         //hide the cart if opened:
         cartContent.classList.remove('show-cart')
