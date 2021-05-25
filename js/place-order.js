@@ -74,7 +74,7 @@ orderModal.addEventListener('click', (e)=>{
 })
 
 function sendToserver(){
-    getFormData()
+    const orderDetails = getFormData()
 }
 
 function getFormData(){
@@ -92,5 +92,5 @@ function getFormData(){
         total: JSON.parse(sessionStorage.getItem('totalToPay')),
         orderedItems: JSON.parse(sessionStorage.getItem('cart')),
     }
-    console.log(completeOrderDetails);
+    
 }

@@ -37,8 +37,19 @@ function calculateTotalAmount(){
 document.addEventListener('click', (e)=>{
     if(e.target.classList.contains('product-add-to-cart-btn')){
      const product = e.target.closest('.product-card')
+    //animation:
+    const productGhost = product.cloneNode(true)
+    productGhost.classList.add('to-cart-animation')
+    productGhost.style.top = `${product.getBoundingClientRect().top}px`
+    productGhost.style.left = `${product.getBoundingClientRect().left}px`
     
-        
+     
+
+    product.parentElement.appendChild(productGhost)
+    setTimeout(() => {
+        productGhost.remove()
+    }, 3000);
+    
         //hide the cart if opened:
         cartContent.classList.remove('show-cart')
 

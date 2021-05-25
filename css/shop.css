@@ -3,6 +3,7 @@
     grid-template-columns: 1fr;
     padding: 2rem;
     gap: 2rem;
+    /* position: relative; */
 }
 .product-card{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.384);
@@ -20,7 +21,20 @@
 
     overflow: hidden;
     padding: 0.2rem;
+    /* position: relative; */
 }
+.to-cart-animation{
+    position: absolute;
+    transform: translateX(100px);
+    z-index: 50;
+    border: 1px solid blueviolet;
+    animation: goToCart 2s forwards;
+}
+@keyframes goToCart {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
 .product-img{
     width: auto;    
     border-top-left-radius: 5px;
