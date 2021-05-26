@@ -6,7 +6,7 @@ const app = express()
 app.use(express.static(path.join(__dirname, 'public')))
 
 const rootDir = require('./util/path')
-const adminRoutes = require('./routes/admin')
+const adminRoutes = require('./routes/public')
 app.use(adminRoutes)
 
 app.use('/', (req, res, next) =>{

@@ -1,8 +1,7 @@
 const productTemplate = document.querySelector('#product-template')
 const productsGrid = document.querySelector('.products-grid')
 
-//currency formatter
-const currencyFormatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD"})
+
 
 //get products from json database
 async function getProducts(){
