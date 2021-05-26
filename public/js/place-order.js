@@ -85,7 +85,7 @@ orderModal.addEventListener('click', (e)=>{
 
     //order now logic
     if(e.target.classList.contains('order-now-btn')){
-        
+        e.preventDefault()
         sendToserver()
     }
 })
@@ -95,21 +95,23 @@ async function sendToserver(){
     const orderDetails = getFormData()
     //check if form input is valid - if not display error
     
-    // if(!orderDetails){
-    //     console.log('intvalid input');
-    //     return
-    // }
+    if(!orderDetails){
+        console.log('intvalid input');
+        return
+    }
     
-    const data = {dupa: "duppppapa"}
+    // const data = {dupa: "duppppapa"}
+
     //send to server if valid
     const sendData = await fetch('http://localhost:5000/save-order', {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(orderDetails),
       })
-    console.log(orderDetails);
+    const responseFromServer = await sendData.json()
+    console.log(responseFromServer);
 }
 
 function getFormData(){
@@ -129,8 +131,10 @@ function getFormData(){
         }
         //email confirm fail
         
-        if(formEmail !== formEmailConf){
-            
+        if(formEmail.value !== formEmailConf.value){
+            console.log(formEmail.value);
+            console.log(formEmailConf.value);
+
             formValid = false 
             formEmailConf.value = ''
             formEmailConf.placeholder = 'E-mail does not match!'           

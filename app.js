@@ -17,7 +17,7 @@ app.use(newOrderRoute)
 
 
 app.use('/', (req, res, next) =>{
-    console.log('hey');
+    console.log('up n runnin');
     res.status(404).sendFile(path.join(rootDir, 'views', '404.html'))
 })
 
