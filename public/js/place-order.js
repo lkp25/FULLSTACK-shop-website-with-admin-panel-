@@ -90,15 +90,25 @@ orderModal.addEventListener('click', (e)=>{
     }
 })
 
-function sendToserver(){
+async function sendToserver(){
     
     const orderDetails = getFormData()
     //check if form input is valid - if not display error
-    if(!orderDetails){
-        console.log('intvalid input');
-        return
-    }
+    
+    // if(!orderDetails){
+    //     console.log('intvalid input');
+    //     return
+    // }
+    
+    const data = {dupa: "duppppapa"}
     //send to server if valid
+    const sendData = await fetch('http://localhost:5000/save-order', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
     console.log(orderDetails);
 }
 

@@ -5,9 +5,16 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(express.json())
+
 const rootDir = require('./util/path')
-const adminRoutes = require('./routes/public')
-app.use(adminRoutes)
+
+const publicRoutes = require('./routes/public')
+app.use(publicRoutes)
+
+const newOrderRoute = require('./routes/new-order-data')
+app.use(newOrderRoute)
+
 
 app.use('/', (req, res, next) =>{
     console.log('hey');
