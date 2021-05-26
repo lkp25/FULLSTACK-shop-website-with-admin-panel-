@@ -3,9 +3,7 @@ const orderModal = document.querySelector('.order-modal')
 const orderTable = document.querySelector('#order-table')
 const orderForm = document.querySelector('.order-form')
 
-//for setting current date
-const getDate = new Date()
- console.log(getDate.getFullYear());
+
 
 //name all form fields:
 const formName = orderForm.querySelector('.order-form-name')
@@ -120,9 +118,9 @@ function getFormData(){
             }, 1500);
         }
         //email confirm fail
-        console.log(formEmail, formEmailConf);
+        
         if(formEmail !== formEmailConf){
-            console.log('nonononono');
+            
             formValid = false 
             formEmailConf.value = ''
             formEmailConf.placeholder = 'E-mail does not match!'           
@@ -143,8 +141,10 @@ function getFormData(){
             houseNumber: formHouseNumber.value,
             postalCode: formPostalCode.value,
             
-            total: JSON.parse(sessionStorage.getItem('totalToPay')),
+            totalToPay: JSON.parse(sessionStorage.getItem('totalToPay')),
             orderedItems: JSON.parse(sessionStorage.getItem('cart')),
+            orderDate: new Date().toUTCString(),
+            orderId: Math.floor(new Date().getFullYear() * new Date().getDate() * Math.random() * 1000000)
         }
     }
     return completeOrderDetails
