@@ -7,6 +7,8 @@ const currentYear = document.querySelector('.date')
 const date = new Date()
 currentYear.innerText = date.getFullYear()
 
+
+
 //navbar links hide-show logic
 menuBtn.addEventListener('click', toggleLinks)
 

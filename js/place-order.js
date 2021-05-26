@@ -3,6 +3,10 @@ const orderModal = document.querySelector('.order-modal')
 const orderTable = document.querySelector('#order-table')
 const orderForm = document.querySelector('.order-form')
 
+//for setting current date
+const getDate = new Date()
+ console.log(getDate.getFullYear());
+
 //name all form fields:
 const formName = orderForm.querySelector('.order-form-name')
 const formSurname = orderForm.querySelector('.order-form-surname')
@@ -49,8 +53,10 @@ function populateModalWithOrderData(){
         
         const row = singleItemTemplate.children[0]
         row.children[0].textContent = element.name
-        row.children[1].textContent = element.quantity
-        row.children[2].textContent = element.price
+        row.children[1].textContent = 'x '+ element.quantity
+        row.children[1].style.textAlign = "center"
+        row.children[1].style.color = "green"
+        row.children[2].textContent = currencyFormatter.format(element.price * element.quantity)  
         
         orderTable.appendChild(singleItemTemplate)
     });

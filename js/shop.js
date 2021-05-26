@@ -1,7 +1,8 @@
 const productTemplate = document.querySelector('#product-template')
 const productsGrid = document.querySelector('.products-grid')
 
-
+//currency formatter
+const currencyFormatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD"})
 
 //get products from json database
 async function getProducts(){
@@ -34,7 +35,7 @@ function renderProducts(products){
         template.querySelector('.product-name').innerText = `${product.name}`
         template.querySelector('.product-category').innerText = `${product.category}`
         template.querySelector('.product-description').innerText = `${product.description}`
-        template.querySelector('.product-price').innerText = `${product.priceInCents}`
+        template.querySelector('.product-price').innerText =  currencyFormatter.format(product.priceInCents / 100)
         
         
 

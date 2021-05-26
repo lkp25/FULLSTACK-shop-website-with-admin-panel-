@@ -32,7 +32,7 @@ function calculateTotalAmount(){
        return total
     }, 0)
 
-    cartContent.children[0].children[0].innerText = totalToPay
+    cartContent.children[0].children[0].innerText = currencyFormatter.format(totalToPay) 
     //save to ss
     sessionStorage.setItem("totalToPay", JSON.stringify(totalToPay))
 }
@@ -143,7 +143,7 @@ cartIcon.addEventListener('click', ()=>{
             productTemplate.querySelector('.product-in-cart-name').innerText = `${product.name}`
             productTemplate.querySelector('.quantity').innerText = `${product.quantity}`
             
-            productTemplate.querySelector('.product-in-cart-price').innerText = `${product.price * product.quantity}`
+            productTemplate.querySelector('.product-in-cart-price').innerText = currencyFormatter.format(product.quantity * product.price) 
             productTemplate.querySelector('.sub-one-btn').dataset.id = `${product.id}`
             productTemplate.querySelector('.add-one-btn').dataset.id = `${product.id}`
             productTemplate.querySelector('.remove-from-cart').dataset.id = `${product.id}`
@@ -175,7 +175,7 @@ cartContent.addEventListener('click', (e)=>{
 
                 //update subtotal
                 e.target.parentElement.parentElement
-                .nextElementSibling.innerText = item.quantity * item.price
+                .nextElementSibling.innerText =  currencyFormatter.format(item.quantity * item.price) 
             }
         })
     }
@@ -189,7 +189,7 @@ cartContent.addEventListener('click', (e)=>{
                 e.target.previousElementSibling.innerText = item.quantity
                 //update subtotal
                 e.target.parentElement.parentElement
-                .nextElementSibling.innerText = item.quantity * item.price
+                .nextElementSibling.innerText = currencyFormatter.format(item.quantity * item.price) 
             }
         })
     }
