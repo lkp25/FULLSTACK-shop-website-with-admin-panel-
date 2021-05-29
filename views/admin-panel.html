@@ -24,11 +24,11 @@
                 </tr>
                 <template id="single-product-table-entry">
                     <tr class="row">
-                        <td class="name"><input type="text"> </td>
-                        <td class="description"><input type="text"> </td>
-                        <td class="price"><input type="number"></td>
-                        <td class="category"><input type="text"></td>
-                        <td class="img"><input type="text"></td>
+                        <td class="name"><input required type="text"> </td>
+                        <td class="description"><input required type="text"> </td>
+                        <td class="price"><input required type="number"></td>
+                        <td class="category"><input required type="text"></td>
+                        <td class="img"><input required type="text"></td>
                         <td class="delete-product"><button class="delete-product-btn">DELETE ITEM</button></td>
                     </tr>
                 </template>
@@ -41,7 +41,7 @@
 
 
     <h1>ADD NEW PRODUCT</h1>
-    <table id="current-products" style="width:100%">
+    <table id="add-new-product-table" >
         <tr>
             <th>NAME</th>
             <th>DESCRIPTION</th>
@@ -50,12 +50,12 @@
             <th>IMG</th>
         </tr>
         <tr>
-                <td class="name"><input type="text"> </td>
-                <td class="description"><input type="text"> </td>
-                <td class="price"><input type="number"></td>
-                <td class="category"><input type="text"></td>
-                <td class="img"><input type="text"></td>
-                <td class="delete"><button>ADD ITEM</button></td>                
+                <td class="add-item-name"><input required type="text"> </td>
+                <td class="add-item-description"><input required type="text"> </td>
+                <td class="add-item-price"><input required type="number"></td>
+                <td class="add-item-category"><input required type="text"></td>
+                <td class="add-item-img"><input required type="text"></td>
+                <td class="add-item"><button class="add-item-btn" >ADD ITEM</button></td>                
         </tr>  
         
     </table>
