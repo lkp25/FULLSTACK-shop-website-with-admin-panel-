@@ -49,6 +49,20 @@ function renderProducts(){
 
 
 document.addEventListener('click', (e)=>{
+    //unable/disable any changes
+    if(e.target.classList.contains('enable-disable-changes-btn')){
+        if(e.target.classList.contains('disabled')){
+            e.target.classList.remove('disabled')
+            e.target.textContent = "DISABLE CHANGES"
+            enableChanges()
+        }else{
+            e.target.classList.add('disabled')
+            e.target.textContent = "ENABLE CHANGES"
+            disableChanges()
+        }
+
+    }
+
     //save changes >> display confirmation box
     if(e.target.classList.contains('save-changes-btn')){
         
