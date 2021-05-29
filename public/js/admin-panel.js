@@ -14,7 +14,7 @@ async function getProducts(){
     console.log(products);
     allProducts = products
     //copy for reversing unwanted changes
-    originalAllProducts = products
+    originalAllProducts = [...allProducts]
    renderProducts()
    
 }
@@ -82,6 +82,9 @@ document.addEventListener('click', (e)=>{
     //reverse all changes
     if(e.target.classList.contains('reverse-all-btn')){
         allProducts = originalAllProducts
+        //remove old view
+        removeAllProductsFromView()
+        //render new view
         renderProducts()
     }
 })
