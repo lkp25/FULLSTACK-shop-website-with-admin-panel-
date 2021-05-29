@@ -158,32 +158,32 @@ function displayConfirmationWindow(){
 function addNewItem(){
     const allInputs = Array.from(addNewProductTable.querySelectorAll('input'))     
 
-    const name = addNewProductTable.querySelector('.add-item-name').children[0].value
-    const price = addNewProductTable.querySelector('.add-item-price').children[0].value
-    const description = addNewProductTable.querySelector('.add-item-description').children[0].value
-    const category = addNewProductTable.querySelector('.add-item-category').children[0].value
-    const img = addNewProductTable.querySelector('.add-item-img').children[0].value
+    const emptyField = allInputs.find(field => field.value === "")
+
+    //all filled - add new product
+    if(!emptyField){
+        const name = addNewProductTable.querySelector('.add-item-name').children[0].value
+        const price = addNewProductTable.querySelector('.add-item-price').children[0].value
+        const description = addNewProductTable.querySelector('.add-item-description').children[0].value
+        const category = addNewProductTable.querySelector('.add-item-category').children[0].value
+        const img = addNewProductTable.querySelector('.add-item-img').children[0].value
     
-    allInputs.find(field => {
-        //stop if any field is empty
-        if(!field.value){
-            
-            field.placeholder = "REQUIRED!"
-            return
-        }
-        //all filled - add new product
         const newProduct = {
-            id: Math.floor(new Date().getFullYear() * new Date().getDate() * Math.random() * 100000),
-               name: name,
-               priceInCents: price,
-               image: img,
-               description: description,
-               category: category
+        id: Math.floor(new Date().getFullYear() * new Date().getDate() * Math.random() * 100000),
+        name: name,
+        priceInCents: price,
+        image: img,
+        description: description,
+        category: category
         }
-    
+
         allProducts.push(newProduct)
         allInputs.forEach(field => field.value ='')
-    })
+        allInputs.forEach(field => field.placeholder ="")
 
-    
+        return
+    }
+
+    //not all filled - show empty fields to the user 
+    allInputs.forEach(field => field.placeholder ="REQUIRED!")
 }
