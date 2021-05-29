@@ -10,8 +10,49 @@
 </head>
 <body>
     <section class="add-product">
-        <h1>ADD NEW PRODUCT</h1>
+        <h1>YOUR CURRENT ITEMS</h1>
+        <div >
+            <table id="current-products" style="width:100%">
+                <tr>
+                    <th>NAME</th>
+                    <th>PRICE</th>
+                    <th>CATEGORY</th>
+                    <th>IMG</th>
+                </tr>
+                <template id="single-product-table-entry">
+                    <tr>
+                        <td class="name"><input type="text"> </td>
+                        <td class="price"><input type="text"></td>
+                        <td class="category"><input type="text"></td>
+                        <td class="img"><input type="text"></td>
+                        <td class="delete"><button>DELETE ITEM</button></td>
+                    </tr>
+                </template>
+                
+                
+            </table>
+            <button class="save-changes">SAVE CHANGES</button>
+        </div>
     </section>
+
+
+    <h1>ADD NEW PRODUCT</h1>
+    <table id="current-products" style="width:100%">
+        <tr>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>CATEGORY</th>
+            <th>IMG</th>
+        </tr>
+        <tr>
+                <td class="name"><input type="text"> </td>
+                <td class="price"><input type="text"></td>
+                <td class="category"><input type="text"></td>
+                <td class="img"><input type="text"></td>
+                <td class="delete"><button>ADD ITEM</button></td>                
+        </tr>  
+        
+    </table>
     <section class="display-orders">
         <h1>YOUR CURRENT ORDERS</h1>
 
