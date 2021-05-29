@@ -31,11 +31,25 @@ function renderProducts(){
     })
 }
 
+
+function getCurrentInputData(){
+    const allrow = document.querySelectorAll('.row')
+    allrow.forEach(row =>{
+       const name = row.children[0].children[0].value
+       const price = parseInt(row.children[1].children[0].value)
+       const category = row.children[2].children[0].value
+       const img = row.children[3].children[0].value
+       console.log(name, price, category, img);
+    })
+    
+}
+
+
 function disableChanges(){
     const allInputs = document.querySelectorAll('input')
     allInputs.forEach(field => field.disabled = true)
 }
 function enableChanges(){
     const allInputs = document.querySelectorAll('input')
-    allInputs.forEach(field => field.disabled = true)
+    allInputs.forEach(field => field.disabled = false)
 }
