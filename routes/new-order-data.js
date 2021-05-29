@@ -19,38 +19,38 @@ sqlConnection.connect(function(err) {
    
   });
 
-router.post('/save-order', (req, res, next) =>{
+router.post('/save-order', async (req, res, next) =>{
        
     //headers first!!
     res.header({"Content-Type": "application/json"})
+    const requestBody = await req.body
+    
     //echo back the request + send response message
     res.json({
         requestBody: req.body,
         responseMessage: 'your order was successfuly created'
     })
-
-    
-
-    // sqlConnection.query('SELECT * FROM student', function (err, result, fields) {
-    // if (err){
-    //     console.log(err);
-    // } 
-    // console.log(result , fields)
-    // })
-
+    //save order in the database
+    sqlConnection.query(`INSERT INTO orders(orderData) VALUES('${JSON.stringify(requestBody)}')`, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+        res.send(result)
+      });
     
     //write new file for order to JSONdatabase 
     // writeFile(`jsonDatabase/${req.body.surname}-${req.body.orderId}.json`, JSON.stringify(req.body), err =>  console.log(err))
 })
-router.get('/student', (req, res, next) =>{
-    sqlConnection.query("SELECT * FROM student", function (err, result, fields) {
+
+//admin route for getting all orders
+router.get('/getorders', (req, res, next) =>{
+    sqlConnection.query("SELECT * FROM orders", function (err, result, fields) {
       if (err) throw err;
       console.log(result);
       res.send(result)
     });
-    console.log('hey');
-    // res.sendFile(path.join(rootDir, 'views', 'index.html'))
+    
 })
+
 
 
 module.exports = router
