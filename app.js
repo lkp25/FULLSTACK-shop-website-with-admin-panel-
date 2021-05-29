@@ -8,6 +8,30 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 
 const rootDir = require('./util/path')
+////////////////////////////////
+// const mysql = require('mysql')
+// const connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'pass',
+//   database: 'fakedata'
+// })
+// connection.connect(function(err) {
+//     if (err){
+      
+//       console.log(err); 
+//     } else{
+
+//       console.log("Connected!");
+//     }
+//   });
+  // connection.connect(function(err) {
+  //   if (err) throw err;
+   
+  // });
+
+  
+
 
 const publicRoutes = require('./routes/public')
 app.use(publicRoutes)
@@ -22,4 +46,4 @@ app.use('/', (req, res, next) =>{
 })
 
 
-app.listen(5000)
+app.listen(4000)

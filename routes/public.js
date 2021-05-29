@@ -22,7 +22,7 @@ router.get('/contact', (req, res, next) =>{
 //display products from JSON DB
 router.get('/display-products', (req, res, next) =>{
     console.log('hey');
-    res.sendFile(path.join(rootDir, 'public/jsonDB', 'products.json'))
+    res.sendFile(path.join(rootDir, 'public/products-json', 'products.json'))
 })
 
 module.exports = router
