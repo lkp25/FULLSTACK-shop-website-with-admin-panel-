@@ -9,15 +9,29 @@
   <script src="./js/admin-panel.js" defer></script>
 </head>
 <body>
-    <button class="reverse-all-btn">REVERSE ALL UNSAVED CHANGES</button>
-    <button class="save-changes-btn">SAVE CHANGES</button>
-    <button class="enable-disable-changes-btn disabled">UNABLE CHANGES</button>
-    <!-- <button class="disable-changes-btn">DISABLE CHANGES</button> -->
+    <header>
+       <ul>
+           <li>
+                <a href="/index">GO TO SHOP</a>
+           </li>
+           <li>
+                <a href="/admin-orders">ORDERS</a>
+           </li>
+           <li>
+            <a href="/admin-products">PRODUCTS</a>
+           </li>
+       </ul>      
+    </header>
 
-    <section class="add-product">
-        <h1>YOUR CURRENT ITEMS</h1>
-        <div >
-            <table id="current-products" >
+    <main>
+        <div class="command-buttons">
+            <button class="enable-disable-changes-btn disabled">ENABLE CHANGES</button>
+            <button class="reverse-all-btn">REVERSE ALL CHANGES FROM CURRENT SESSION</button>
+            <button class="save-changes-btn">SAVE CHANGES</button>
+        </div>
+        <section class="add-product-section">
+            <h2>ADD NEW PRODUCT:</h2>
+            <table id="add-new-product-table" >
                 <tr>
                     <th>NAME</th>
                     <th>DESCRIPTION</th>
@@ -25,57 +39,63 @@
                     <th>CATEGORY</th>
                     <th>IMG</th>
                 </tr>
-                <template id="single-product-table-entry">
-                    <tr class="row">
-                        <td class="name"><input required type="text"> </td>
-                        <td class="description"><input required type="text"> </td>
-                        <td class="price"><input required type="number"></td>
-                        <td class="category"><input required type="text"></td>
-                        <td class="img"><input required type="text"></td>
-                        <td class="delete-product"><button class="delete-product-btn">DELETE ITEM</button></td>
-                    </tr>
-                </template>
-                
+                <tr>
+                        <td class="add-item-name"><input required type="text"> </td>
+                        <td class="add-item-description"><input required type="text"> </td>
+                        <td class="add-item-price"><input required type="number"></td>
+                        <td class="add-item-category"><input required type="text"></td>
+                        <td class="add-item-img"><input required type="text"></td>
+                        <td class="add-item"><button class="add-item-btn" >ADD ITEM</button></td>                
+                </tr>  
                 
             </table>
-            
-        </div>
-    </section>
-
-
-    <h1>ADD NEW PRODUCT</h1>
-    <table id="add-new-product-table" >
-        <tr>
-            <th>NAME</th>
-            <th>DESCRIPTION</th>
-            <th>PRICE</th>
-            <th>CATEGORY</th>
-            <th>IMG</th>
-        </tr>
-        <tr>
-                <td class="add-item-name"><input required type="text"> </td>
-                <td class="add-item-description"><input required type="text"> </td>
-                <td class="add-item-price"><input required type="number"></td>
-                <td class="add-item-category"><input required type="text"></td>
-                <td class="add-item-img"><input required type="text"></td>
-                <td class="add-item"><button class="add-item-btn" >ADD ITEM</button></td>                
-        </tr>  
+        </section>
         
-    </table>
-    <section class="display-orders">
-        <h1>YOUR CURRENT ORDERS</h1>
-
-    </section>
-
-    <template id="confirmation-window">
-        <div class="confirmation-window-container">
-            <p class="confirmation-window-message">Are you sure?  <br>
-           changes will be saved on server. </p>
-            <div class="confirmation-window-btns">
-                <button class="confirmation-window-accept">YES, SAVE</button>
-                <button class="confirmation-window-deny">NO, GO BACK</button>
+    
+        <section class="current-items-section">
+            <h2>YOUR CURRENT ITEMS:</h2>
+            <div >
+                <table id="current-products" >
+                    <tr>
+                        <th>NAME</th>
+                        <th>DESCRIPTION</th>
+                        <th>PRICE</th>
+                        <th>CATEGORY</th>
+                        <th>IMG</th>
+                    </tr>
+                    <template id="single-product-table-entry">
+                        <tr class="row">
+                            <td class="name"><input required type="text"> </td>
+                            <td class="description"><input required type="text"> </td>
+                            <td class="price"><input required type="number"></td>
+                            <td class="category"><input required type="text"></td>
+                            <td class="img"><input required type="text"></td>
+                            <td class="delete-product"><button class="delete-product-btn">DELETE ITEM</button></td>
+                        </tr>
+                    </template>
+                    
+                    
+                </table>
+                
             </div>
-        </div>
-    </template>
+        </section>
+    
+    
+        
+        
+    
+        <template id="confirmation-window">
+            <div class="confirmation-window-container">
+                <p class="confirmation-window-message">Are you sure?  <br>
+               changes will be saved on server. </p>
+                <div class="confirmation-window-btns">
+                    <button class="confirmation-window-accept">YES, SAVE</button>
+                    <button class="confirmation-window-deny">NO, GO BACK</button>
+                </div>
+            </div>
+        </template>
+
+    </main>
+    
 </body>
 </html>

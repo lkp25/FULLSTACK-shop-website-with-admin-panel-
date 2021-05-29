@@ -16,7 +16,11 @@ async function getProducts(){
     allProducts = products
     //copy for reversing unwanted changes
     originalAllProducts = [...allProducts]
+
    renderProducts()
+
+   //disable all fields by default
+   disableChanges()
    
 }
 getProducts()
@@ -96,7 +100,7 @@ document.addEventListener('click', (e)=>{
     }
     //reverse all changes
     if(e.target.classList.contains('reverse-all-btn')){
-        allProducts = originalAllProducts
+        allProducts = [...originalAllProducts]
         //remove old view
         removeAllProductsFromView()
         //render new view
@@ -151,10 +155,18 @@ function removeAllProductsFromView(){
 }
 
 function disableChanges(){
+    const allButtons = Array.from(document.querySelectorAll('button'))
+    allButtons.forEach(field => field.disabled = true)
+    
     const allInputs = document.querySelectorAll('input')
     allInputs.forEach(field => field.disabled = true)
+    const masterBtn = allButtons.find(field =>field.classList.contains('enable-disable-changes-btn'))
+    masterBtn.disabled = false
 }
 function enableChanges(){
+    const allButtons = Array.from(document.querySelectorAll('button'))
+    allButtons.forEach(field => field.disabled = false)
+
     const allInputs = document.querySelectorAll('input')
     allInputs.forEach(field => field.disabled = false)
 }
