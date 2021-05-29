@@ -21,7 +21,7 @@ sqlConnection.connect(function(err) {
 //serve HTML:
 router.get('/admin', (req, res, next) =>{
     console.log('hey');
-    res.sendFile(path.join(rootDir, 'views', 'admin-pannel.html'))
+    res.sendFile(path.join(rootDir, 'views', 'admin-panel.html'))
 })
 
 
