@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN PANNEL</title>
     <link rel="stylesheet" href="/css/admin-panel.css">
-  <script src="./js/admin-panel.js" defer></script>
+  <script src="./js/admin-panel-products.js" defer></script>
 </head>
 <body>
     <header>
@@ -41,9 +41,9 @@
                 </tr>
                 <tr>
                         <td class="add-item-name"><input required type="text"> </td>
-                        <td class="add-item-description"><input required type="text"> </td>
+                        <td class="add-item-description wide"><input required type="text"> </td>
                         <td class="add-item-price"><input required type="number"></td>
-                        <td class="add-item-category"><input required type="text"></td>
+                        <td class="add-item-category "><input required type="text"></td>
                         <td class="add-item-img"><input required type="text"></td>
                         <td class="add-item"><button class="add-item-btn" >ADD ITEM</button></td>                
                 </tr>  
@@ -58,17 +58,17 @@
                 <table id="current-products" >
                     <tr>
                         <th>NAME</th>
-                        <th>DESCRIPTION</th>
-                        <th>PRICE</th>
-                        <th>CATEGORY</th>
+                        <th class="wide">DESCRIPTION</th>
+                        <th >PRICE</th>
+                        <th >CATEGORY</th>
                         <th>IMG</th>
                     </tr>
                     <template id="single-product-table-entry">
                         <tr class="row">
                             <td class="name"><input required type="text"> </td>
-                            <td class="description"><input required type="text"> </td>
+                            <td class="description wide"><input required type="text"> </td>
                             <td class="price"><input required type="number"></td>
-                            <td class="category"><input required type="text"></td>
+                            <td class="category "><input required type="text"></td>
                             <td class="img"><input required type="text"></td>
                             <td class="delete-product"><button class="delete-product-btn">DELETE ITEM</button></td>
                         </tr>

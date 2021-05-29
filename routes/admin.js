@@ -19,9 +19,13 @@ sqlConnection.connect(function(err) {
    
 });
 //serve HTML:
-router.get('/admin', (req, res, next) =>{
+router.get('/admin-products', (req, res, next) =>{
     console.log('hey');
-    res.sendFile(path.join(rootDir, 'views', 'admin-panel.html'))
+    res.sendFile(path.join(rootDir, 'views', 'admin-panel-products.html'))
+})
+router.get('/admin-orders', (req, res, next) =>{
+    console.log('hey');
+    res.sendFile(path.join(rootDir, 'views', 'admin-panel-orders.html'))
 })
 
 

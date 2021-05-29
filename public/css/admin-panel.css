@@ -9,6 +9,7 @@
     box-sizing: border-box;
     margin: 0;
 }
+/* generic styles */
 body{
     background-color: rgb(58, 66, 66);
     color: var(--main-text-color);
@@ -32,14 +33,20 @@ ul{
 }
 li{
     padding-top: 0.3rem;
+  
 }
+
 a{
     color: var(--main-text-color);
     text-decoration: none;
     font-size: 1.3rem;
+    display: block;
+    transform: translateX(-5px);
+    transition: 0.3s ease;
 }
 a:hover{
     color: var(--main-text-color-hover);
+   
 }
 main{
     
@@ -49,11 +56,27 @@ main{
 }
 table{
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
 }
+td, tr, th{
+    text-align: start;
+    width: 100px;
+    
+}
+.wide{
+    width: 45vw;
+}
+.wide input{
+    width: 45vw;
+    
+}
+
 input{
     background-color: rgb(31, 29, 29);
     color: rgb(167, 164, 154);
     padding: 0.3rem 0.1rem;
+    width: 100px;
 }
 button{
     width: 200px;
@@ -78,10 +101,15 @@ section{
     border-top: var(--main-border);
 }
 h1,h2,h3{
-    color: rgb(133, 129, 79);
+    color: rgb(126, 124, 115);
     margin-bottom: 2rem;
 }
 
+/*  */
+/* more specific styles */
+/*  */
+
+/* main buttons */
 .command-buttons{
     display: grid;
     grid-template-columns: 1fr auto auto;
@@ -105,6 +133,11 @@ h1,h2,h3{
     background-color: rgba(220, 20, 60, 0.486);
     
 }
+
+/* inputs */
+
+
+
 .confirmation-window-container{
     position: absolute;
     background-color: rgba(29, 31, 31, 0.931);

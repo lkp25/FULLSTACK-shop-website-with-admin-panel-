@@ -100,7 +100,7 @@ async function sendToserver(){
         return
     }
     
-    // const data = {dupa: "duppppapa"}
+    
 
     //send to server if valid
     const sendData = await fetch('http://localhost:5000/save-order', {
