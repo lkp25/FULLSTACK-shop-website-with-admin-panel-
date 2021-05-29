@@ -4,8 +4,7 @@ const express = require('express');
 
 const router = express.Router()
 
-const rootDir = require('../util/path');
-const { writeFile } = require('fs');
+
 
 const mysql = require('mysql')
 const sqlConnection = mysql.createConnection({
@@ -41,16 +40,4 @@ router.post('/save-order', async (req, res, next) =>{
     // writeFile(`jsonDatabase/${req.body.surname}-${req.body.orderId}.json`, JSON.stringify(req.body), err =>  console.log(err))
 })
 
-//admin route for getting all orders
-router.get('/getorders', (req, res, next) =>{
-    sqlConnection.query("SELECT * FROM orders", function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-      res.send(result)
-    });
-    
-})
 
-
-
-module.exports = router

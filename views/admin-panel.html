@@ -10,6 +10,7 @@
 </head>
 <body>
     <button class="reverse-all-btn">REVERSE ALL UNSAVED CHANGES</button>
+    <button class="save-changes-btn">SAVE CHANGES</button>
     <section class="add-product">
         <h1>YOUR CURRENT ITEMS</h1>
         <div >
@@ -25,7 +26,7 @@
                     <tr class="row">
                         <td class="name"><input type="text"> </td>
                         <td class="description"><input type="text"> </td>
-                        <td class="price"><input type="text"></td>
+                        <td class="price"><input type="number"></td>
                         <td class="category"><input type="text"></td>
                         <td class="img"><input type="text"></td>
                         <td class="delete-product"><button class="delete-product-btn">DELETE ITEM</button></td>
@@ -34,7 +35,7 @@
                 
                 
             </table>
-            <button class="save-changes-btn">SAVE CHANGES</button>
+            
         </div>
     </section>
 
@@ -51,7 +52,7 @@
         <tr>
                 <td class="name"><input type="text"> </td>
                 <td class="description"><input type="text"> </td>
-                <td class="price"><input type="text"></td>
+                <td class="price"><input type="number"></td>
                 <td class="category"><input type="text"></td>
                 <td class="img"><input type="text"></td>
                 <td class="delete"><button>ADD ITEM</button></td>                
@@ -62,5 +63,16 @@
         <h1>YOUR CURRENT ORDERS</h1>
 
     </section>
+
+    <template id="confirmation-window">
+        <div class="confirmation-window-container">
+            <p class="confirmation-window-message">Are you sure?  <br>
+           changes will be saved on server</p>
+            <div class="confirmation-window-btns">
+                <button class="confirmation-window-accept">YES, SAVE</button>
+                <button class="confirmation-window-deny">NO, GO BACK</button>
+            </div>
+        </div>
+    </template>
 </body>
 </html>

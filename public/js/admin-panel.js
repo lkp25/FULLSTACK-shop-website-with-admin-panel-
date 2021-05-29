@@ -48,15 +48,28 @@ function renderProducts(){
 
 
 document.addEventListener('click', (e)=>{
-    //save changes
+    //save changes >> display confirmation box
     if(e.target.classList.contains('save-changes-btn')){
         
+        displayConfirmationWindow()
+        
+    }
+    //save changes confirmed
+    if(e.target.classList.contains('confirmation-window-accept')){
+        document.body.style.overflow = 'visible'
+        e.target.parentElement.parentElement.remove()
         //get changed data from all inputs
         allProducts = getCurrentInputData()
         //remove old view
         removeAllProductsFromView()
         //render new view
         renderProducts()
+
+    }
+    // saving changes denied
+    if(e.target.classList.contains('confirmation-window-deny')){
+        document.body.style.overflow = 'visible'
+        e.target.parentElement.parentElement.remove()
     }
     //delete single product
     if(e.target.classList.contains('delete-product-btn')){
@@ -65,6 +78,11 @@ document.addEventListener('click', (e)=>{
         allProducts.splice(indexToRemove, 1)
         console.log(allProducts);
         removeSingleProductFromView(e.target.dataset.id)        
+    }
+    //reverse all changes
+    if(e.target.classList.contains('reverse-all-btn')){
+        allProducts = originalAllProducts
+        renderProducts()
     }
 })
 
@@ -114,4 +132,14 @@ function disableChanges(){
 function enableChanges(){
     const allInputs = document.querySelectorAll('input')
     allInputs.forEach(field => field.disabled = false)
+}
+
+function displayConfirmationWindow(){
+    const confirmationWindow = document.getElementById('confirmation-window').content.cloneNode(true)
+     
+    //disable scrolling
+    document.body.style.overflow = 'hidden'
+    const saveChangesBtn = document.querySelector('.save-changes-btn')
+
+    saveChangesBtn.parentElement.appendChild(confirmationWindow)
 }

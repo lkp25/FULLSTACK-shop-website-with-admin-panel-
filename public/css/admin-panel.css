@@ -5,7 +5,37 @@ body{
 input{
     background-color: rgb(31, 29, 29);
     color: rgb(167, 164, 154);
+    padding: 0.3rem 0.1rem;
+}
+button{
+    width: 200px;
+    padding: 0.3rem;
+    font-size: 1.1rem;
+    background-color: darkolivegreen;
+    color: white;
+    border-radius: 5px;
+    
 }
 h1{
     color: red;
+}
+
+.save-changes-btn{
+    background-color: crimson;
+    
+}
+.confirmation-window-container{
+    position: absolute;
+    background-color: rgba(29, 31, 31, 0.931);
+    width: 100vw;
+    height:100vh;
+    top: 0;
+    display: grid;
+    /* padding: 5rem; */
+    padding-top: 10rem;
+    gap: 1rem;
+    grid-template-rows: 50px 100px;
+    place-items: center;
+    font-size: 2rem;
+    color: darkkhaki;
 }
