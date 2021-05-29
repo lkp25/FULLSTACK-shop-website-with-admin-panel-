@@ -36,9 +36,11 @@ const rootDir = require('./util/path')
 const publicRoutes = require('./routes/public')
 app.use(publicRoutes)
 
-const newOrderRoute = require('./routes/new-order-data')
-app.use(newOrderRoute)
+const newOrderRoutes = require('./routes/new-order-data')
+app.use(newOrderRoutes)
 
+const adminRoutes = require('./routes/admin')
+app.use(adminRoutes)
 
 app.use('/', (req, res, next) =>{
     console.log('up n runnin');
