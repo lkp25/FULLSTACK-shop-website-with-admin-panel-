@@ -24,8 +24,43 @@
     </header>
 
     <main>
-       
-
+       <h1>all orders:</h1>
+       <div class="searchbar-container">
+        <label for="all-orders-select-filter">Sort by:</label>
+        <select name="all-orders-select-filter" id="all-orders-select-filter">
+          <option value="Surname">Surname</option>
+          <option value="Value">Value</option>
+          <option value="Date">Date</option>
+          <option value="Sent?">Sent?</option>
+        </select>
+        <input type="text">
+        <button>Search</button>
+       </div>
+       <section class="add-product-section">
+        
+        <table id="db-all-orders" >
+            <tr>
+                <th>SENT?</th>
+                <th>ID</th>
+                <th>SURNAME</th>
+                <th>VALUE</th>
+                <th>DATE</th>
+                <th>more info...</th>
+            </tr>
+            <template id="db-order-template">
+                <tr>
+                    <td><div class="checkbox" data-sent="false"><div class="checkbox-tick"></div></div></td>                
+                    <td class="db-order-id">fsd</td>                
+                    <td class="db-order-surname">fsdfsdafa</td>                
+                    <td class="db-order-value">dsfa</td>                
+                    <td class="db-order-date">dfsafdsa</td>                
+                    <td class="db-order-more-info">dfsafdsa</td>                
+                </tr>  
+            </template>
+            
+            
+        </table>
+    </section>
     </main>
     
 </body>
