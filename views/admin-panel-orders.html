@@ -26,15 +26,24 @@
     <main>
        <h1>all orders:</h1>
        <div class="searchbar-container">
-        <label for="all-orders-select-filter">Sort by:</label>
-        <select name="all-orders-select-filter" id="all-orders-select-filter">
-          <option value="Surname">Surname</option>
-          <option value="Value">Value</option>
-          <option value="Date">Date</option>
-          <option value="Sent?">Sent?</option>
-        </select>
-        <input type="text">
-        <button>Search</button>
+        
+        <!-- <select name="all-orders-select-filter" id="all-orders-select-filter">
+          <option class="sort-selection" value="Surname">Surname</option>
+          <option class="sort-selection" value="Value">Value</option>
+          <option class="sort-selection" value="Date">Date</option>
+          <option class="sort-selection" value="Id">ID</option>
+          <option class="sort-selection" value="Sent?">Sent?</option>
+        </select> -->
+        <button class="sort-btn">SORT BY</button>
+        <ul class="x">
+          <li data-sort-type="surname" class="sort-selection">Surname</li>
+          <li data-sort-type="value" class="sort-selection" >Value</li>
+          <li data-sort-type="date" class="sort-selection" >Date</li>
+          <li data-sort-type="id" class="sort-selection" >ID</li>
+          <li data-sort-type="sent" class="sort-selection">Sent?</li>
+        </ul>
+        <input class="search-field" placeholder="filter orders..." type="text">
+        
        </div>
        <section class="add-product-section">
         
@@ -49,7 +58,7 @@
             </tr>
             <template id="db-order-template">
                 <tr class="db-single-order">
-                    <td><div class="checkbox" data-sent="false"><div class="checkbox-tick"></div></div></td>                
+                    <td><div class="checkbox" data-sent="false"></div></td>                
                     <td class="db-order-id">fsd</td>                
                     <td class="db-order-surname">fsdfsdafa</td>                
                     <td class="db-order-value">dsfa</td>                

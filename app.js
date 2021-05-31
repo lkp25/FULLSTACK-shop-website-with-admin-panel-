@@ -43,7 +43,7 @@ const adminRoutes = require('./routes/admin')
 app.use(adminRoutes)
 
 app.use('/', (req, res, next) =>{
-    console.log('up n runnin');
+    console.log('no such address');
     res.status(404).sendFile(path.join(rootDir, 'views', '404.html'))
 })
 

@@ -20,11 +20,11 @@ sqlConnection.connect(function(err) {
 });
 //serve HTML:
 router.get('/admin-products', (req, res, next) =>{
-    console.log('hey');
+    console.log('welcome to admin page - products');
     res.sendFile(path.join(rootDir, 'views', 'admin-panel-products.html'))
 })
 router.get('/admin-orders', (req, res, next) =>{
-    console.log('hey');
+    console.log('welcome to admin page - orders');
     res.sendFile(path.join(rootDir, 'views', 'admin-panel-orders.html'))
 })
 

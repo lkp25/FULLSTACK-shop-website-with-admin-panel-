@@ -172,3 +172,71 @@ h1,h2,h3{
 .vis{
     background-color: rgb(11, 65, 6);
 }
+
+
+/* search panel */
+.searchbar-container{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: rgb(62, 82, 43);
+    position: relative;
+    height: 40px;
+}
+.searchbar-container button{
+    width: 150px;    
+    padding: 0.3rem;;
+    position: relative;
+    
+}
+.sort-btn::after{
+    content: '';
+    position: absolute;
+    top:25%;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    background-color: var(--main-text-color);
+    
+    transition: 0.3s ease;
+}
+.sort-btn:hover::after{
+    background-color: var(--main-text-color-hover);
+    transform: rotateZ(-90deg);
+}
+.sort-btn:hover ~ .x{
+    display: block;
+}
+.x{
+    display: none;
+    
+    position: absolute;
+    top:38px;
+    background-color: var(--main-color);
+    width: 150px;
+    border-radius: 5px;
+    z-index: 5;
+    border: var(--main-border);
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.x li{
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-left: -1rem;
+    width: 100%;
+}
+.x li:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    color: var(--main-text-color-hover);
+}
+.x:hover {
+    display: block;   
+}
+
+.search-field{
+    width: 100%;
+    padding-left: 2rem;
+}
