@@ -147,6 +147,7 @@ function getFormData(){
     //only collect input data if all is valid
     if(formValid){
         completeOrderDetails = {
+            sent: false,
             name: formName.value,
             surname: formSurname.value,
             email: formEmail.value,

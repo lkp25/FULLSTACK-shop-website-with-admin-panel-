@@ -17,16 +17,27 @@ async function getProducts(){
         element.orderData = JSON.parse(element.orderData)
         
     });
-   
+    renderAllOrders()
 }
 getProducts()
 
 
 function renderAllOrders(sort = 'date'){
-    allOrders.forEach(item => {
+    allOrders.forEach((item,index) => {
         const template = singleOrderTemplate.content.cloneNode(true)
+        const checkbox = template.querySelector('.checkbox')
+        checkbox.dataset.itemIndex = index
+        
+        //order already shipped
+        if(item.orderData.sent === true){
+            checkbox.classList.add('vis')
+        }
         console.log(template);
+        
         template.querySelector('.db-order-surname').textContent = item.orderData.surname
+        template.querySelector('.db-order-value').textContent = item.orderData.totalToPay
+        template.querySelector('.db-order-date').textContent = item.orderData.orderDate
+        template.querySelector('.db-order-more-info-btn').dataset.orderDetails = item
         allOrdersList.appendChild(template)
     })
     
@@ -39,13 +50,17 @@ renderAllOrders()
 document.addEventListener('click', (e)=>{
     if(e.target.classList.contains('checkbox')){
         const checkbox = e.target
+        const index = checkbox.dataset.itemIndex
+        console.log(allOrders[index]);
         if(checkbox.dataset.sent === 'false'){
             checkbox.dataset.sent = 'true'
             checkbox.classList.add('vis')
+            allOrders[index].orderData.sent = true
         }
         else{
             checkbox.dataset.sent = 'false'
             checkbox.classList.remove('vis')
+            allOrders[index].orderData.sent = false
         }
     }
     

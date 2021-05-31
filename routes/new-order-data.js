@@ -21,7 +21,7 @@ sqlConnection.connect(function(err) {
 router.post('/save-order', async (req, res, next) =>{
        
     //headers first!!
-    res.header({"Content-Type": "application/json"})
+    // res.header({"Content-Type": "application/json"})
     const requestBody = await req.body
     
     //echo back the request + send response message
