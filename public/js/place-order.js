@@ -54,7 +54,7 @@ function populateModalWithOrderData(){
         row.children[1].textContent = 'x '+ element.quantity
         row.children[1].style.textAlign = "center"
         row.children[1].style.color = "green"
-        row.children[2].textContent = currencyFormatter.format(element.price * element.quantity)  
+        row.children[2].textContent = currencyFormatter.format(element.price * element.quantity / 100)  
         
         orderTable.appendChild(singleItemTemplate)
     });
