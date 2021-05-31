@@ -81,6 +81,7 @@ function renderAllOrders(orders = allOrders){
         //order already shipped
         if(item.orderData.sent === true){
             checkbox.classList.add('vis')
+            checkbox.dataset.sent = 'true'
         }
                
         template.querySelector('.db-order-surname').textContent = item.orderData.surname
@@ -107,11 +108,13 @@ document.addEventListener('click', (e)=>{
             checkbox.dataset.sent = 'true'
             checkbox.classList.add('vis')
             allOrders[index].orderData.sent = true
+            console.log('sent');
         }
-        else{
+        else if(checkbox.dataset.sent === 'true'){
             checkbox.dataset.sent = 'false'
             checkbox.classList.remove('vis')
             allOrders[index].orderData.sent = false
+            console.log('notsent');
         }
         //update the db!
         updateOrderStatusInDB(allOrders[index])
@@ -156,6 +159,12 @@ document.addEventListener('click', (e)=>{
         renderAllOrders()
     }
 })
+
+
+
+
+
+
 
 searchField.addEventListener('input', (e)=>{    
     filterResultsBySurname()

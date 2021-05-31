@@ -33,7 +33,7 @@ router.get('/admin-orders', (req, res, next) =>{
 router.get('/getorders', (req, res, next) =>{
     sqlConnection.query("SELECT * FROM orders", function (err, result, fields) {
       if (err) throw err;
-      console.log(result);
+      console.log('HERE ARE ALL ORDERS FROM DB:' , result);
       res.send(result)
     });
     

@@ -22,7 +22,7 @@ header{
     background-color: var(--main-color);
     box-shadow: 0 0 5px rgb(56, 9, 18);
     margin-bottom: 1rem;
-    
+    z-index: 10;
 }
 ul{
     list-style-type: none;
