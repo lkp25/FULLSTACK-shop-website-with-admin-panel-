@@ -39,6 +39,31 @@ router.get('/getorders', (req, res, next) =>{
     
 })
 
+//update single order
+router.post('/update-order-status', async (req, res, next) =>{
+       
+  //headers first!!
+  // res.header({"Content-Type": "application/json"})
+  const requestBody = await req.body
+  
+  //echo back the request + send response message
+  res.json({
+      requestBody: req.body,
+      responseMessage: 'order status updated!'
+  })
+  //save order in the database
+  console.log(requestBody);
+  sqlConnection.query(`UPDATE orders SET orderData='${JSON.stringify(requestBody.orderData) }' WHERE id=${requestBody.id}`, function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+      res.send(result)
+    });
+  
+  //write new file for order to JSONdatabase 
+  // writeFile(`jsonDatabase/${req.body.surname}-${req.body.orderId}.json`, JSON.stringify(req.body), err =>  console.log(err))
+})
+
+
 
 
 module.exports = router

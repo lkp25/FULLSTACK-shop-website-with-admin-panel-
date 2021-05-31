@@ -3,6 +3,19 @@ const singleOrderTemplate = document.getElementById('db-order-template')
 const allOrdersList = document.getElementById('db-all-orders')
 const root = document.documentElement
 
+async function updateOrderStatusInDB(itemData){
+    const sendData = await fetch('http://localhost:5000/update-order-status', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(itemData) 
+      
+        
+      })
+    const responseFromServer = await sendData.json()
+    console.log(responseFromServer);
+}
 
 async function getProducts(){
 
@@ -32,8 +45,7 @@ function renderAllOrders(sort = 'date'){
         if(item.orderData.sent === true){
             checkbox.classList.add('vis')
         }
-        console.log(template);
-        
+               
         template.querySelector('.db-order-surname').textContent = item.orderData.surname
         template.querySelector('.db-order-value').textContent = item.orderData.totalToPay
         template.querySelector('.db-order-date').textContent = item.orderData.orderDate
@@ -51,6 +63,7 @@ document.addEventListener('click', (e)=>{
     if(e.target.classList.contains('checkbox')){
         const checkbox = e.target
         const index = checkbox.dataset.itemIndex
+
         console.log(allOrders[index]);
         if(checkbox.dataset.sent === 'false'){
             checkbox.dataset.sent = 'true'
@@ -62,6 +75,8 @@ document.addEventListener('click', (e)=>{
             checkbox.classList.remove('vis')
             allOrders[index].orderData.sent = false
         }
+        //update the db!
+        updateOrderStatusInDB(allOrders[index])
     }
     
     
