@@ -1,8 +1,12 @@
 let allOrders = []
-let sortedAllOrders = []
+let filteredOrders = []
+
 const singleOrderTemplate = document.getElementById('db-order-template')
 const allOrdersList = document.getElementById('db-all-orders')
+const searchField = document.getElementById('search-field')
 const root = document.documentElement
+
+
 
 async function updateOrderStatusInDB(itemData){
     const sendData = await fetch('http://localhost:5000/update-order-status', {
@@ -31,9 +35,12 @@ async function getProducts(){
         element.orderData = JSON.parse(element.orderData)
         
     });
+    sortAllOrdersBy()
     renderAllOrders()
 }
 getProducts()
+
+
 
 function clearOrdersFromView(){
     const allRenderedOrders = document.querySelectorAll('.db-single-order')
@@ -56,14 +63,17 @@ function sortAllOrdersBy(sortQuery = 'date'){
         allOrders.sort((a, b) => a.orderData.surname.localeCompare(b.orderData.surname))
     }
     if (sortQuery === 'sent') {
-        allOrders.sort((a, b) => (b.orderData.sent).toString().localeCompare((a.orderData.sent).toString()))
+        filteredOrders = allOrders.filter(order => order.orderData.sent === true)
+    }
+    if (sortQuery === 'unsent') {
+        filteredOrders = allOrders.filter(order => order.orderData.sent === false)
     }
 
 }
 
-function renderAllOrders(){
+function renderAllOrders(orders = allOrders){
 
-    allOrders.forEach((item,index) => {
+    orders.forEach((item,index) => {
         const template = singleOrderTemplate.content.cloneNode(true)
         const checkbox = template.querySelector('.checkbox')
         checkbox.dataset.itemIndex = index
@@ -134,9 +144,36 @@ document.addEventListener('click', (e)=>{
         }
         if (option === 'sent') {
             sortAllOrdersBy('sent')
-
+            renderAllOrders(filteredOrders)
+            return
+        }
+        if (option === 'unsent') {
+            sortAllOrdersBy('unsent')
+            renderAllOrders(filteredOrders)
+            
+            return
         }
         renderAllOrders()
     }
 })
 
+searchField.addEventListener('input', (e)=>{    
+    filterResultsBySurname()
+})
+
+function filterResultsBySurname(){
+    const searchQuery = searchField.value.toLowerCase()
+    console.log(searchQuery);
+
+    filteredOrders = allOrders.filter(order => {
+        if(order.orderData.surname.toLowerCase().indexOf(searchQuery) != -1){
+            return order
+        }
+         
+    })
+
+    // filteredOrders = allOrders.filter
+    clearOrdersFromView()
+    //render by filtered only!
+    renderAllOrders(filteredOrders)
+}

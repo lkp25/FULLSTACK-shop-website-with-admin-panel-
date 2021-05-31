@@ -154,11 +154,20 @@ h1,h2,h3{
     place-items: center;
     font-size: 2rem;
     color: darkkhaki;
+
 }
+
+
+
+
+
 /*  */
 /*  */
+/* ORDERS PANEL */
 /*  */
 /*  */
+
+
 .checkbox{
     background-color: rgb(170, 33, 8);
     width: 20px;
@@ -181,12 +190,13 @@ h1,h2,h3{
     background-color: rgb(62, 82, 43);
     position: relative;
     height: 40px;
+    margin-bottom: 2rem;
 }
 .searchbar-container button{
-    width: 150px;    
+    width:250px;    
     padding: 0.3rem;;
     position: relative;
-    
+    border: var(--main-border);
 }
 .sort-btn::after{
     content: '';
@@ -211,13 +221,13 @@ h1,h2,h3{
     display: none;
     
     position: absolute;
-    top:38px;
+    top:38.5px;
     background-color: var(--main-color);
-    width: 150px;
+    width: 250px;
     border-radius: 5px;
     z-index: 5;
     border: var(--main-border);
-    border-top: none;
+    transition: 0.2s ease;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
@@ -233,10 +243,15 @@ h1,h2,h3{
     color: var(--main-text-color-hover);
 }
 .x:hover {
-    display: block;   
+    display: block; 
+    transform: scale(1.005);  
 }
 
-.search-field{
+#search-field{
     width: 100%;
     padding-left: 2rem;
+}
+#search-field:focus{
+   outline: var(--main-border);
+   outline-offset: -2px;
 }
