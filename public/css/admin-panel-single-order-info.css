@@ -1,0 +1,36 @@
+.single-order-window-container{
+    position: absolute;
+    background-color: rgba(29, 31, 31, 0.931);
+    width: 100vw;
+    min-height:100vh;
+    top: 0;
+    left: 0;
+    display: grid;
+    padding: 6rem;
+    place-items: center;
+    font-size: 2rem;
+    color: darkkhaki;
+    
+}
+.single-order-info-card{
+    padding: 0.5rem;
+    min-height: 400px;
+    min-width: 350px;
+    background-color: rgb(58, 66, 66);
+    border-radius: 5px;
+    box-shadow:0 1px 5px 2px rgb(97, 9, 25);    
+    font-size: 1rem;
+}
+.soic-header{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-bottom: 1px solid rgb(97, 9, 25);
+}
+.soic-main-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    gap:2rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgb(97, 9, 25);
+}
