@@ -173,11 +173,11 @@ function enableChanges(){
 
 function displayConfirmationWindow(){
     const confirmationWindow = document.getElementById('confirmation-window').content.cloneNode(true)
-     
     //disable scrolling
     document.body.style.overflow = 'hidden'
     const saveChangesBtn = document.querySelector('.save-changes-btn')
-
+   
+    confirmationWindow.children[0].style.top = window.scrollY + 'px'
     saveChangesBtn.parentElement.appendChild(confirmationWindow)
 }
 

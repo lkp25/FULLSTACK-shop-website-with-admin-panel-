@@ -78,7 +78,7 @@ function renderAllOrders(orders = allOrders){
         const checkbox = template.querySelector('.checkbox')
         checkbox.dataset.itemIndex = index
         
-        //order already shipped
+        //order already shipped?
         if(item.orderData.sent === true){
             checkbox.classList.add('vis')
             checkbox.dataset.sent = 'true'
@@ -119,11 +119,7 @@ document.addEventListener('click', (e)=>{
         //update the db!
         updateOrderStatusInDB(allOrders[index])
     }
-    //more info button logic
-    if(e.target.classList.contains('db-order-more-info-btn')){
-        const singleOrderData = JSON.parse(e.target.dataset.orderDetails)
-        console.log(singleOrderData);
-    }
+
     //sort selection
     if(e.target.classList.contains('sort-selection')){
 
@@ -158,14 +154,26 @@ document.addEventListener('click', (e)=>{
         }
         renderAllOrders()
     }
+
+
+     //more -info button logic
+     if(e.target.classList.contains('db-order-more-info-btn')){
+        const singleOrderData = JSON.parse(e.target.dataset.orderDetails)
+        console.log(singleOrderData);
+
+    }
 })
 
+function renderSingleOrderDetails(){
+    
+}
 
 
 
 
 
 
+//search field logic
 searchField.addEventListener('input', (e)=>{    
     filterResultsBySurname()
 })
@@ -180,8 +188,6 @@ function filterResultsBySurname(){
         }
          
     })
-
-    // filteredOrders = allOrders.filter
     clearOrdersFromView()
     //render by filtered only!
     renderAllOrders(filteredOrders)
