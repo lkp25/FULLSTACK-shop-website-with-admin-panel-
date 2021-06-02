@@ -291,3 +291,6 @@ tr:nth-child(odd):not(:first-child){
    outline: var(--main-border);
    outline-offset: -2px;
 }
+.in-cents{
+    font-size: 0.8rem;
+}

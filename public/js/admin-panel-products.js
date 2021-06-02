@@ -213,3 +213,12 @@ function addNewItem(){
     //not all filled - show empty fields to the user 
     allInputs.forEach(field => field.placeholder ="REQUIRED!")
 }
+
+
+function displaySingleOrderDetails(orderData){
+    const singleOrderTemplate = document.getElementById('single-order-details-template').content.cloneNode(true)
+    const allOrderData = orderData
+}
+function closeSingleOrderDetails(){
+
+}

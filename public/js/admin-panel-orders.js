@@ -6,7 +6,8 @@ const allOrdersList = document.getElementById('db-all-orders')
 const searchField = document.getElementById('search-field')
 const root = document.documentElement
 
-
+//currency formatter
+const currencyFormatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD"})
 
 async function updateOrderStatusInDB(itemData){
     const sendData = await fetch('http://localhost:5000/update-order-status', {
@@ -85,7 +86,7 @@ function renderAllOrders(orders = allOrders){
         }
                
         template.querySelector('.db-order-surname').textContent = item.orderData.surname
-        template.querySelector('.db-order-value').textContent = item.orderData.totalToPay
+        template.querySelector('.db-order-value').textContent =  currencyFormatter.format(item.orderData.totalToPay / 100)
         template.querySelector('.db-order-date').textContent = item.orderData.orderDate
         template.querySelector('.db-order-more-info-btn').dataset.orderDetails = JSON.stringify(item)
         allOrdersList.appendChild(template)
@@ -96,7 +97,6 @@ function renderAllOrders(orders = allOrders){
 
 
 //admin actions:
-
 document.addEventListener('click', (e)=>{
     //sent-checkbox clicked
     if(e.target.classList.contains('checkbox')){
@@ -156,17 +156,47 @@ document.addEventListener('click', (e)=>{
     }
 
 
-     //more -info button logic
+     //more -info button logic - open details card
      if(e.target.classList.contains('db-order-more-info-btn')){
-        const singleOrderData = JSON.parse(e.target.dataset.orderDetails)
-        console.log(singleOrderData);
-
+         const singleOrderData = JSON.parse(e.target.dataset.orderDetails)
+         // console.log(singleOrderData);
+         displaySingleOrderDetails(singleOrderData)
+        }
+    //close detailed order card
+    if(e.target.classList.contains('single-order-window-container')){
+         e.target.remove()
+       
     }
 })
 
-function renderSingleOrderDetails(){
+function displaySingleOrderDetails(orderData){
+    const singleOrderTemplate = document.getElementById('single-order-details-template').content.cloneNode(true)    
+    const itemsTable = singleOrderTemplate.querySelector('.soic-items-table')
+    //populate fields with data
+    singleOrderTemplate.querySelector('.soic-order-id').textContent = '# ' + orderData.orderData.orderId
+    singleOrderTemplate.querySelector('.soic-order-status').textContent = orderData.orderData.sent ? "SENT" : "NOT YET SENT"
+    singleOrderTemplate.querySelector('.soic-address').children[0].textContent = `${orderData.orderData.name} ${orderData.orderData.surname}`
+    singleOrderTemplate.querySelector('.soic-address').children[1].textContent = `${orderData.orderData.street} ${orderData.orderData.houseNumber}`
+    singleOrderTemplate.querySelector('.soic-address').children[2].textContent = `${orderData.orderData.postalCode} ${orderData.orderData.city}`
+    singleOrderTemplate.querySelector('.soic-date').textContent = orderData.orderData.orderDate
+    singleOrderTemplate.querySelector('.soic-email').textContent = orderData.orderData.email
+    singleOrderTemplate.querySelector('.soic-email').setAttribute('href', `mailto:${orderData.orderData.email}`)  
+    singleOrderTemplate.getElementById('total-order-value-span').textContent =   currencyFormatter.format(orderData.orderData.totalToPay / 100)
     
+    //populate list of ordered items
+    const allOrderedItems = orderData.orderData.orderedItems    
+    allOrderedItems.forEach(item => {
+        const singleOrderedItemRow = document.getElementById('soic-single-ordered-item-row').content.cloneNode(true)
+        singleOrderedItemRow.querySelector('.soic-name').textContent = item.name
+        singleOrderedItemRow.querySelector('.soic-quantity').textContent = 'x ' + item.quantity
+        singleOrderedItemRow.querySelector('.soic-price').textContent = currencyFormatter.format(item.price / 100)
+        
+        itemsTable.appendChild(singleOrderedItemRow)
+    })
+
+    document.body.appendChild(singleOrderTemplate)
 }
+
 
 
 

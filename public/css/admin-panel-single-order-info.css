@@ -25,6 +25,9 @@
     display: grid;
     grid-template-columns: 1fr auto;
     border-bottom: 1px solid rgb(97, 9, 25);
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    color: rgb(148, 136, 27);
 }
 .soic-main-details{
     display: grid;
@@ -33,4 +36,45 @@
     gap:2rem;
     padding: 0.5rem;
     border-bottom: 1px solid rgb(97, 9, 25);
+}
+.soic-other-main-info{
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+.soic-email{
+    font-size: 1rem;
+    justify-self: end;
+}
+h2{
+    margin: 1rem 0 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+.soic-items-table{
+    padding:0.5rem;
+}
+.soic-main-row th{
+    padding: 0.2rem;
+    text-align: left;
+    color: rgb(148, 136, 27);
+    background-color: rgb(50, 56, 56);
+}
+.soic-main-row th:first-child{
+    width: 60%;
+}
+.soic-row td{
+    padding-left: 0.5rem;
+    padding: 0.3rem;
+}
+.soic-quantity{
+    text-align: center;
+}
+.soic-total-value{
+    border-top: 1px solid rgb(97, 9, 25);
+    text-align: right;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    color: rgb(148, 136, 27);
+    margin-top: 0.5rem;
+    padding: 1rem;
 }
