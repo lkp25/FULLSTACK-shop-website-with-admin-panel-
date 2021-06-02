@@ -109,7 +109,9 @@ document.addEventListener('click', (e)=>{
 cartIcon.addEventListener('click', ()=>{
     const cartContent = document.querySelector('.cart-content')
     console.log(cartContent);
-
+    
+    document.querySelector('nav').classList.add('hide-links')
+    
     calculateTotalAmount()
     cartContent.classList.toggle('show-cart')
     
@@ -126,14 +128,14 @@ cartIcon.addEventListener('click', ()=>{
         const clearCartBtn =  document.querySelector('.clear-cart-btn')
 
         clearCartBtn.style.display = 'none'
-        if(productsToRender.length > 0){
+        if(productsToRender?.length > 0){
             clearCartBtn.style.display = 'block'
 
         }
         
         
         console.log(productsToRender);
-        productsToRender.forEach(product => {
+        productsToRender?.forEach(product => {
             //take template
             const productTemplate = document.querySelector('#item-in-cart-template').content.cloneNode(true)
             
