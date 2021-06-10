@@ -68,7 +68,7 @@ document.addEventListener('click', (e)=>{
                 cartIcon.classList.remove('cart-icon-shake')
                 
             }, 1150);
-        }, 1300);
+        }, 900);
         //end of animation logic
 
         //hide the cart if opened:
