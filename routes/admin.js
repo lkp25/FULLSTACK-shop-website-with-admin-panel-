@@ -62,9 +62,13 @@ router.post('/update-order-status',  (req, res, next) =>{
     });
   
   //write new file for order to JSONdatabase 
-  // writeFile(`jsonDatabase/${req.body.surname}-${req.body.orderId}.json`, JSON.stringify(req.body), err =>  console.log(err))
 })
 
+////////PRODUCTS////////
+router.post('/update-products-in-offer', (req, res, next)=>{
+  writeFile(`jsonDatabase/nownownown.json`, JSON.stringify(req.body), err =>  console.log(err))
+  res.status(201).send()
+})
 
 
 

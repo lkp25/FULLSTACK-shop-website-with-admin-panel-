@@ -79,6 +79,11 @@ document.addEventListener('click', (e)=>{
         e.target.parentElement.parentElement.remove()
         //get changed data from all inputs
         allProducts = getCurrentInputData()
+        console.log(allProducts);
+        //SEND TO DATABASE!
+        sendUpdatedProductListToDB(allProducts)
+        
+
         //remove old view
         removeAllProductsFromView()
         //render new view
@@ -215,10 +220,21 @@ function addNewItem(){
 }
 
 
-function displaySingleOrderDetails(orderData){
-    const singleOrderTemplate = document.getElementById('single-order-details-template').content.cloneNode(true)
-    const allOrderData = orderData
-}
-function closeSingleOrderDetails(){
-
+async function sendUpdatedProductListToDB(allProducts){
+    try {
+        const sendData = await fetch('http://localhost:5000/update-products-in-offer', {
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(allProducts) 
+          
+            
+          })
+        // const responseFromServer = await sendData
+        // console.log(responseFromServer);
+        
+    } catch (error) {
+        console.log(error);
+    }
 }
