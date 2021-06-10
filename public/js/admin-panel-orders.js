@@ -10,17 +10,22 @@ const root = document.documentElement
 const currencyFormatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD"})
 
 async function updateOrderStatusInDB(itemData){
-    const sendData = await fetch('http://localhost:5000/update-order-status', {
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(itemData) 
-      
+    try {
+        const sendData = await fetch('http://localhost:5000/update-order-status', {
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(itemData) 
+          
+            
+          })
+        const responseFromServer = await sendData.json()
+        console.log(responseFromServer);
         
-      })
-    const responseFromServer = await sendData.json()
-    console.log(responseFromServer);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 async function getProducts(){

@@ -7,12 +7,14 @@ const router = express.Router()
 const rootDir = require('../util/path');
 const { writeFile } = require('fs');
 
+require('dotenv').config()
+
 const mysql = require('mysql')
 const sqlConnection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'pass',
-  database: 'fakedata'
+  host: process.env.PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 })
 sqlConnection.connect(function(err) {
     if (err) throw err;
@@ -40,11 +42,11 @@ router.get('/getorders', (req, res, next) =>{
 })
 
 //update single order
-router.post('/update-order-status', async (req, res, next) =>{
+router.post('/update-order-status',  (req, res, next) =>{
        
   //headers first!!
   // res.header({"Content-Type": "application/json"})
-  const requestBody = await req.body
+  const requestBody =  req.body
   
   //echo back the request + send response message
   res.json({
@@ -56,7 +58,7 @@ router.post('/update-order-status', async (req, res, next) =>{
   sqlConnection.query(`UPDATE orders SET orderData='${JSON.stringify(requestBody.orderData) }' WHERE id=${requestBody.id}`, function (err, result, fields) {
       if (err) throw err;
       console.log(result);
-      res.send(result)
+      // res.send(result)
     });
   
   //write new file for order to JSONdatabase 
