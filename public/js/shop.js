@@ -39,11 +39,19 @@ class Categories{
 
             //delete all first
             productsGrid.querySelectorAll('.product-card').forEach(child => child.remove())
-            console.log(e.target.dataset.category);
+            const targetCategory = e.target.dataset.category
 
-            if(e.target.dataset.category === "All Categories"){
+            if(targetCategory === "All Categories"){
                renderProducts(this.allProducts)
             }
+            else{
+                renderProducts(this.allProducts.filter(prod =>{
+                    return prod.category === targetCategory
+                }))
+
+            }
+            
+            
             
         })
         // this.allProducts.filter(prod =>{
