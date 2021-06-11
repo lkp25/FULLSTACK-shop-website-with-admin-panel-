@@ -3,6 +3,33 @@
     --top: -50px;
     
 }
+
+.products-categories-ribbon{
+    width: 100%;
+    min-height: 40px;
+    background-color: rgb(166, 189, 235);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+    place-items: center;
+    list-style: none;
+    margin-top: 1rem;
+    padding: 0.3rem;
+    position: sticky;
+    top:80px;
+    box-shadow: 0 0 5px blue;
+    
+}
+.products-categories-ribbon li{
+    color: rgb(99, 93, 93);
+    transition: 0.2s ease;
+}
+.products-categories-ribbon li:hover{
+    cursor: pointer;
+    color: white;
+    transform: scale(1.1);
+}
+
+
 .products-grid{
     display: grid;
     grid-template-columns: 1fr;

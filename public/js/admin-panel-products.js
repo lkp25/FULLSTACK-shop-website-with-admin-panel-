@@ -55,10 +55,7 @@ function renderProducts(){
 document.addEventListener('click', (e)=>{
     //unable/disable any changes
     if(e.target.classList.contains('enable-disable-changes-btn')){
-        const filedrop = document.createElement('div')
-        filedrop.classList.add('img-filedrop-section')
-        document.body.appendChild(filedrop)
-
+        
         if(e.target.classList.contains('disabled')){
             e.target.classList.remove('disabled')
             e.target.textContent = "DISABLE CHANGES"
