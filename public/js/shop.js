@@ -2,6 +2,30 @@ const productTemplate = document.querySelector('#product-template')
 const productsGrid = document.querySelector('.products-grid')
 
 
+class Categories{
+    constructor(completeProductsList){
+        this.categoriesRibbon = document.getElementById('products-categories-ribbon')
+        this.allProducts = completeProductsList
+
+        //get a list of all unique product categories
+        this.allCategories = [...new Set(completeProductsList.map(prod => {
+            return prod.category
+        }))]
+        //add 'universal category' to the list
+        this.addAllCategoriesBtn()
+    }
+    addAllCategoriesBtn(){
+        this.allCategories.unshift('All Categories')
+        console.log(this.allCategories);
+    }
+    renderAllCategoriesToView(){
+        this.allCategories.forEach(category => {
+            const link = document.createElement('li')
+            link.textContent = category
+            this.categoriesRibbon.appendChild(link)
+        })
+    }
+}
 
 //get products from json database
 async function getProducts(){
@@ -9,9 +33,13 @@ async function getProducts(){
     const products = await fetchProducts.json()
 
     console.log(products);
-
+    
     renderProducts(products)
-   
+
+    //instantiate class for categories rendering
+    const uniqueCategories = new Categories(products)
+    uniqueCategories.renderAllCategoriesToView()
+    console.log(uniqueCategories);
 }
 getProducts()
 
