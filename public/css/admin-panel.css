@@ -99,6 +99,7 @@ button:disabled, input:disabled{
 }
 section{
     padding-bottom: 2rem;
+    padding-top: 0.6rem;
     border-top: var(--main-border);
 }
 h1,h2,h3{
