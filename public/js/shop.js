@@ -31,19 +31,21 @@ class Categories{
           
             this.categoriesRibbon.appendChild(link)
         })
-        this.filterProductsByCategory()
+        this.displayProductsByCategory()
     }
 
-    filterProductsByCategory(){
+    displayProductsByCategory(){
         this.categoriesRibbon.addEventListener('click', (e)=>{ //must be arrow!
 
             //delete all first
             productsGrid.querySelectorAll('.product-card').forEach(child => child.remove())
             const targetCategory = e.target.dataset.category
 
+            //egde case - display ALL PRODUCTS
             if(targetCategory === "All Categories"){
                renderProducts(this.allProducts)
             }
+            //display only products in selected category
             else{
                 renderProducts(this.allProducts.filter(prod =>{
                     return prod.category === targetCategory
@@ -54,9 +56,7 @@ class Categories{
             
             
         })
-        // this.allProducts.filter(prod =>{
-
-        // })
+       
     }
     
 }
