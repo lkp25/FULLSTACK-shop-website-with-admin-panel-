@@ -38,7 +38,10 @@ class Categories{
         this.categoriesRibbon.addEventListener('click', (e)=>{ //must be arrow!
 
             //delete all first
-            productsGrid.querySelectorAll('.product-card').forEach(child => child.remove())
+            if(e.target !== e.currentTarget){
+                productsGrid.querySelectorAll('.product-card').forEach(child => child.remove())
+            }
+            
             const targetCategory = e.target.dataset.category
 
             //egde case - display ALL PRODUCTS
