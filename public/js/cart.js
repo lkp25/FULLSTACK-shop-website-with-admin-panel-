@@ -10,7 +10,7 @@ cartContent.appendChild(closeCartButton)
 
 window.addEventListener('scroll', (e)=>{
     cartContent.style.top = window.scrollY + 80 + 'px'
-    console.log(window.scrollY);
+    
     
 })
 //get items from session storage. if empty, return empty array
