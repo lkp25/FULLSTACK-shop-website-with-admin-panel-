@@ -6,7 +6,7 @@
       width: 40px;
       height: 40px;
       position: absolute;
-      left: -40px;
+      right: 0px;
       border-bottom-left-radius: 15px;
       text-align: center;
       font-size: 1.5rem;
@@ -24,12 +24,14 @@
     }
   .cart-content{
       width: 300px;
-      
+      max-height: 500px;
+      overflow: scroll;
       background-color: lightcoral;
       position: absolute;
       right: 0px;
       display: none;
       padding: 0.5rem;
+      z-index: 100;
     }
     .show-cart{
         display: grid;

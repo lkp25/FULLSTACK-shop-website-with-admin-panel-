@@ -2,11 +2,17 @@ const cartIcon = document.querySelector('.cart-icon')
 const cartContent = document.querySelector('.cart-content')
 const numberOfItemsInCart = document.querySelector('.cart-counter')
 
+
 const closeCartButton = document.createElement('div')
 closeCartButton.classList.add('close-cart-btn')
 closeCartButton.textContent = "X"
 cartContent.appendChild(closeCartButton)
 
+window.addEventListener('scroll', (e)=>{
+    cartContent.style.top = window.scrollY + 80 + 'px'
+    console.log(window.scrollY);
+    
+})
 //get items from session storage. if empty, return empty array
 let itemsInCart = JSON.parse(sessionStorage.getItem("cart")) || []
 
