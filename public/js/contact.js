@@ -11,7 +11,6 @@ txtArea.addEventListener('input', function(e){
   const currentTxtLength = txtArea.value.length
   const remaining = MAX_CHARS - currentTxtLength
   
-  console.log(e);
   if(currentTxtLength >= MAX_CHARS){
      const finalText = currentText.substring(0, 249)
      txtArea.value = finalText
@@ -29,5 +28,32 @@ txtArea.addEventListener('input', function(e){
 
 contactForm.addEventListener('submit', (e)=>{
     e.preventDefault()
-    console.log('subb');
+    
+    
+    const newQuestion = {
+        isImportant: false,
+        text: contactForm.querySelector('textarea').value,
+        email: contactForm.querySelector('input').value,
+        date: new Date().toUTCString()
+    }
+
+    sendCustomerQuestionToServer(newQuestion)
+    
+
+    contactForm.querySelector('textarea').value = null
+    contactForm.querySelector('input').value = null
+    
 })
+
+async function sendCustomerQuestionToServer(newQuestion){
+    const sendQuestionData = await fetch('http://localhost:5000/new-customer-question', {
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newQuestion),
+          })
+        const responseFromServer = await sendQuestionData.json()
+        console.log(responseFromServer);
+
+}
