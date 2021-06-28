@@ -1,0 +1,26 @@
+#db-all-questions{
+    width: fit-content;
+}
+
+/* customer questions textarea */
+.db-question-content{
+    max-width: 400px;
+    width: 400px;
+    background-color: rgb(119, 129, 111);
+    margin:0.2rem;
+}
+.db-question-email{
+    padding:  1rem 0;
+    color: cornflowerblue;
+}
+.db-question-email:hover{
+    cursor: pointer;
+    color: rgb(205, 100, 237);
+}
+
+tr,td{
+    padding: 0 0.3rem;
+}
+button{
+    width: 100%;
+}

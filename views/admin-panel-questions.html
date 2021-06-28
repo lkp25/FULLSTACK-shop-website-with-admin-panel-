@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN PANEL - products</title>
     <link rel="stylesheet" href="/css/admin-panel.css">
-    <link rel="stylesheet" href="/css/admin-panel-add-images.css">
+    <link rel="stylesheet" href="/css/admin-panel-questions.css">
+    
   <script src="./js/admin-panel-questions.js" defer></script>
 </head>
 <body>
@@ -32,18 +33,23 @@
         <h2>A list of all customer questions:</h2>
         <table id="db-all-questions" >
             <tr class="db-questions-main-row">
-                <th>important?</th>               
-                <th>E-MAIL</th>
+                             
+                <th>MSG DETAILS</th>
                 <th>CONTENT</th>
-                <th>DATE</th>
+                <th>REMOVE</th>
                 
             </tr>
             <template id="db-questions-template">
                 <tr class="db-single-question">                                  
-                    <td class="db-question-important"></td>                
-                    <td class="db-question-email"></td>                
-                    <td class="db-question-content"></td>                
-                    <td class="db-question-date"></td>                
+                                   
+                    <td class="db-question-details">
+                        <div class="db-question-email"></div>
+                        <div class="db-question-date"></div>
+                    </td>                
+                    <td >
+                        <textarea class="db-question-content" name="" id="" cols="40" rows="8"></textarea>
+                    </td>                
+                    <td ><button class="db-question-remove">X</button></td>                
                                     
                 </tr>  
             </template>
