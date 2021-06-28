@@ -20,8 +20,12 @@
     top:80px;
     box-shadow: 0 0 5px blue;
     text-transform: capitalize;
+
+    overflow: hidden;
+    
     
 }
+
 @media only screen and (min-width: 600px) {
     #products-categories-ribbon{
         grid-template-columns: repeat(auto-fit, minmax(80px, auto));
