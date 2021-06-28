@@ -62,6 +62,9 @@ router.post('/update-products-in-offer', (req, res, next)=>{
   res.status(201).send(req.body)
 })
 
+
+
+
 //serve HTML:
 router.get('/admin-products', (req, res, next) =>{
   console.log('welcome to admin page - products');
@@ -71,6 +74,9 @@ router.get('/admin-orders', (req, res, next) =>{
   console.log('welcome to admin page - orders');
   res.sendFile(path.join(rootDir, 'views', 'admin-panel-orders.html'))
 })
-
+router.get('/admin-questions', (req, res, next) =>{
+  console.log('welcome to admin page - questions');
+  res.sendFile(path.join(rootDir, 'views', 'admin-panel-questions.html'))
+})
 
 module.exports = router

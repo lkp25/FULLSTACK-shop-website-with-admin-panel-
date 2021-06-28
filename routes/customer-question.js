@@ -32,5 +32,14 @@ router.post('/new-customer-question', async (req, res, next) =>{
 
     
 })
+router.get('/get-all-questions', (req, res, next) =>{
+    
+  sqlConnection.query("SELECT * FROM questions", function (err, result, fields) {
+    if (err) throw err;
+    console.log('HERE ARE ALL ORDERS FROM DB:' , result);
+    res.send(result)
+  });
+})
+
 
 module.exports = router
