@@ -32,6 +32,17 @@ router.post('/new-customer-question', async (req, res, next) =>{
 
     
 })
+router.get('/delete-question', async (req, res, next) =>{
+  console.log(req.query);
+
+  sqlConnection.query(`DELETE FROM questions WHERE id=${req.query.id}`, function (err, result, fields) {
+    if (err) throw err;
+    console.log('HERE ARE ALL ORDERS FROM DB:' , result);
+    res.send(req.query)
+  });
+
+})
+
 //for admin panel display all questions:
 router.get('/get-all-questions', (req, res, next) =>{
     

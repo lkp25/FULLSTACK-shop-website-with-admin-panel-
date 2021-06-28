@@ -11,7 +11,7 @@
 }
 .db-question-email{
     padding:  1rem 0;
-    color: cornflowerblue;
+    color: rgb(99, 134, 199);
 }
 .db-question-email:hover{
     cursor: pointer;
