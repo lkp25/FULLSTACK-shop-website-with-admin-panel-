@@ -1,5 +1,8 @@
 const txtArea = document.getElementById('customer-message-textarea')
+const contactForm = document.getElementById('customer-message-form')
 const rem = document.querySelector('.customer-message-chars-left span')
+
+
 
 const MAX_CHARS = 250
 
@@ -22,4 +25,9 @@ txtArea.addEventListener('input', function(e){
   
     rem.parentElement.style.color = color
     
+})
+
+contactForm.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    console.log('subb');
 })
