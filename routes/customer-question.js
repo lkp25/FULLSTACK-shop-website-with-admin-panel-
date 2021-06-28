@@ -24,7 +24,7 @@ router.post('/new-customer-question', async (req, res, next) =>{
     console.log(req.body);
 
     
-    sqlConnection.query(`INSERT INTO questions VALUES('${JSON.stringify(req.body)}')`, function (err, result, fields) {
+    sqlConnection.query(`INSERT INTO questions(value) VALUES('${JSON.stringify(req.body)}')`, function (err, result, fields) {
         if (err) throw err;
         console.log(result);
         res.send(result)
