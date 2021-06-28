@@ -32,6 +32,7 @@ router.post('/new-customer-question', async (req, res, next) =>{
 
     
 })
+//for admin panel display all questions:
 router.get('/get-all-questions', (req, res, next) =>{
     
   sqlConnection.query("SELECT * FROM questions", function (err, result, fields) {

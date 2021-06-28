@@ -1,4 +1,4 @@
-const questionsList = document.getElementById('customer-questions-list')
+const questionsList = document.getElementById('db-all-questions')
 
 let allQuestions = []
 
@@ -9,9 +9,14 @@ async function getAllQuestionsFromDB(){
     const nww = await n.json()
     allQuestions = nww
 
-    renderAllQuestions()
+    renderAllQuestions(allQuestions)
 }
 
-function renderAllQuestions(){
-    
+function renderAllQuestions(allQuestions){
+    allQuestions.forEach(question =>{
+       const template = document.getElementById('db-questions-template').content.cloneNode(true)
+       
+       template.querySelector('.db-question-important').textContent = question.important? "YES" : "NO"
+       questionsList.appendChild(template)
+    })
 }

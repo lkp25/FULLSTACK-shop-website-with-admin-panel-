@@ -30,9 +30,26 @@
     <main>
         
         <h2>A list of all customer questions:</h2>
-        <ul id="customer-questions-list">
+        <table id="db-all-questions" >
+            <tr class="db-questions-main-row">
+                <th>important?</th>               
+                <th>E-MAIL</th>
+                <th>CONTENT</th>
+                <th>DATE</th>
+                
+            </tr>
+            <template id="db-questions-template">
+                <tr class="db-single-question">                                  
+                    <td class="db-question-important"></td>                
+                    <td class="db-question-email"></td>                
+                    <td class="db-question-content"></td>                
+                    <td class="db-question-date"></td>                
+                                    
+                </tr>  
+            </template>
             
-        </ul>
+            
+        </table>
             
     </main>
     
