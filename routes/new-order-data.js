@@ -16,7 +16,7 @@ const sqlConnection = mysql.createConnection({
 sqlConnection.connect(function(err) {
     if (err) throw err;
    
-  });
+});
 
 router.post('/save-order', async (req, res, next) =>{
        

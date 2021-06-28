@@ -19,10 +19,7 @@ router.get('/contact', (req, res, next) =>{
     res.sendFile(path.join(rootDir, 'views', 'contact.html'))
 })
 
-router.post('/s', (req, res, next) =>{
-    console.log(req.body);
-    res.send(req.body)
-})
+
 
 //display products from JSON DB
 router.get('/display-products', (req, res, next) =>{
