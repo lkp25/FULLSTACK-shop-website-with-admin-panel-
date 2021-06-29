@@ -133,6 +133,19 @@ dropZoneElement.addEventListener('click', e=>{
     }
     //UPLOAD
     if(e.target.classList.contains('img-filedrop-add-btn')){
-
+       const formData = new FormData()
+       
+    //    console.log(imgInput.files);
+       for(const file of imgInput.files){
+           formData.append('myFiles',file)
+       }
+       for(const [key, value] of formData){
+           console.log(`key: ${key}`);
+           console.log(`value: ${value}`);
+       }
+       fetch('http://localhost:5000/upload-images', {
+           method: 'post',
+           body: formData
+       }).catch(console.error)
     }
 })
