@@ -27,10 +27,16 @@ dropZoneElement.addEventListener('drop', e=>{
         imgInput.files = e.dataTransfer.files
         
         //show thumbnail img for the first file from list in preview 
-        updateThumbnail(dropZoneElement, imgInput.files[0])
+        updateThumbnail(dropZoneElement.children[0], imgInput.files[0])
     }
     dropZoneElement.classList.remove('img-filedrop-container-over')
 })
+
+/**
+ * 
+ * @param {HTMLElement} dropZoneElement 
+ * @param {File} file 
+ */
 
 function updateThumbnail(dropZoneElement, file){
     console.log(dropZoneElement);
@@ -42,6 +48,17 @@ function updateThumbnail(dropZoneElement, file){
     if(!thumbnailElement){
         thumbnailElement = document.createElement('div')
         thumbnailElement.classList.add('img-filedrop-thumbnail')
-        
+        dropZoneElement.appendChild(thumbnailElement)
+    }
+
+    thumbnailElement.dataset.label = file.name
+
+    //show thumbnail for images:
+    if(file.type.startsWith('image/')){
+        const reader = new FileReader
+        reader.readAsDataURL(file)
+        reader.onload =()=>{
+            thumbnailElement.style.backgroundImage = `url('${reader.result}')`
+        }
     }
 }
