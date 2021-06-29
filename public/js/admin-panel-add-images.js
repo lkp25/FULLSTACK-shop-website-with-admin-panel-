@@ -1,6 +1,7 @@
 const imgInput = document.querySelector('.img-filedrop-input')
 const dropZoneElement = imgInput.closest('.img-filedrop-section')
 const uploadButton = dropZoneElement.querySelector('.img-filedrop-add-btn')
+const clearAllButton = dropZoneElement.querySelector('.img-filedrop-clear-all')
 
 dropZoneElement.addEventListener('click', e=>{
     imgInput.disabled = false
@@ -59,6 +60,8 @@ function updateThumbnail(dropZoneElement, files){
 
     //if one or more files is NOT an image, remove all files and inform user
     if(notAnImageFile){
+        //dont let files to be uploaded:
+        hideUploadAndClearButtons()
 
         //remove all previous image thumbnails from view:
         dropZoneElement.querySelectorAll('.img-filedrop-thumbnail').forEach(element => element.remove())
@@ -97,13 +100,18 @@ function updateThumbnail(dropZoneElement, files){
             }
         
     })
-    //will be empty first when page loads.
-    showUploadButton()
+    //all files are images so can be uploaded:
+    showUploadAndClearButtons()
 }
 
-function showUploadButton(){
+
+
+//upload button related functions:
+function showUploadAndClearButtons(){
     uploadButton.style.display = 'block'
+    clearAllButton.style.display = 'block'
 }
-function hideUploadButton(){
+function hideUploadAndClearButtons(){
     uploadButton.style.display = 'none'
+    clearAllButton.style.display = 'none'
 }
