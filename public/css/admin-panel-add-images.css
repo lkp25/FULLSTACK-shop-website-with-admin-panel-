@@ -9,6 +9,9 @@
     opacity: 0;
     animation: fadeIn 1s forwards;
 }
+.img-filedrop-section:hover{
+cursor: pointer;
+}
 
 @keyframes fadeIn {
     from { opacity: 0; }

@@ -1,6 +1,10 @@
 const imgInput = document.querySelector('.img-filedrop-input')
 const dropZoneElement = imgInput.closest('.img-filedrop-section')
 
+dropZoneElement.addEventListener('click', e=>{
+    imgInput.disabled = false
+    imgInput.click()
+})
 
 //EVENT LISTENERS FOR DRAG AND DROP:
 dropZoneElement.addEventListener('dragover', e =>{
@@ -39,8 +43,8 @@ dropZoneElement.addEventListener('drop', e=>{
  */
 
 function updateThumbnail(dropZoneElement, file){
-    console.log(dropZoneElement);
-    console.log(file);
+    // console.log(dropZoneElement);
+    // console.log(file);
 
     //will be empty first when page loads.
     let thumbnailElement = dropZoneElement.querySelector('.img-filedrop-thumbnail')
@@ -60,5 +64,8 @@ function updateThumbnail(dropZoneElement, file){
         reader.onload =()=>{
             thumbnailElement.style.backgroundImage = `url('${reader.result}')`
         }
+    }else { //for no image files
+        thumbnailElement.style.backgroundImage = null
+
     }
 }
