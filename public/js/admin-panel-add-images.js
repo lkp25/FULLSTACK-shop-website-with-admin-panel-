@@ -49,12 +49,35 @@ dropZoneElement.addEventListener('drop', e=>{
  * @param {File} file 
  */
 
-function updateThumbnail(dropZoneElement, files){
-    // console.log(dropZoneElement);
-    console.log(files);
-    [...files].forEach(file=>{
-        // let thumbnailElement = dropZoneElement.querySelector('.img-filedrop-thumbnail')
+function updateThumbnail(dropZoneElement, files){    
+    
+    const filesArray = [...files]
+    //check if any of uploaded files is not an image
+    const notAnImageFile = filesArray.find(file => (!file.type.startsWith('image/')))
 
+    //if one or more files is NOT an image, remove all files and inform user
+    if(notAnImageFile){
+
+        //remove all previous image thumbnails from view:
+        dropZoneElement.querySelectorAll('.img-filedrop-thumbnail').forEach(element => element.remove())
+
+        //remove all files from fileInputElement
+        imgInput.value = null
+
+        const  wrongFileMessage = document.createElement('div')
+        wrongFileMessage.textContent = "one or more files uploaded is not an image. File list was cleared. Please add only image files!"
+        wrongFileMessage.style.color = 'red'
+        
+        dropZoneElement.appendChild(wrongFileMessage)
+        setTimeout(() => {
+            wrongFileMessage.remove()
+        }, 4500);
+        return
+    }
+
+    //if all files are images:
+    filesArray.forEach((file, index)=>{
+              
         
         const  thumbnailElement = document.createElement('div')
         thumbnailElement.classList.add('img-filedrop-thumbnail')
@@ -64,16 +87,13 @@ function updateThumbnail(dropZoneElement, files){
         thumbnailElement.dataset.label = file.name
     
         //show thumbnail for images:
-        if(file.type.startsWith('image/')){
+        
             const reader = new FileReader
             reader.readAsDataURL(file)
             reader.onload =()=>{
                 thumbnailElement.style.backgroundImage = `url('${reader.result}')`
             }
-        }else { //for no image files
-            thumbnailElement.style.backgroundImage = null
-    
-        }
+        
     })
     //will be empty first when page loads.
     
