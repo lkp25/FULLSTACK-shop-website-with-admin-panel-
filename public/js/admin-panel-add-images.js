@@ -4,6 +4,10 @@ const uploadButton = dropZoneElement.querySelector('.img-filedrop-add-btn')
 const clearAllButton = dropZoneElement.querySelector('.img-filedrop-clear-all')
 
 dropZoneElement.addEventListener('click', e=>{
+    //block the event from occuring when buttons inside dropzone are clicked
+    if(e.target !== e.currentTarget){
+        return
+    }
     imgInput.disabled = false
     imgInput.click()
 })
@@ -115,3 +119,20 @@ function hideUploadAndClearButtons(){
     uploadButton.style.display = 'none'
     clearAllButton.style.display = 'none'
 }
+
+//BUTTONS CLICK EVENT LISTENER:
+dropZoneElement.addEventListener('click', e=>{
+    //CLEAR
+    if(e.target.classList.contains('img-filedrop-clear-all')){
+     
+        //hide buttons and remove all thumbnails 
+        hideUploadAndClearButtons()
+        dropZoneElement.querySelectorAll('.img-filedrop-thumbnail').forEach(element => element.remove())
+        //remove all files from fileInputElement
+        imgInput.value = null
+    }
+    //UPLOAD
+    if(e.target.classList.contains('img-filedrop-add-btn')){
+
+    }
+})
