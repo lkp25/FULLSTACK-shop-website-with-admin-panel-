@@ -47,28 +47,24 @@ function renderAllQuestions(allQuestions){
 function clearAllQuestions(){
     questionsList.querySelectorAll('.db-single-question').forEach(element => element.remove())
 }
+
 async function removeSingleMessage(target){
     const targetDBId = target.dataset.id
     console.log(targetDBId);
     
     //remove from db
     
-        try {
-            const sendData = await fetch(`http://localhost:5000/delete-question?id=${parseInt(targetDBId)}`, {
-                
-              
-                
-              })
-            // const responseFromServer = await sendData.json()
-            // console.log(responseFromServer);
+    try {
+        const sendData = await fetch(`http://localhost:5000/delete-question?id=${parseInt(targetDBId)}`, {
+             
+        })
             
-            //remove from view
-            target.remove()
+        //remove from view
+        target.remove()
 
-        } catch (error) {
-            console.log(error);
-        }
-    
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 questionsList.addEventListener('click', e =>{

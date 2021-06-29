@@ -4,7 +4,6 @@ Still to do:
 -send email to customer to confirm order
 
 -login logic
--contact section - textarea with input limit for customer questions, which are stored on the server in separate table in database, and displayed in new admin panel section - messages
 
 -in products section in admin panel - img field should use select-dropdown displaying available images stored on server
 -some more advanced UI graphics with gradients, maybe new animations

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/admin-panel.css">
     <link rel="stylesheet" href="/css/admin-panel-add-images.css">
   <script src="./js/admin-panel-products.js" defer></script>
+  <script src="./js/admin-panel-add-images.js" defer></script>
 </head>
 <body>
     <header>
@@ -56,11 +57,17 @@
         </section>
         
         <!-- ADD FILES FOR PRODUCT IMAGES -->
+        <h2>ADD NEW IMAGES:</h2>
+        <p class="img-filedrop-info">Here you can add new images for your products by dragging and dropping them or click and choose file from your computer:</p>
         <section class="img-filedrop-section">
-            <p class="img-filedrop-info">Here you can add new images for your products</p>
-            <div class="img-filedrop-container">
-                <div class="img-filedrop-preview"></div>
-            </div>
+           
+               <div class="img-filedrop-container">
+                   <input class="img-filedrop-input" multiple type="file">
+                   <!-- <div class="img-filedrop-thumbnail" data-label="myfile.txt"></div> -->
+
+               </div>
+
+          
         </section>
         
         <section class="current-items-section">
