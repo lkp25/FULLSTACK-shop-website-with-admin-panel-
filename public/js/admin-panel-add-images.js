@@ -1,5 +1,6 @@
 const imgInput = document.querySelector('.img-filedrop-input')
 const dropZoneElement = imgInput.closest('.img-filedrop-section')
+const uploadButton = dropZoneElement.querySelector('.img-filedrop-add-btn')
 
 dropZoneElement.addEventListener('click', e=>{
     imgInput.disabled = false
@@ -9,7 +10,8 @@ dropZoneElement.addEventListener('click', e=>{
 //whenever Fileinput value changes (if file was chosen by click):
 imgInput.addEventListener('change', e=>{
     if(imgInput.files.length){
-        updateThumbnail(dropZoneElement.children[0], imgInput.files[0])
+        updateThumbnail(dropZoneElement.children[0], imgInput.files)
+        
     }
 })
 
@@ -96,5 +98,12 @@ function updateThumbnail(dropZoneElement, files){
         
     })
     //will be empty first when page loads.
-    
+    showUploadButton()
+}
+
+function showUploadButton(){
+    uploadButton.style.display = 'block'
+}
+function hideUploadButton(){
+    uploadButton.style.display = 'none'
 }

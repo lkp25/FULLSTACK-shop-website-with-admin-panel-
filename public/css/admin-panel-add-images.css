@@ -2,12 +2,16 @@
     background-color: rgb(89, 112, 67);
     width: 50%;
     height: 200px;
-    
-    
+    display: grid;    
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 0.3rem;
     border:2px dashed rgb(53, 5, 14);
     /* transition: 1s ease; */
     opacity: 0;
     animation: fadeIn 1s forwards;
+    margin: 0;
+    padding: 0.3rem;
 }
 .img-filedrop-section:hover{
     cursor: pointer;
@@ -46,4 +50,7 @@ display: none;
     height: 20px;
     background-color: darkslategray;
     width: 100%;
+}
+.img-filedrop-add-btn{
+    display: none;
 }
