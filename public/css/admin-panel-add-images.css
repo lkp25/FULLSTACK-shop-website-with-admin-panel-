@@ -10,7 +10,8 @@
     animation: fadeIn 1s forwards;
 }
 .img-filedrop-section:hover{
-cursor: pointer;
+    cursor: pointer;
+    opacity: 0.9;
 }
 
 @keyframes fadeIn {
@@ -21,6 +22,9 @@ cursor: pointer;
     width: 90%;
     height: 98%;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
 }
 .img-filedrop-container-over{
     border:2px solid rgb(44, 3, 11);
@@ -39,7 +43,7 @@ display: none;
     content: attr(data-label);
     position: absolute;
     bottom: 0;
-    height: 20%;
+    height: 20px;
     background-color: darkslategray;
     width: 100%;
 }
