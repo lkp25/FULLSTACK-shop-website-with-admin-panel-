@@ -239,3 +239,16 @@ async function sendUpdatedProductListToDB(allProducts){
         console.log(error);
     }
 }
+
+
+//dropdown buttons for sections - minimize/show add product and add image sections:
+document.addEventListener('click', e=>{
+    if(e.target.classList.contains('dropdown-btn')){
+        
+        showOrHideTheSection(e.target.parentElement.nextElementSibling)
+    }
+})
+
+function showOrHideTheSection(currentSection){
+    console.log(currentSection);
+}
