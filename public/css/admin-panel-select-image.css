@@ -86,3 +86,22 @@
 #image-list option:hover{
     background-color: rgb(212, 0, 255);
 }
+
+.success-glow{
+    background-color: rgb(17, 151, 17);
+    transition: 0.2s ease;
+    color:indigo;
+    
+}
+.success-glow:hover{
+    color:indigo;
+    transform: translateY(-20px) scale(1.3);
+}
+.fade-away-modal{
+    animation: fadeaway 1s forwards;
+   
+}
+@keyframes fadeaway {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}

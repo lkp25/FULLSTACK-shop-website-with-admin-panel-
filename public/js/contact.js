@@ -30,11 +30,7 @@ contactForm.addEventListener('submit', (e)=>{
     e.preventDefault()
     
     
-    const newQuestion = {
-        isImportant: false,
-        text: contactForm.querySelector('textarea').value,
-        email: contactForm.querySelector('input').value,
-        date: new Date().toUTCString()
+    const newQuestion = {text: contactForm.querySelector('textarea').value,email: contactForm.querySelector('input').value,date: new Date().toUTCString()
     }
 
     sendCustomerQuestionToServer(newQuestion)

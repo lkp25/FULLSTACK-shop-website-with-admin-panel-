@@ -28,13 +28,27 @@ document.addEventListener('click', e=>{
 
   //CLOSE MODAL - overlay clicked
   if(e.target.classList.contains('select-image-modal-overlay')){
-    hideImageChooseModal()
     
+    selectImgModal.classList.add('fade-away-modal')
+    setTimeout(() => {
+      hideImageChooseModal()
+    }, 1000);
   }
   //CONFIRM BUTTON
   if(e.target.classList.contains('select-image-modal-confirm-btn')){
-    currentImgInputField.value = e.target.dataset.filename
-    hideImageChooseModal()
+    if(e.target.dataset.filename){
+      currentImgInputField.value = e.target.dataset.filename
+    }
+    e.target.textContent = 'Confirmed!'
+    e.target.classList.add('success-glow')
+    selectImgModal.classList.add('fade-away-modal')
+    setTimeout(() => {
+      e.target.textContent = 'Confirm'
+      e.target.classList.remove('success-glow')
+      
+      
+      hideImageChooseModal()
+    }, 1000);
   }
   //SELECT FILE FROM LIST
   if(e.target.classList.contains('select-image-list-item')){
@@ -50,13 +64,15 @@ document.addEventListener('click', e=>{
 function showImageChooseModal(currentImgName){
   selectImgModal.style.display = null
   selectImgModal.style.top = window.scrollY + 'px'
-
-
+  selectImgModal.classList.remove('fade-away-modal')
+  
   imagePreview.setAttribute('src', `./img/img-large/${currentImgName}`)
   imageNameLabel.textContent = currentImgName
   document.body.style.overflow = 'hidden'
 }
+
 function hideImageChooseModal(){
+  
   selectImgModal.style.display = 'none'
   document.body.style.overflow = 'visible'
 }
