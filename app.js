@@ -24,8 +24,14 @@ app.use(newOrderRoutes)
 const adminMainRoutes = require('./routes/admin-main')
 app.use(adminMainRoutes)
 
-const customerQuestionRoutes = require('./routes/customer-question')
-app.use(customerQuestionRoutes)
+const adminQuestionsRoutes = require('./routes/admin-questions')
+app.use(adminQuestionsRoutes)
+
+const adminProductsRoutes = require('./routes/admin-products')
+app.use(adminProductsRoutes)
+
+const adminOrdersRoutes = require('./routes/admin-orders')
+app.use(adminOrdersRoutes)
 
 
 app.use('/', (req, res, next) =>{
