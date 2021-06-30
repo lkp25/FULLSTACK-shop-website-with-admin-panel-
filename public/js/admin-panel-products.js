@@ -232,9 +232,7 @@ async function sendUpdatedProductListToDB(allProducts){
           
             
           })
-        // const responseFromServer = await sendData
-        // console.log(responseFromServer);
-        
+              
     } catch (error) {
         console.log(error);
     }
@@ -245,10 +243,18 @@ async function sendUpdatedProductListToDB(allProducts){
 document.addEventListener('click', e=>{
     if(e.target.classList.contains('dropdown-btn')){
         
-        showOrHideTheSection(e.target.parentElement.nextElementSibling)
+        showOrHideTheSection(e.target)
     }
 })
 
-function showOrHideTheSection(currentSection){
-    console.log(currentSection);
+function showOrHideTheSection(clickedButton){
+    const currentSection = clickedButton.parentElement.nextElementSibling
+    if(currentSection.style.display !== 'block'){
+        currentSection.style.display = 'block'
+        clickedButton.textContent = '-'
+        return
+    }
+    currentSection.style.display = null
+    clickedButton.textContent = '+'
+
 }

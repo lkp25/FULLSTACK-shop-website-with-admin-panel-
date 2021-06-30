@@ -104,7 +104,12 @@ button:disabled, input:disabled{
 section{
     padding-bottom: 2rem;
     padding-top: 0.6rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    margin: 0.5rem 0;
     border-top: var(--main-border);
+    background-color: rgba(76, 83, 83, 0.699);
+    box-shadow: var(--main-shadow);
 }
 h1,h2,h3{
     color: rgb(126, 124, 115);
@@ -313,8 +318,22 @@ tr:nth-child(odd):not(:first-child){
     height: 30px;
     background-color: darkslategray;
     transition: 0.5s ease;
+    transform-origin: top left;
 }
 .dropdown-btn:hover{
     cursor: pointer;
-    transform: rotateZ(25deg);
+    transform: rotateZ(6deg) skew(-6deg) scaleY(1.2);
+
+}
+.show-or-hide-wrapper{
+    display: none;
+    animation: grow 1s ease-out both;
+    transform-origin: top;
+    transform: translateY(-50px) scaleY(0); 
+    opacity: 0;
+}
+@keyframes grow {
+    0%{transform: translateY(-50px) scaleY(0); opacity: 0;}
+    100%{transform: translateY(0px) scaleY(1); opacity: 1;}
+   
 }
