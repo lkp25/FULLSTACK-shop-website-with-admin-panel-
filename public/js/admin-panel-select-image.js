@@ -2,9 +2,12 @@ const selectImgModal = document.querySelector('.select-image-modal-overlay')
 const imagesListElement = document.querySelector('.images-list')
 const imagePreview = document.querySelector('.selected-img-preview img')
 const imageNameLabel = document.querySelector('.selected-img-name')
+const confirmButton = document.querySelector('.select-image-modal-confirm-btn')
 
 hideImageChooseModal()
 
+//global variable to store most recently clicked input field - one to be changed
+let currentImgInputField = ''
 
 //:: click events ::
 document.addEventListener('click', e=>{
@@ -18,7 +21,7 @@ document.addEventListener('click', e=>{
         return
     }
     const currentImgFileName = e.target.value
-    
+    currentImgInputField = e.target
     showImageChooseModal(currentImgFileName)    
     getImageFilesList()
   }
@@ -29,11 +32,13 @@ document.addEventListener('click', e=>{
   }
   //CONFIRM BUTTON
   if(e.target.classList.contains('select-image-modal-confirm-btn')){
+    currentImgInputField.value = e.target.dataset.filename
     hideImageChooseModal()
   }
   //SELECT FILE FROM LIST
   if(e.target.classList.contains('select-image-list-item')){
     const fileName = e.target.dataset.filename;
+    confirmButton.dataset.filename = fileName
     imagePreview.setAttribute('src', `./img/img-large/${fileName}`)
     imageNameLabel.textContent = fileName
   }
@@ -49,6 +54,8 @@ function showImageChooseModal(currentImgName){
 function hideImageChooseModal(){
   selectImgModal.style.display = 'none'
 }
+
+
 
 async function getImageFilesList(){
     const request = await fetch('http://localhost:5000/list-of-image-files')
@@ -68,5 +75,3 @@ async function getImageFilesList(){
     })
 
 }
-
-// template.querySelector('img').setAttribute('src', `./img/img-large/${product.image}`)
