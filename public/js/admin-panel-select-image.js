@@ -1,7 +1,12 @@
 const selectImgModal = document.querySelector('.select-image-modal-overlay')
 const imagesListElement = document.querySelector('.images-list')
+const imagePreview = document.querySelector('.selected-img-preview img')
+const imageNameLabel = document.querySelector('.selected-img-name')
+
 hideImageChooseModal()
 
+
+//:: click events ::
 document.addEventListener('click', e=>{
     if(
     e.target.parentElement.classList.contains('add-item-img')
@@ -12,10 +17,12 @@ document.addEventListener('click', e=>{
     if(e.target.disabled){
         return
     }
-    showImageChooseModal()
+    const currentImgFileName = e.target.value
+    
+    showImageChooseModal(currentImgFileName)    
     getImageFilesList()
-
   }
+
   //CLOSE MODAL - overlay clicked
   if(e.target.classList.contains('select-image-modal-overlay')){
     hideImageChooseModal()
@@ -24,12 +31,20 @@ document.addEventListener('click', e=>{
   if(e.target.classList.contains('select-image-modal-confirm-btn')){
     hideImageChooseModal()
   }
+  //SELECT FILE FROM LIST
+  if(e.target.classList.contains('select-image-list-item')){
+    const fileName = e.target.dataset.filename;
+    imagePreview.setAttribute('src', `./img/img-large/${fileName}`)
+    imageNameLabel.textContent = fileName
+  }
+
 })
 
 
-function showImageChooseModal(){
+function showImageChooseModal(currentImgName){
   selectImgModal.style.display = null
-    
+  imagePreview.setAttribute('src', `./img/img-large/${currentImgName}`)
+  imageNameLabel.textContent = currentImgName
 }
 function hideImageChooseModal(){
   selectImgModal.style.display = 'none'
@@ -37,13 +52,15 @@ function hideImageChooseModal(){
 
 async function getImageFilesList(){
     const request = await fetch('http://localhost:5000/list-of-image-files')
-    const imagesList = await request.json()
+    const imagesOnServerList = await request.json()
     
     // remove all old images
     Array.from(imagesListElement.children).forEach(child => child.remove() )
      
-    imagesList.forEach(item => {
+    //populate list with data from server
+    imagesOnServerList.forEach(item => {
       const listElement = document.createElement('li')
+      listElement.classList.add('select-image-list-item')
       listElement.textContent = item
       listElement.dataset.filename = item
 
