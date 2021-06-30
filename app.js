@@ -21,8 +21,8 @@ app.use(publicRoutes)
 const newOrderRoutes = require('./routes/new-order-data')
 app.use(newOrderRoutes)
 
-const adminRoutes = require('./routes/admin')
-app.use(adminRoutes)
+const adminMainRoutes = require('./routes/admin-main')
+app.use(adminMainRoutes)
 
 const customerQuestionRoutes = require('./routes/customer-question')
 app.use(customerQuestionRoutes)

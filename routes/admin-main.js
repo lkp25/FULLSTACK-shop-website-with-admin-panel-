@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 const express = require('express');
 
@@ -65,6 +66,8 @@ router.post('/upload-images', (req, res, next)=>{
   console.log(req.body);
   // writeFile(`public/products-json/products.json`, JSON.stringify(req.body), err =>  console.log(err))
   res.status(201).send('files received')
+
+  
 })
 
 

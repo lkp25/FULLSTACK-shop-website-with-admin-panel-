@@ -3,9 +3,11 @@ const dropZoneElement = imgInput.closest('.img-filedrop-section')
 const uploadButton = dropZoneElement.querySelector('.img-filedrop-add-btn')
 const clearAllButton = dropZoneElement.querySelector('.img-filedrop-clear-all')
 
+
+
 dropZoneElement.addEventListener('click', e=>{
-    //block the event from occuring when buttons inside dropzone are clicked
-    if(e.target !== e.currentTarget){
+    //block the event from occuring when buttons inside dropzone are clicked    
+    if(e.target.localName === 'button'){
         return
     }
     imgInput.disabled = false
@@ -149,3 +151,6 @@ dropZoneElement.addEventListener('click', e=>{
        }).catch(console.error)
     }
 })
+
+
+//SELECTING IMG FIELD in the form - limited choice of images
