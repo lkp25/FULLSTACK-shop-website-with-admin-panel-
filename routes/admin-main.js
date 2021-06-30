@@ -36,12 +36,7 @@ router.get('/admin-questions', (req, res, next) =>{
   res.sendFile(path.join(rootDir, 'views', 'admin-panel-questions.html'))
 
 
-  fs.readdir('public/img/img-large', (err, files)=>{
-    if(err){
-      console.log(err.message);
-    }
-    console.log(files);
-  })
+  
 })
 
 module.exports = router

@@ -27,20 +27,24 @@ sqlConnection.connect(function(err) {
 router.post('/update-products-in-offer', (req, res, next)=>{
     writeFile(`public/products-json/products.json`, JSON.stringify(req.body), err =>  console.log(err))
     res.status(201).send(req.body)
-  })
+})
   router.post('/upload-images', (req, res, next)=>{
     console.log(req.body);
     // writeFile(`public/products-json/products.json`, JSON.stringify(req.body), err =>  console.log(err))
     res.status(201).send('files received')
   
     
+})
+router.get('/list-of-image-files', (req, res, next)=>{
+  
+  fs.readdir('public/img/img-large', (err, files)=>{
+    if(err){
+      console.log(err.message);
+    }
+    console.log(files);
+    res.status(201).send(files)
   })
-
+})
   module.exports = router
 
-  // fs.readdir('public/img/img-large', (err, files)=>{
-  //   if(err){
-  //     console.log(err.message);
-  //   }
-  //   console.log(files);
-  // })
+  
