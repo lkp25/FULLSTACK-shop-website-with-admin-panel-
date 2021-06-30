@@ -29,6 +29,7 @@ document.addEventListener('click', e=>{
   //CLOSE MODAL - overlay clicked
   if(e.target.classList.contains('select-image-modal-overlay')){
     hideImageChooseModal()
+    
   }
   //CONFIRM BUTTON
   if(e.target.classList.contains('select-image-modal-confirm-btn')){
@@ -48,11 +49,16 @@ document.addEventListener('click', e=>{
 
 function showImageChooseModal(currentImgName){
   selectImgModal.style.display = null
+  selectImgModal.style.top = window.scrollY + 'px'
+
+
   imagePreview.setAttribute('src', `./img/img-large/${currentImgName}`)
   imageNameLabel.textContent = currentImgName
+  document.body.style.overflow = 'hidden'
 }
 function hideImageChooseModal(){
   selectImgModal.style.display = 'none'
+  document.body.style.overflow = 'visible'
 }
 
 
