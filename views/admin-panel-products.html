@@ -7,8 +7,10 @@
     <title>ADMIN PANEL - products</title>
     <link rel="stylesheet" href="/css/admin-panel.css">
     <link rel="stylesheet" href="/css/admin-panel-add-images.css">
+    <link rel="stylesheet" href="/css/admin-panel-select-image.css">
   <script src="./js/admin-panel-products.js" defer></script>
   <script src="./js/admin-panel-add-images.js" defer></script>
+  <script src="./js/admin-panel-select-image.js" defer></script>
 </head>
 <body>
     <header>
@@ -126,5 +128,49 @@
 
     </main>
     
+    <div class="select-image-modal-overlay confirmation-window-container">
+        <div class="select-image-modal-card">
+            <article class="select-image-modal-main">
+
+                <section class="select-image-modal-choose-list">
+                    <p>Choose file from List:</p>
+                    <div style="position: relative;">
+                        <button class="img-select-btn">Select image...</button>
+                        <ul class="x">
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                            <li>dgfsdgsd</li>
+                        </ul>
+                    </div>
+                    
+                        
+                    
+                </section>
+
+
+                <section class="select-image-modal-preview">
+                    <p>preview:</p><br>
+                    <div class="selected-img-preview">
+                        <img  src="./img/img-large/black.png" alt="">
+                    </div>
+                    <span  class="selected-img-name">black.png</span>
+                </section>
+
+            </article>
+            <button class="select-image-modal-confirm-btn">Confirm</button>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -5,6 +5,7 @@
     --main-shadow: 3px 3px 5px black;
     --main-border: 2px solid rgb(56, 9, 18);
     --tick: 0;
+    --body-color: rgb(58, 66, 66);
 }
 *{
     box-sizing: border-box;
@@ -12,7 +13,7 @@
 }
 /* generic styles */
 body{
-    background-color: rgb(58, 66, 66);
+    background-color: var(--body-color);
     color: var(--main-text-color);
 }
 header{
@@ -304,6 +305,11 @@ tr:nth-child(odd):not(:first-child){
 .in-cents{
     font-size: 0.8rem;
 }
+
+
+
+
+
 
 .dropdown-btn{
     display: inline-block;

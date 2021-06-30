@@ -35,13 +35,14 @@ router.post('/update-products-in-offer', (req, res, next)=>{
   
     
 })
+//send the list of all img-file names
 router.get('/list-of-image-files', (req, res, next)=>{
   
   fs.readdir('public/img/img-large', (err, files)=>{
     if(err){
       console.log(err.message);
     }
-    console.log(files);
+    
     res.status(201).send(files)
   })
 })

@@ -242,10 +242,10 @@ async function sendUpdatedProductListToDB(allProducts){
 //dropdown buttons for sections - minimize/show add product and add image sections:
 document.addEventListener('click', e=>{
     if(e.target.classList.contains('dropdown-btn')){
-        getImageFilesList()
         
         showOrHideTheSection(e.target)
     }
+    
 })
 
 function showOrHideTheSection(clickedButton){
@@ -260,8 +260,3 @@ function showOrHideTheSection(clickedButton){
 
 }
 
-async function getImageFilesList(){
-    const request = await fetch('http://localhost:5000/list-of-image-files')
-    const imagesList = await request.json()
-    console.log(imagesList);
-}
