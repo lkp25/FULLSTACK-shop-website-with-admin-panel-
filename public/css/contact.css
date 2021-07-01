@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
+    gap: 0.2rem
 }
 button,input, textarea{
     width: clamp(300px, 40%, 500px);
@@ -9,7 +10,16 @@ button,input, textarea{
     padding: 0.3rem;
 }
 
-input{
-    padding: 0.3rem;
-    margin-bottom: 0.2rem;
-}
+input:focus {
+    outline: 1px solid crimson;
+  }
+  input::placeholder, textarea::placeholder {
+    
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  input:focus::placeholder, textarea:focus::placeholder {
+    color: blue;
+    transform: translateX(-100%);
+    /* transform: translateY(-30px); */
+    opacity: .5;
+  }
