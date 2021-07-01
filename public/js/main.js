@@ -3,6 +3,8 @@ const navLinks = document.querySelector('.nav-links')
 const nav = document.querySelector('nav')
 const currentYear = document.querySelector('.date')
 
+//animate body
+
 //date in footer
 const date = new Date()
 currentYear.innerText = date.getFullYear()
