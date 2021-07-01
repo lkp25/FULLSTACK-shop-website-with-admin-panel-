@@ -15,9 +15,10 @@ button,input, textarea{
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
     font-size: 1rem;
     transform: translateZ(25px);
-    background-color: rgba(161, 226, 194, 0.514);
+    background-color: rgb(135, 167, 151);
     border-radius: 5px;
     border: 1px solid gray;
+    letter-spacing: 0.06rem;
 }
 .customer-message-chars-left{
     transform: translateZ(30px);
@@ -32,15 +33,15 @@ button,input, textarea{
     font-size: 1.3rem;
 }
 
-input:focus {
+input:focus textarea:focus{
     outline: 1px solid rgb(240, 228, 230);
   }
-  input::placeholder, textarea::placeholder {
+input::placeholder, textarea::placeholder {
     
     transition: opacity 1s ease, transform 1s ease;
   }
   input:focus::placeholder, textarea:focus::placeholder {
-    color: blue;
+    color: rgb(63, 63, 73);
     transform: translateX(-100%);
     /* transform: translateY(-30px); */
     opacity: .5;
@@ -58,7 +59,8 @@ input:focus {
     width: 100vw;
     height: 90%;
     margin: 0 auto;
-    transform: translateZ(50px);
+    transform: translateZ(100px);
+    z-index: 10;
 }
 
 .box{

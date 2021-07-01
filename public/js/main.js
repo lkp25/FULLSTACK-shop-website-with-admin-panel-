@@ -4,7 +4,11 @@ const nav = document.querySelector('nav')
 const currentYear = document.querySelector('.date')
 
 //animate body
-
+setTimeout(() => {
+    
+    document.body.classList.add('body-fade-in')
+    
+}, 150);
 //date in footer
 const date = new Date()
 currentYear.innerText = date.getFullYear()
