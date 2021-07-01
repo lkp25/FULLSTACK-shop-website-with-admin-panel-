@@ -201,9 +201,9 @@ h2{
     100%{opacity: 1;}
 }
 
-/* deleteproducts button */
+/* DELETE PRODUCT and ADD ITEM buttons styling! */
 
-.delete-product-btn{
+.delete-product-btn, .add-item-btn{
     background: url(../img/icons/trash-alt.svg)  center/contain no-repeat;
     background-size: 60%;
     height: 2rem;
@@ -212,15 +212,15 @@ h2{
     position: relative;
     transition: 0.3s;
 }
-.delete-product-btn::after{
+.delete-product-btn::after, .add-item-btn::after{
     content: "delete product ";
+    background-color: rgb(93, 11, 28);
     position: absolute;
     justify-content: center;
     align-content: center;
     top:0%;
     left: 0px;
     font-size: 0.9rem;
-    background-color: rgb(93, 11, 28);
     padding: 0.3rem 0;
     transform: translateX(0px);
     max-height: 30px;
@@ -232,15 +232,23 @@ h2{
 .delete-product-btn:hover{
     background-color: rgb(93, 11, 28);
 }
-.delete-product-btn:hover::after{
+.delete-product-btn:hover::after, .add-item-btn:hover::after{
     opacity: 1;
     transform: translateX(-105px);
 }
 
-
-
-
-
+.add-item-btn{
+    background: url(../img/icons/calendar-plus.svg)  center/contain no-repeat;
+    background-size: 55%;
+}
+.add-item-btn:hover{
+    
+    background-color: rgb(44, 90, 15);
+}
+.add-item-btn::after{
+    content: "add new item";
+    background-color: rgb(44, 90, 15);
+}
 
 /*  */
 /*  */
