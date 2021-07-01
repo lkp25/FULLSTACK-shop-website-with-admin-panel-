@@ -113,9 +113,18 @@ section{
     box-shadow: var(--main-shadow);
 }
 .current-items-section{
-
+    overflow: hidden;
     overflow-x: scroll;
+    margin: 0 auto;
+    place-items: center;
+    padding: 1rem;
 }
+@media only screen and (min-width: 950px) {
+    .current-items-section{    
+    overflow-x: hidden;
+    }
+}
+
 h1,h2,h3{
     color: rgb(126, 124, 115);
     margin-bottom: 2rem;
@@ -200,9 +209,32 @@ h2{
     height: 2rem;
     padding: 0.3rem;
     width: 2rem;
+    position: relative;
+    transition: 0.3s;
+}
+.delete-product-btn::after{
+    content: "delete product ";
+    position: absolute;
+    justify-content: center;
+    align-content: center;
+    top:0%;
+    left: 0px;
+    font-size: 0.9rem;
+    background-color: rgb(93, 11, 28);
+    padding: 0.3rem 0;
+    transform: translateX(0px);
+    max-height: 30px;
+    transition: 0.3s;
+    opacity: 0;
+    width: 100px;
+    border: 1px solid darkgoldenrod ;
 }
 .delete-product-btn:hover{
     background-color: rgb(93, 11, 28);
+}
+.delete-product-btn:hover::after{
+    opacity: 1;
+    transform: translateX(-105px);
 }
 
 
