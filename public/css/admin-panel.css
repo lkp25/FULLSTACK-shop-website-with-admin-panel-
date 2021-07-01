@@ -169,9 +169,24 @@ h2{
     font-size: 2rem;
     color: darkkhaki;
     z-index: 10;
+    /* opacity: 0; */
+}
+.fade-in-modal{
+    animation: fadein 1s forwards;
 }
 
-
+.fade-away-modal{
+    animation: fadeaway 1s forwards;
+   
+}
+@keyframes fadeaway {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@keyframes fadein {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 
 
 

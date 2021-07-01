@@ -29,7 +29,7 @@ router.post('/update-products-in-offer', (req, res, next)=>{
     res.status(201).send(req.body)
 })
   router.post('/upload-images', (req, res, next)=>{
-    console.log(req.body);
+    console.log(req.files);
     // writeFile(`public/products-json/products.json`, JSON.stringify(req.body), err =>  console.log(err))
     res.status(201).send('files received')
   

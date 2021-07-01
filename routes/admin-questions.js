@@ -32,6 +32,7 @@ router.post('/new-customer-question', async (req, res, next) =>{
 
     
 })
+//admin panel delete question
 router.get('/delete-question', async (req, res, next) =>{
   console.log(req.query);
 

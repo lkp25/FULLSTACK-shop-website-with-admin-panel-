@@ -1,4 +1,15 @@
 #customer-message-form{
     display: grid;
     grid-template-columns: 1fr;
+    place-items: center;
+}
+button,input, textarea{
+    width: clamp(300px, 40%, 500px);
+    
+    padding: 0.3rem;
+}
+
+input{
+    padding: 0.3rem;
+    margin-bottom: 0.2rem;
 }
