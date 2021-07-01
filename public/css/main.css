@@ -41,7 +41,8 @@ nav{
     padding: 0.3rem;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
-
+    background-size: 200%;
+    animation: background-move 3s ease-in-out infinite;
 }
 
 /* links list */
@@ -169,9 +170,16 @@ nav{
   */
 
 main{
-    background-color: rgb(238, 225, 238);
+    background: linear-gradient(90deg, rgba(7, 20, 92, 0.445), rgba(15, 116, 74, 0.377));
     min-height: 70vh;
     padding: 1rem;
+    /* background-size: 200%;
+    animation: background-move 20s ease-in-out infinite; */
+}
+@keyframes background-move{
+    0%{background-position:0% 0%}
+  50%{background-position:100% 100%}
+  100%{background-position:0% 0%}
 }
 
 
