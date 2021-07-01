@@ -53,3 +53,16 @@ async function sendCustomerQuestionToServer(newQuestion){
         console.log(responseFromServer);
 
 }
+
+
+//form card animation
+const container = document.querySelector('.container')
+const box = document.querySelector('.box')
+
+container.addEventListener('mousemove', (e) => {
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 20
+    
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 20
+    
+    box.style.transform = `rotateX(${yAxis}deg) rotateY(${xAxis}deg)`
+})

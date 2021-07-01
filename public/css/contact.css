@@ -4,10 +4,21 @@
     place-items: center;
     gap: 0.2rem
 }
+*{
+    transform-style: preserve-3d;
+}
 button,input, textarea{
     width: clamp(300px, 40%, 500px);
     
     padding: 0.3rem;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
+    
+    transform: translateZ(30px);
+    
+}
+.customer-message-chars-left{
+    transform: translateZ(30px);
+
 }
 
 input:focus {
@@ -22,4 +33,33 @@ input:focus {
     transform: translateX(-100%);
     /* transform: translateY(-30px); */
     opacity: .5;
+    
   }
+
+  .container{
+
+    transform-style: preserve-3d;
+    place-self: center;
+    display: grid;
+    place-items: center;
+    padding: 5rem;
+    width: 100vw;
+    height: 100%;
+    margin: 0 auto;
+    transform: translateZ(50px);
+}
+
+.box{
+    
+    place-self: center;
+    
+    width: 350px;
+    background: linear-gradient(120deg, #035a285d 0%, #1034694d 100%);
+    border-radius: 2%/20%;
+    box-sizing: border-box;
+    padding:2rem 3rem;
+    outline: 1px solid blanchedalmond;
+    outline-offset: -0.84rem;
+    
+    box-shadow: 0 5px 10px 5px rgba(101, 16, 109, 0.411);
+}
