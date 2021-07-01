@@ -8,7 +8,9 @@ svg{
     pointer-events: none;
 }
 
-
+h1, h2, p{
+    color:rgb(54, 54, 54);
+}
 
  /* 
   NAVBAR
@@ -89,6 +91,7 @@ nav{
     position: absolute;
     right: 5%;
     top: 1rem;
+    transition: 0.3s;
 
     
 }
@@ -105,6 +108,11 @@ nav{
     top:1rem;
     margin-left: 0.5rem;
     cursor: pointer; 
+    transition: 0.3s;
+}
+.menu-icon:hover,.cart-icon:hover{
+    transform: scale(1.1);
+    border-radius: 6px;
 }
 .cart-icon-shake{
     animation: shake 1s ease forwards;
