@@ -25,6 +25,7 @@ txtArea.addEventListener('input', function(e){
     rem.style.color = color
     
 })
+document.body.style.overflowX = 'hidden'
 
 contactForm.addEventListener('submit', (e)=>{
     e.preventDefault()

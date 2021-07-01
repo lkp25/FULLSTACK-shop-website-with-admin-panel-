@@ -7,14 +7,17 @@
 *{
     transform-style: preserve-3d;
 }
+
 button,input, textarea{
     width: clamp(300px, 40%, 500px);
-    
+    color: rgb(245, 245, 245);
     padding: 0.3rem;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
-    
+    font-size: 1rem;
     transform: translateZ(25px);
-    
+    background-color: rgba(161, 226, 194, 0.514);
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 .customer-message-chars-left{
     transform: translateZ(30px);
@@ -30,7 +33,7 @@ button,input, textarea{
 }
 
 input:focus {
-    outline: 1px solid crimson;
+    outline: 1px solid rgb(240, 228, 230);
   }
   input::placeholder, textarea::placeholder {
     
@@ -45,14 +48,15 @@ input:focus {
   }
 
   .container{
-
+    /* margin-top: 80px; */
     transform-style: preserve-3d;
     place-self: center;
     display: grid;
     place-items: center;
     padding: 5rem;
+    /* padding-top: 10rem; */
     width: 100vw;
-    height: 100%;
+    height: 90%;
     margin: 0 auto;
     transform: translateZ(50px);
 }
@@ -70,4 +74,25 @@ input:focus {
     outline-offset: -0.84rem;
     
     box-shadow: 0 5px 10px 5px rgba(101, 16, 109, 0.411);
+}
+button{
+    background: linear-gradient(60deg, rgba(108, 116, 161, 0.541), rgba(69, 184, 136, 0.466));
+    border-radius: 5px;
+    color: blanchedalmond;
+    letter-spacing: 0.1rem;
+    transition: 0.3s ease;
+}
+button:hover{
+    cursor: pointer;
+    transform: scaleY(1.2);
+    background: linear-gradient(60deg, rgba(200, 203, 221, 0.541), rgba(121, 184, 157, 0.466));
+    
+}
+button:active{
+    transform: scale(0.9);
+
+}
+.intro-text-container{
+    position: absolute;
+    top: 10px
 }
