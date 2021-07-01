@@ -9,6 +9,15 @@ setTimeout(() => {
     document.body.classList.add('body-fade-in')
     
 }, 150);
+
+window.onbeforeunload = function() {
+    myfun()
+    alert('Bye.');
+}
+function myfun(){
+    // Write your business logic here
+    console.log('hello');
+}
 //date in footer
 const date = new Date()
 currentYear.innerText = date.getFullYear()

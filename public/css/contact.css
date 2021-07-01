@@ -41,7 +41,7 @@ input::placeholder, textarea::placeholder {
     transition: opacity 1s ease, transform 1s ease;
   }
   input:focus::placeholder, textarea:focus::placeholder {
-    color: rgb(63, 63, 73);
+    color: rgb(47, 47, 54);
     transform: translateX(-100%);
     /* transform: translateY(-30px); */
     opacity: .5;

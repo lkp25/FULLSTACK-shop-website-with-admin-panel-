@@ -112,6 +112,10 @@ section{
     background-color: rgba(76, 83, 83, 0.699);
     box-shadow: var(--main-shadow);
 }
+.current-items-section{
+
+    overflow-x: scroll;
+}
 h1,h2,h3{
     color: rgb(126, 124, 115);
     margin-bottom: 2rem;
@@ -188,8 +192,18 @@ h2{
     100%{opacity: 1;}
 }
 
+/* deleteproducts button */
 
-
+.delete-product-btn{
+    background: url(../img/icons/trash-alt.svg)  center/contain no-repeat;
+    background-size: 60%;
+    height: 2rem;
+    padding: 0.3rem;
+    width: 2rem;
+}
+.delete-product-btn:hover{
+    background-color: rgb(93, 11, 28);
+}
 
 
 
@@ -323,6 +337,8 @@ tr:nth-child(odd):not(:first-child){
 .in-cents{
     font-size: 0.8rem;
 }
+
+
 
 
 
