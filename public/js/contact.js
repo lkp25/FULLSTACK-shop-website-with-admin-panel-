@@ -20,9 +20,9 @@ txtArea.addEventListener('input', function(e){
   }
   rem.textContent = remaining
 
-  const color = remaining < MAX_CHARS * 0.1 ? 'red' : null  //if not less than 10% of max, fallback to default
+  const color = remaining < MAX_CHARS * 0.1 ? 'rgb(160, 12, 12)' : null  //if not less than 10% of max, fallback to default
   
-    rem.parentElement.style.color = color
+    rem.style.color = color
     
 })
 

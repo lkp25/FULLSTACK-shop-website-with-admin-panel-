@@ -13,12 +13,20 @@ button,input, textarea{
     padding: 0.3rem;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
     
-    transform: translateZ(30px);
+    transform: translateZ(25px);
     
 }
 .customer-message-chars-left{
     transform: translateZ(30px);
-
+    place-self: start;
+    color: rgb(238, 223, 223);
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+}
+.customer-message-chars-left span{
+  transition: 0.3s;
+    color: white;
+    font-size: 1.3rem;
 }
 
 input:focus {
