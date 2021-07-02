@@ -221,8 +221,16 @@ function addNewItem(){
         return
     }
 
-    //not all filled - show empty fields to the user 
-    allInputs.forEach(field => field.placeholder ="REQUIRED!")
+    //not all filled - show empty fields to the user with red border
+    allInputs.forEach(field => {
+        if(!field.value){
+            field.placeholder ="REQUIRED!"
+            field.style.border = "1px solid crimson"
+            setTimeout(() => {
+                field.style.border = "NONE"
+            }, 2000);
+        }
+    })
 }
 
 

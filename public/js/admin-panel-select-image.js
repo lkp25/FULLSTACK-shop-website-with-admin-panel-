@@ -65,8 +65,10 @@ function showImageChooseModal(currentImgName){
   selectImgModal.style.display = null
   selectImgModal.style.top = window.scrollY + 'px'
   selectImgModal.classList.remove('fade-away-modal')
-  
-  imagePreview.setAttribute('src', `./img/img-large/${currentImgName}`)
+  if(currentImgName){
+    imagePreview.setAttribute('src', `./img/img-large/${currentImgName}`)
+
+  }
   imageNameLabel.textContent = currentImgName
   document.body.style.overflow = 'hidden'
 }
