@@ -70,11 +70,16 @@ td, tr, th{
 td{
     max-height: 300px;
 }
+.delete-product, .add-item{
+    width: 32px;
+}
+
 .wide{
-    width: 45vw;
+    width: clamp(100px, 100vw, 100%);
 }
 .wide input{
-    width: 45vw;
+    
+    width: clamp(100px, 100vw, 100%);
     
 }
 
@@ -112,14 +117,14 @@ section{
     background-color: rgba(76, 83, 83, 0.699);
     box-shadow: var(--main-shadow);
 }
-.current-items-section{
+.current-items-section, .add-product-section{
     overflow: hidden;
     overflow-x: scroll;
     margin: 0 auto;
     place-items: center;
     padding: 1rem;
 }
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 620px) {
     .current-items-section{    
     overflow-x: hidden;
     }
