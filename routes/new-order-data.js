@@ -19,21 +19,19 @@ sqlConnection.connect(function(err) {
 });
 
 router.post('/save-order', async (req, res, next) =>{
-       
-    //headers first!!
-    // res.header({"Content-Type": "application/json"})
+           
     const requestBody = await req.body
     
     //echo back the request + send response message
-    res.json({
-        requestBody: req.body,
-        responseMessage: 'your order was successfuly created'
-    })
+   
     //save order in the database
     sqlConnection.query(`INSERT INTO orders(orderData) VALUES('${JSON.stringify(requestBody)}')`, function (err, result, fields) {
         if (err) throw err;
         console.log(result);
-        res.send(result)
+        res.send({
+          requestBody: req.body,
+          responseMessage: 'your order was successfuly created'
+      })
       });
     
     //write new file for order to JSONdatabase 

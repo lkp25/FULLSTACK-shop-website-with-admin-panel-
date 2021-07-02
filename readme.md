@@ -1,8 +1,8 @@
 Still to do:
 -order placed successfully confirmation pop-up
-
 -send email to customer to confirm order
 -login logic
+-sort orders by date logic....
 
 -some more advanced UI graphics with gradients, maybe new animations
 -fancy up the homepage!
