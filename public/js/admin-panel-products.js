@@ -218,6 +218,8 @@ function addNewItem(){
         allInputs.forEach(field => field.value ='')
         allInputs.forEach(field => field.placeholder ="")
 
+        //display success message
+        newProductAddedMessage()
         return
     }
 
@@ -233,6 +235,15 @@ function addNewItem(){
     })
 }
 
+function newProductAddedMessage(){
+    const message = document.createElement('div')
+    message.textContent = "Product saved in memory. Click 'SAVE CHANGES' to send it to server."
+    message.classList.add('product-successfully-added')
+    addNewProductTable.appendChild(message)
+    setTimeout(() => {
+        message.remove()
+    }, 4000);
+}
 
 async function sendUpdatedProductListToDB(allProducts){
     try {

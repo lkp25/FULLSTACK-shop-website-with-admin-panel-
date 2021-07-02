@@ -1,7 +1,4 @@
 Still to do:
--after adding new product, display confirmation for success to the user!!!
--prompt the user to CLICK SAVE button if he wants to add this new product.
--display confirmation when file was uploaded successfully and delete file from view.
 -order placed successfully confirmation pop-up
 
 -send email to customer to confirm order
