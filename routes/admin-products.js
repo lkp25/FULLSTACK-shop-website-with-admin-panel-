@@ -1,7 +1,17 @@
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer')
-const upload = multer({ dest: 'uploads/' });
+const storage = multer.diskStorage({
+  destination: (req, file, cb)=> {
+    cb(null, "uploads")
+  },
+  filename: (req, file, cb)=> {
+    const {originalname} = file
+    cb(null, originalname)
+  }
+})
+
+const upload = multer({ storage });
 
 const express = require('express');
 
