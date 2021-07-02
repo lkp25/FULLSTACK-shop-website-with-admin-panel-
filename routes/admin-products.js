@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' });
 
 const express = require('express');
 
@@ -23,12 +25,14 @@ sqlConnection.connect(function(err) {
 });
 
 
+
 ////////ROUTES FROM PRODUCTS TAB////////
 router.post('/update-products-in-offer', (req, res, next)=>{
     writeFile(`public/products-json/products.json`, JSON.stringify(req.body), err =>  console.log(err))
     res.status(201).send(req.body)
 })
-  router.post('/upload-images', (req, res, next)=>{
+
+router.post('/upload-images', upload.any(), (req, res, next)=>{
     console.log(req.files);
     // writeFile(`public/products-json/products.json`, JSON.stringify(req.body), err =>  console.log(err))
     res.status(201).send('files received')

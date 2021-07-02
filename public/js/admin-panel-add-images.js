@@ -137,7 +137,6 @@ dropZoneElement.addEventListener('click', e=>{
     if(e.target.classList.contains('img-filedrop-add-btn')){
        const formData = new FormData()
        
-    //    console.log(imgInput.files);
        for(const file of imgInput.files){
            formData.append('myFiles',file)
        }
@@ -145,9 +144,11 @@ dropZoneElement.addEventListener('click', e=>{
            console.log(`key: ${key}`);
            console.log(`value: ${value}`);
        }
+       console.log(formData);
        fetch('http://localhost:5000/upload-images', {
-           method: 'post',
-           body: formData
+           method: 'POST',
+           body: formData,
+           "content-type": "multipart/form-data"
        }).catch(console.error)
     }
 })
