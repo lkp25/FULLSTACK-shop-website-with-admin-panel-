@@ -57,7 +57,7 @@ function clearOrdersFromView(){
 
 function sortAllOrdersBy(sortQuery = 'date'){
     if (sortQuery === 'date') {
-        allOrders.sort((a, b) => (b.id).toString().localeCompare((a.id.toString())))
+        allOrders.sort((a, b) => b.id - a.id)
     }
     if (sortQuery === 'value') {
         allOrders.sort((a, b) => (b.orderData.totalToPay).toString().localeCompare((a.orderData.totalToPay.toString())))
