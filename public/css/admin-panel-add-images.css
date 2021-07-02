@@ -12,6 +12,7 @@
     animation: fadeIn 1s forwards;
     margin: 0;
     padding: 0.3rem;
+    overflow: hidden;
 }
 .img-filedrop-section:hover{
     cursor: pointer;
@@ -23,6 +24,7 @@
       to { opacity: 1; }
 }
 .img-filedrop-container{
+    position: relative;
     width: 90%;
     height: 98%;
     margin: 0 auto;
@@ -61,4 +63,27 @@ display: none;
 }
 .img-filedrop-clear-all{
     place-self: end;
+}
+
+.wrong-file-error, .files-successfully-added{
+    font-size: 2rem;
+    width: 100%;    
+    position: absolute;
+    color: rgb(107, 0, 0);
+    font-weight: bold;
+}
+.files-successfully-added{
+    color: rgb(2, 75, 2);
+
+}
+.file-disappear-animation{
+    transition: 1.5s;
+    opacity: 0;
+    
+   animation: fileupload 1.5s ease-out forwards;
+}
+@keyframes fileupload {
+    from {transform: translateX(0) rotateZ(0) scale(1);}
+    to {transform: translateX(600px) rotateZ(1080deg) scale(0.3);}
+   
 }

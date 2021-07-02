@@ -76,8 +76,8 @@ function updateThumbnail(dropZoneElement, files){
         imgInput.value = null
 
         const  wrongFileMessage = document.createElement('div')
-        wrongFileMessage.textContent = "one or more files uploaded is not an image. File list was cleared. Please add only image files!"
-        wrongFileMessage.style.color = 'red'
+        wrongFileMessage.classList.add('wrong-file-error')
+        wrongFileMessage.textContent = "one or more files uploaded is not an image. Please add only image files!"
         
         dropZoneElement.appendChild(wrongFileMessage)
         setTimeout(() => {
@@ -149,9 +149,28 @@ dropZoneElement.addEventListener('click', e=>{
            method: 'POST',
            body: formData,
            "content-type": "multipart/form-data"
-       }).catch(console.error)
+       })
+       .then(()=>{
+           //no errors, show message to the user
+           hideUploadAndClearButtons()
+            const  uploadSuccessMessage = document.createElement('div')
+            uploadSuccessMessage.classList.add('files-successfully-added')
+            uploadSuccessMessage.textContent = "Success! File(s) saved on the server."
+            
+            dropZoneElement.appendChild(uploadSuccessMessage)
+            setTimeout(() => {
+                uploadSuccessMessage.remove()
+            }, 4500);
+            //animate the thumbnails disappearance
+            dropZoneElement.querySelectorAll('.img-filedrop-thumbnail')
+             .forEach(thumb =>{
+                 thumb.classList.add('file-disappear-animation')
+                 setTimeout(() => {
+                     thumb.remove()
+                 }, 1500);
+             })
+       })
+       .catch(console.error)
     }
 })
 
-
-//SELECTING IMG FIELD in the form - limited choice of images
