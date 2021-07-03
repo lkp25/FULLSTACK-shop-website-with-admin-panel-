@@ -119,11 +119,22 @@ cartIcon.addEventListener('click', ()=>{
     document.querySelector('nav').classList.add('hide-links')
     
     calculateTotalAmount()
-    cartContent.classList.toggle('show-cart')
+    if(cartContent.getBoundingClientRect().width > 0){
+        
+        cartContent.classList.add('hide-cart')
+        setTimeout(() => {
+            cartContent.classList.remove('hide-cart')
+            
+        }, 500);
+        cartContent.classList.remove('show-cart')
+
+        return
+    }
+    cartContent.classList.add('show-cart')
     
     //render items if cart is OPEN
     if(cartContent.classList.contains('show-cart')){
-
+        
         //CLEAR OLD VIEW of the cart
         document.querySelectorAll('.product-in-cart').forEach(p => p.remove())
         

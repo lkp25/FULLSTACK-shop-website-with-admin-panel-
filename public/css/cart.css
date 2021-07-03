@@ -31,10 +31,11 @@
       right: 0px;
       display: none;
       padding: 0.5rem;
-      z-index: 100;
+      z-index: 1000;
       border-radius:10% 0% 0% 15% / 0% 8% 23% 50%  ;
        transform: scale(1) rotateZ(-90deg);
        transform-origin: top right;
+       
     }
     .cart-content::after{
         content: '';
@@ -50,14 +51,15 @@
         display: grid;
         z-index: 100;
         transform-origin: top right;
-        animation: swing-forwards 0.5s ease-in-out 0.3s forwards;
+        animation: swing-forwards 0.5s ease-in-out 0.1s forwards;
     }
     .hide-cart{
+        transform: scale(1) rotateZ(0deg);
+        animation: swing-backwards 0.5s ease-in-out 0.1s forwards;
         display: grid;
-        z-index: 100;
-        transform-origin: top right;
-        animation: swing-backwards 0.5s ease-in-out 0.3s forwards;
+        
     }
+
     @keyframes swing-forwards {
         from {transform: scale(0) rotateZ(-90deg);}
         to {transform: scale(1) rotateZ(0deg);}

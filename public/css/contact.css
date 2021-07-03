@@ -59,7 +59,7 @@ input::placeholder, textarea::placeholder {
     width: 100vw;
     height: 90%;
     margin: 0 auto;
-    transform: translateZ(100px);
+    transform: translateZ(200px);
     z-index: 10;
 }
 
