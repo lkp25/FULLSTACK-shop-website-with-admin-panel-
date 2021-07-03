@@ -1,5 +1,8 @@
 const placeOrderBtn = document.querySelector('.place-order-btn')
+const orderNowBtn = document.querySelector('.order-now-btn')
+
 const orderModal = document.querySelector('.order-modal')
+const orderModalMainSection = document.querySelector('.order-modal-main-section')
 const orderTable = document.querySelector('#order-table')
 const orderForm = document.querySelector('.order-form')
 
@@ -86,9 +89,34 @@ orderModal.addEventListener('click', (e)=>{
     //order now logic
     if(e.target.classList.contains('order-now-btn')){
         e.preventDefault()
+
+        demandCustomerConfirmation(e)
         sendToserver()
     }
 })
+function demandCustomerConfirmation(e){
+    console.log(e);
+    const confirmWindow = document.createElement('div')
+    confirmWindow.innerHTML = 
+    `
+    <p>By clicking confirm button below you state that all the information is correct and you will be transfered to payment page.</p>
+    <div class="order-confirm-btns-grid">
+        <button class="order-confirm">Confirm</button>
+        <button class="order-deny">Deny</button>
+    </div>
+    `
+    orderModal.style.height = `${document.body.scrollHeight}px`
+    confirmWindow.classList.add('demand-confirmation-window')
+    
+    orderModalMainSection.appendChild(confirmWindow)
+    
+    orderNowBtn.style.display = 'none'
+}
+
+function hideConfirmationWindow(){
+    document.querySelector('.demand-confirmation-window').remove()
+
+}
 
 async function sendToserver(){
     

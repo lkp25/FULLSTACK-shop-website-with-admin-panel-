@@ -2,6 +2,7 @@
     --text-color-gold: rgba(194, 177, 19, 0.822);
 }
 .order-modal{
+    animation: fade-in 0.5s forwards;
     background-color: rgba(0, 0, 0, 0.924);
     width: 100vw;
     height: 100vh;
@@ -23,6 +24,7 @@
     box-shadow: 0 0 10px white;
     border-radius: 4px;
     padding-top: 1rem;
+    position: relative;
 }
 
 /* order table */
@@ -101,7 +103,7 @@
     font-size: 1rem;
     background-color: rgb(179, 174, 174);
 }
-.order-form [type="submit"]{
+.order-form [type="submit"], .order-confirm, .order-deny{
     background: rgb(61, 61, 61);
     color: white;    
     border-radius: 3px;
@@ -111,10 +113,39 @@
     font-weight: bold;
     letter-spacing: 1.3px;
     margin: 1rem;
-
+    
 }
 .order-form [type="submit"]:hover{
     background: linear-gradient(60deg, rgba(15, 33, 131, 0.541), rgba(23, 138, 90, 0.466));
     color: white;
 
+}
+.order-confirm-btns-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding:1rem;
+}
+.order-deny{
+
+}
+.order-confirm{
+
+}
+.demand-confirmation-window{
+    display: grid;
+    place-self: end;
+    z-index: 100000000000;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    background-color: chartreuse;
+    padding: 1rem;
+    bottom: 0;
+}
+
+
+/* //animation */
+@keyframes fade-in {
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
