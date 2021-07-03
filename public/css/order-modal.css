@@ -132,13 +132,14 @@
 
 }
 .demand-confirmation-window{
-    display: grid;
-    place-self: end;
+    
+    color: white;
     z-index: 100000000000;
-    width: 50%;
+    width: 100%;
     position: absolute;
+    border-top: 1px solid darkorchid;
     bottom: 0;
-    background-color: chartreuse;
+    background-color: rgb(54, 56, 51);
     padding: 1rem;
     bottom: 0;
 }

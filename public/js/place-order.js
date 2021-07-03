@@ -86,12 +86,20 @@ orderModal.addEventListener('click', (e)=>{
         closeOrderModal()
     }
 
-    //order now logic
+    //order now button logic: demand confirmation
     if(e.target.classList.contains('order-now-btn')){
         e.preventDefault()
-
+        
         demandCustomerConfirmation(e)
+    }
+    //confirmation-denied
+    if(e.target.classList.contains('order-deny')){
+        hideConfirmationWindow()
+    }
+    //confirmation-granted
+    if(e.target.classList.contains('order-confirm')){
         sendToserver()
+
     }
 })
 function demandCustomerConfirmation(e){
@@ -99,7 +107,7 @@ function demandCustomerConfirmation(e){
     const confirmWindow = document.createElement('div')
     confirmWindow.innerHTML = 
     `
-    <p>By clicking confirm button below you state that all the information is correct and you will be transfered to payment page.</p>
+    By clicking confirm button below you state that all the information is correct and you will be transfered to payment page.
     <div class="order-confirm-btns-grid">
         <button class="order-confirm">Confirm</button>
         <button class="order-deny">Deny</button>
@@ -114,6 +122,7 @@ function demandCustomerConfirmation(e){
 }
 
 function hideConfirmationWindow(){
+    orderNowBtn.style.display = null
     document.querySelector('.demand-confirmation-window').remove()
 
 }
