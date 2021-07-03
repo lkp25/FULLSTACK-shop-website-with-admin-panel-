@@ -89,8 +89,8 @@ orderModal.addEventListener('click', (e)=>{
     //order now button logic: demand confirmation
     if(e.target.classList.contains('order-now-btn')){
         e.preventDefault()
+        checkFormValidity()
         
-        demandCustomerConfirmation(e)
     }
     //confirmation-denied
     if(e.target.classList.contains('order-deny')){
@@ -151,10 +151,7 @@ async function sendToserver(){
     console.log(responseFromServer);
 }
 
-function getFormData(){
-    
-    let formValid = true
-
+function checkFormValidity(){
     const inputFields = orderForm.querySelectorAll('input')
     inputFields.forEach(field => {
         //if any field input is invalid, make user aware
@@ -165,6 +162,7 @@ function getFormData(){
                 field.style.outline = 'none'
                 
             }, 1500);
+            
         }
         //email confirm fail
         
@@ -174,10 +172,24 @@ function getFormData(){
 
             formValid = false 
             formEmailConf.value = ''
-            formEmailConf.placeholder = 'E-mail does not match!'           
+            formEmailConf.placeholder = 'E-mail does not match!'      
+               
         }
-        
     })
+    //is there an invalid field?
+    const notAllValid = Array.from(inputFields).find(field => !field.value)
+    
+    //no invalid fields - demand final confirmation
+    if(!notAllValid) {
+
+        demandCustomerConfirmation()            
+    }
+        
+}
+
+function getFormData(){
+    
+    let formValid = true    
 
     let completeOrderDetails
      
