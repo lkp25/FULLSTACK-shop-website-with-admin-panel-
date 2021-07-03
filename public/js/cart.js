@@ -119,17 +119,14 @@ cartIcon.addEventListener('click', ()=>{
     document.querySelector('nav').classList.add('hide-links')
     
     calculateTotalAmount()
-    if(cartContent.getBoundingClientRect().width > 0){
-        
-        cartContent.classList.add('hide-cart')
-        setTimeout(() => {
-            cartContent.classList.remove('hide-cart')
-            
-        }, 500);
-        cartContent.classList.remove('show-cart')
 
+    //animation for cart-hide:
+    if(cartContent.getBoundingClientRect().width > 0){
+
+        performCartSwingAnimation()  
         return
     }
+
     cartContent.classList.add('show-cart')
     
     //render items if cart is OPEN
@@ -231,9 +228,10 @@ cartContent.addEventListener('click', (e)=>{
         itemsInCart = []
         e.target.style.display = 'none'
     }
-    //close cart button
+    //close cart button - with animation
     if (e.target.classList.contains('close-cart-btn')) {
-        cartContent.classList.remove('show-cart')
+       performCartSwingAnimation()
+
     }
     
     
@@ -241,3 +239,12 @@ cartContent.addEventListener('click', (e)=>{
     calculateTotalAmount()
     showNumberOfItemsInCart()
 })
+
+function performCartSwingAnimation(){
+    cartContent.classList.add('hide-cart')
+    setTimeout(() => {
+        cartContent.classList.remove('hide-cart')
+        
+    }, 500);
+    cartContent.classList.remove('show-cart')
+}
