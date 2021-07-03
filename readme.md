@@ -1,7 +1,9 @@
 Still to do:
+-are you sure place order popup
 -order placed successfully confirmation pop-up
 -send email to customer to confirm order
 -login logic
+- admin statistics page? nm of orders, site visits, customer questions
 
 
 -some more advanced UI graphics with gradients, maybe new animations
