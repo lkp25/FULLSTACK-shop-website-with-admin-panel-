@@ -99,7 +99,12 @@ orderModal.addEventListener('click', (e)=>{
     //confirmation-granted
     if(e.target.classList.contains('order-confirm')){
         sendToserver()
-        closeOrderModal()
+
+        showMessageOrderPlacedSuccessfully()
+
+        setTimeout(() => {            
+            closeOrderModal()
+        }, 3000);
     }
 })
 
@@ -206,8 +211,20 @@ function checkFormValidity(){
 
         demandCustomerConfirmation()            
     }
-        
+    
 }
+
+function showMessageOrderPlacedSuccessfully(){
+    orderModalMainSection.classList.add('positive-validation')
+    Array.from(orderModalMainSection.children).forEach(child => {
+        child.classList.add('fade-out')
+        // child.remove()
+    })
+    // const successMessage = 
+}
+
+
+
 
 function getFormData(){
     
@@ -237,9 +254,6 @@ function getFormData(){
 }
 
 
-function displayOrderPlacedMessage(){
-
-}
 
 function sendConfirmationEmail(email){
 

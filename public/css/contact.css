@@ -8,7 +8,7 @@
     transform-style: preserve-3d;
 }
 
-.cont,input, textarea{
+.cont, .contact-page-input{
     width: clamp(300px, 40%, 500px);
     color: rgb(245, 245, 245);
     padding: 0.3rem;

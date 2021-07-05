@@ -251,3 +251,6 @@ main{
     color:rgb(7, 1, 31);
     font-weight: bold;
   }
+  input{
+      color: rgb(7, 1, 31);
+  }
