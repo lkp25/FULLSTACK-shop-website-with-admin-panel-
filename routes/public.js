@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router()
 
 const rootDir = require('../util/path')
-const Template = require('../util/template')
+const Template = require('../util/individual-product-template')
 
 router.get('/index', (req, res, next) =>{
     console.log('hey');
