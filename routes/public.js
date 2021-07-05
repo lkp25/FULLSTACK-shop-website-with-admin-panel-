@@ -28,9 +28,12 @@ router.get('/display-products', (req, res, next) =>{
     res.sendFile(path.join(rootDir, 'public/products-json', 'products.json'))
 })
 
+
+//display individual product page
 router.get('/display-products/:id', (req, res, next) =>{       
     const prodId = req.params.id    
     const templateToSend = new Template(prodId)
+    templateToSend.getIndividualProductData()
     res.setHeader('content-type', 'text/html')
     res.send(templateToSend.render())    
 })

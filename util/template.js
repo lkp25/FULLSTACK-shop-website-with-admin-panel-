@@ -1,6 +1,24 @@
+const fs = require('fs')
+// const path = require('path');
+// const rootDir = require('../util/path')
+const allProducts = require('../public/products-json/products.json')
+
+
+// const a = fs.readFileSync((path.join(rootDir, 'public/products-json', 'products.json')), 'utf8', function (err,data) {
+//     if (err) {
+//       return console.log(err);
+//     }
+    
+//   });
+//   console.log(typeof a);
+
 class Template  {
     constructor(id){
-        this.id = id
+        this.id = id.substring(1, id.length)
+        this.productData = this.getIndividualProductData()
+    }
+    getIndividualProductData(){
+        return [...allProducts].find(item => item.id === this.id)
     }
     render(){
         return `
@@ -142,6 +160,7 @@ class Template  {
   </div>
   
   <h1>individual page for product id: ${this.id}</h1>
+  <h1>individual page for product id: ${this.getIndividualProductData().category}</h1>
 <main>
   
 </main>
