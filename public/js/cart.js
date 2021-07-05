@@ -158,7 +158,7 @@ cartIcon.addEventListener('click', ()=>{
             const productTemplate = document.querySelector('#item-in-cart-template').content.cloneNode(true)
             
             //populate template with data
-            productTemplate.querySelector('img').setAttribute('src', `./img/img-large/${product.image}`)
+            productTemplate.querySelector('img').setAttribute('src', `../img/img-large/${product.image}`)
             productTemplate.querySelector('img').setAttribute('alt', `${product.name}`)
             productTemplate.querySelector('.product-in-cart-name').innerText = `${product.name}`
             productTemplate.querySelector('.quantity').innerText = `${product.quantity}`
@@ -256,7 +256,7 @@ function performCartSwingAnimation(){
 function loadPlaceOrderScript(){
     const presentScripts = Array.from(document.scripts) 
 
-    const newScriptSrc = './js/place-order.js'
+    const newScriptSrc = 'http://localhost:5000/js/place-order.js'
     
     const alreadyAdded = presentScripts.find(script => {
         return script.outerHTML.includes(newScriptSrc)

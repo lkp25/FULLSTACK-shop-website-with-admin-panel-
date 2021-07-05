@@ -17,7 +17,11 @@ class Template  {
   <link rel="stylesheet" href="/css/cart.css">
   <link rel="stylesheet" href="/css/order-modal.css">
   <link rel="stylesheet" href="/css/contact.css">
-
+  <script src="../js/sanitize-user-input.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/cart.js" defer></script>
+  
+  <script src="../js/contact.js" defer></script>
 
 </head>
 <body>
