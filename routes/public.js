@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router()
 
 const rootDir = require('../util/path')
+const Template = require('../util/template')
 
 router.get('/index', (req, res, next) =>{
     console.log('hey');
@@ -29,8 +30,9 @@ router.get('/display-products', (req, res, next) =>{
 
 router.get('/display-products/:id', (req, res, next) =>{       
     const prodId = req.params.id    
-    
-    res.send(`<h1>individual page for product id: ${prodId}</h1>`)    
+    const templateToSend = new Template(prodId)
+    res.setHeader('content-type', 'text/html')
+    res.send(templateToSend.render())    
 })
 
 module.exports = router

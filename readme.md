@@ -1,5 +1,5 @@
 Still to do:
--separate page for each product
+-separate page for each product - design it
 -send email to customer to confirm order
 -login logic
 - admin statistics page? nm of orders, site visits, customer questions
