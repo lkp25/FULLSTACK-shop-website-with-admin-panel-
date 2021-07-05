@@ -1,5 +1,5 @@
 function sanitizeUserInput(inputString){
 
-    const pattern = /h/
+    const pattern = /[\<\>\{\}]/
     return pattern.test(inputString)
 }
