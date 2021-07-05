@@ -27,4 +27,10 @@ router.get('/display-products', (req, res, next) =>{
     res.sendFile(path.join(rootDir, 'public/products-json', 'products.json'))
 })
 
+router.get('/display-products/:id', (req, res, next) =>{       
+    const prodId = req.params.id    
+    
+    res.send(`<h1>individual page for product id: ${prodId}</h1>`)    
+})
+
 module.exports = router

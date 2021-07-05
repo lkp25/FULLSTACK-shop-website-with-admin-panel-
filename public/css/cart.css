@@ -205,6 +205,12 @@
     text-align: center;
     background: linear-gradient(10deg, rgb(70, 3, 3), crimson);
     place-items: center;
-    
+    z-index: 10;
     padding: 2rem;
+    
+    animation: alert-fade-in 0.3s ease;
+}
+@keyframes fade-inn {
+    from{opacity: 0;}
+    to{opacity:1;}
 }

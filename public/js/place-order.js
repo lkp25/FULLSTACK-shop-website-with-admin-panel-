@@ -279,24 +279,5 @@ function sendConfirmationEmail(email){
 }
 
 
-function a(){
-    const presentScripts = Array.from(document.scripts)
-    console.log(presentScripts);
 
-    const newScriptSrc = './js/contact.js'
-    
-    const alreadyAdded = presentScripts.find(script => {
-        return script.outerHTML.includes(newScriptSrc)
-    });
-    console.log(alreadyAdded);
-    if(alreadyAdded){
-        console.log('ALREADY THERE');
-        return
-    }
 
-    console.log('only one');
-    const somescript = document.createElement('script')
-    somescript.src = newScriptSrc
-    somescript.defer = true
-    document.head.append(somescript)
-}

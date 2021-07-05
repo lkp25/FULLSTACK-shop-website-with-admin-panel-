@@ -71,6 +71,7 @@
     padding: 0.2rem;
     transform-origin: bottom right;
     transition: 0.3s;
+    animation:fade-inn 1s ease;
 }
 .product-card:hover{
     transform: scale(1.1);
@@ -165,4 +166,11 @@
     .products-grid{
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+}
+
+
+
+@keyframes fade-inn {
+    from{opacity: 0;}
+    to{opacity:1;}
 }
