@@ -29,16 +29,33 @@ document.body.style.overflowX = 'hidden'
 
 contactForm.addEventListener('submit', (e)=>{
     e.preventDefault()
+    const customerQuestionField = contactForm.querySelector('textarea')
+    const customerEmailField = contactForm.querySelector('textarea')
+    let potentiallyDangerousInput = false
     
-    
-    const newQuestion = {text: contactForm.querySelector('textarea').value,email: contactForm.querySelector('input').value,date: new Date().toUTCString()
+    ;[customerEmailField, customerQuestionField].forEach(field => {
+      if(sanitizeUserInput(field.value)) {
+            
+        field.placeholder = "INVALID INPUT!"        
+        field.value = ""
+        field.style.backgroundColor = 'red'
+        potentiallyDangerousInput = true
+        setTimeout(() => {
+            field.style.backgroundColor = null
+            
+        }, 2000);
+    }  
+    })
+    //DONT SEND MALLICIOUS INPUT!
+    if(potentiallyDangerousInput){
+      return
     }
 
+    const newQuestion = {text: customerQuestionField.value,email: customerEmailField.value,date: new Date().toUTCString()
+    }
     sendCustomerQuestionToServer(newQuestion)
-    
-
-    contactForm.querySelector('textarea').value = null
-    contactForm.querySelector('input').value = null
+    customerEmailField.value = null
+    customerQuestionField.value = null
     
 })
 

@@ -247,4 +247,7 @@ main{
       }
   } */
 
-  
+  input::placeholder{
+    color:rgb(7, 1, 31);
+    font-weight: bold;
+  }

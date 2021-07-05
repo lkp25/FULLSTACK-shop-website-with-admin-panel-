@@ -186,7 +186,9 @@ function checkFormValidity(){
       
     inputFields.forEach(field => {
         if(sanitizeUserInput(field.value)) {
+            
             field.placeholder = "INVALID INPUT!"
+            
             field.value = ""
             field.style.backgroundColor = 'red'
             potentiallyDangerousInput = true
