@@ -73,8 +73,10 @@ async function getProducts(){
     const fetchProducts = await fetch('http://localhost:5000/display-products')
     const products = await fetchProducts.json()
 
-    console.log(products);
-    
+    console.log(products); 
+    //set them in session storage for use with individual subpages   
+    sessionStorage.setItem('products-list', JSON.stringify(products))
+
     renderProducts(products)
 
     //instantiate class for categories rendering - assign to global variable

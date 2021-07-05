@@ -13,5 +13,12 @@ async function openNewProductPage(prodId){
     console.log(response);
     
     window.location.href = response.url
+    sessionStorage.setItem('current-product-id', prodId)
+}
+
+function getItemData(){
+    const itemData = JSON.parse(sessionStorage.getItem('products-list'))
     
+    const currentProductFullData = itemData.find(item => item.id === sessionStorage.getItem('current-product-id'))
+    console.log(currentProductFullData);
 }

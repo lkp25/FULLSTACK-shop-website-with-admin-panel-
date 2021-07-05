@@ -20,8 +20,9 @@ class Template  {
   <script src="../js/sanitize-user-input.js" defer></script>
   <script src="../js/main.js" defer></script>
   <script src="../js/cart.js" defer></script>
+  <script src="../js/individual-product-page.js" defer></script>
   
-  <script src="../js/contact.js" defer></script>
+
 
 </head>
 <body>
@@ -138,24 +139,11 @@ class Template  {
   <!-- templ END -->
   
 
-</div>
-
+  </div>
+  
+  <h1>individual page for product id: ${this.id}</h1>
 <main>
-  <div class="intro-text-container">
-    <h1>CONTACT INFO:</h1>
-    <p>have questions about our offer?</p>
-  </div>
-    <div class="container">
-      <div class="box">
-        <form id="customer-message-form" action="">
-          <input class="contact-page-input" type="email" maxlength="50" required placeholder="Your Email">
-          <textarea class="contact-page-input" name="" placeholder="what would you like to ask about?" required id="customer-message-textarea" cols="30" rows="10"></textarea>
-          <div class="customer-message-chars-left">Characters left: <span></span></div>
-          <br>
-          <button class="cont">Send message</button>
-        </form>
-    </div>
-  </div>
+  
 </main>
 
 <footer>
@@ -165,7 +153,6 @@ class Template  {
     <a href="/contact"><li class="nav-link">Contact</li></a>     
   </ul>
   <p class="copyright">@copyright lkp25 <span class="date"></span></p>
-  <h1>individual page for product id: ${this.id}</h1>
 </footer>
 
 </body>
