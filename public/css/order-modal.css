@@ -145,6 +145,12 @@
     animation: fade-in 0.5s forwards;
 }
 
+.order-successful-message{
+    position: absolute;
+    top:2rem; 
+    left: 2rem;
+    font-size: 3rem;
+}
 
 .positive-validation{
     transition: 1s ease;

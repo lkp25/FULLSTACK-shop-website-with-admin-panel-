@@ -66,7 +66,11 @@ function populateModalWithOrderData(){
 }
 
 function closeOrderModal() {
-    orderModal.style.display = 'none'
+    orderModalMainSection.classList.add('fade-out')
+    setTimeout(() => {        
+        orderModal.style.display = 'none'
+        orderModalMainSection.classList.remove('fade-out')
+    }, 1000);
 
     // depopulate order table
     Array.from(orderTable.children)
@@ -214,14 +218,7 @@ function checkFormValidity(){
     
 }
 
-function showMessageOrderPlacedSuccessfully(){
-    orderModalMainSection.classList.add('positive-validation')
-    Array.from(orderModalMainSection.children).forEach(child => {
-        child.classList.add('fade-out')
-        // child.remove()
-    })
-    // const successMessage = 
-}
+
 
 
 
@@ -254,6 +251,28 @@ function getFormData(){
 }
 
 
+function showMessageOrderPlacedSuccessfully(){
+    orderModalMainSection.classList.add('positive-validation')
+    
+    Array.from(orderModalMainSection.children).forEach(child => {
+        child.classList.add('fade-out')
+        
+        setTimeout(() => {            
+            orderModalMainSection.classList.remove('positive-validation')
+            child.classList.remove('fade-out')
+        }, 4000);
+    })
+
+    const message = document.createElement('div')
+    message.classList.add('order-successful-message')    
+    message.textContent = "Your order was placed successfully, check your e-mail for confirmation!"
+    orderModalMainSection.appendChild(message)
+    setTimeout(() => {
+        message.remove()
+        closeOrderModal()
+    }, 3000);
+    
+}
 
 function sendConfirmationEmail(email){
 
