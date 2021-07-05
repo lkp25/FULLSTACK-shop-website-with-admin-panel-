@@ -113,6 +113,10 @@ document.addEventListener('click', (e)=>{
 
 //cart icon is clicked - open/close cart
 cartIcon.addEventListener('click', ()=>{
+    
+    //load place-order.js script dynamically:
+    loadPlaceOrderScript()
+    
     const cartContent = document.querySelector('.cart-content')
     console.log(cartContent);
     
