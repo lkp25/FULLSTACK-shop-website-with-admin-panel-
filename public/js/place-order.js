@@ -154,7 +154,7 @@ async function sendToserver(){
 
 
 function checkFormValidity(){
-    const inputFields = orderForm.querySelectorAll('input')
+    const inputFields = Array.from(orderForm.querySelectorAll('input'))
     inputFields.forEach(field => {
         //if any field input is invalid, make user aware
         if(!field.value){
@@ -179,10 +179,28 @@ function checkFormValidity(){
         }
     })
     //is there an invalid field?
-    const notAllValid = Array.from(inputFields).find(field => !field.value)
+    const notAllValid = inputFields.find(field => !field.value)
 
-    //no invalid fields - demand final confirmation
-    if(!notAllValid) {
+    //is there potentially mallicious content in the input?
+    let potentiallyDangerousInput = false
+      
+    inputFields.forEach(field => {
+        if(sanitizeUserInput(field.value)) {
+            field.placeholder = "INVALID INPUT!"
+            field.value = ""
+            field.style.backgroundColor = 'red'
+            potentiallyDangerousInput = true
+            setTimeout(() => {
+                field.style.backgroundColor = null
+                
+            }, 2000);
+        }  
+    })
+    console.log(potentiallyDangerousInput);
+
+
+    //no invalid fields and no suspicious input - demand final confirmation
+    if(!notAllValid && !potentiallyDangerousInput) {
 
         demandCustomerConfirmation()            
     }
