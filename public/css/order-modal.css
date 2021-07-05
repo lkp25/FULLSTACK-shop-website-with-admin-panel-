@@ -157,7 +157,7 @@
     background: #043804;
 }
 .fade-out{
-    animation: fade-out 1s ease-out forwards;
+    animation: fade-out 0.7s ease-out forwards;
 }
 
 /* //animation */

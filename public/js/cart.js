@@ -248,3 +248,23 @@ function performCartSwingAnimation(){
     }, 500);
     cartContent.classList.remove('show-cart')
 }
+
+function loadPlaceOrderScript(){
+    const presentScripts = Array.from(document.scripts) 
+
+    const newScriptSrc = './js/place-order.js'
+    
+    const alreadyAdded = presentScripts.find(script => {
+        return script.outerHTML.includes(newScriptSrc)
+    });
+    
+    if(alreadyAdded){
+        console.log('ALREADY THERE');
+        return
+    }
+    
+    const placeOrderScript = document.createElement('script')
+    placeOrderScript.src = newScriptSrc
+    placeOrderScript.defer = true
+    document.head.append(placeOrderScript)
+}
