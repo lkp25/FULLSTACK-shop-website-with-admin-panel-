@@ -99,33 +99,37 @@ orderModal.addEventListener('click', (e)=>{
     //confirmation-granted
     if(e.target.classList.contains('order-confirm')){
         sendToserver()
-
+        closeOrderModal()
     }
 })
+
+
 function demandCustomerConfirmation(e){
-    console.log(e);
+    
     const confirmWindow = document.createElement('div')
     confirmWindow.innerHTML = 
     `
     By clicking confirm button below you state that all the information is correct and you will be transfered to payment page.
     <div class="order-confirm-btns-grid">
-        <button class="order-confirm">Confirm</button>
-        <button class="order-deny">Deny</button>
+    <button class="order-confirm">Confirm</button>
+    <button class="order-deny">Deny</button>
     </div>
     `
-    orderModal.style.height = `${document.body.scrollHeight}px`
     confirmWindow.classList.add('demand-confirmation-window')
     
     orderModalMainSection.appendChild(confirmWindow)
     
+    orderModal.style.height = `${document.body.scrollHeight}px`
     orderNowBtn.style.display = 'none'
 }
+
 
 function hideConfirmationWindow(){
     orderNowBtn.style.display = null
     document.querySelector('.demand-confirmation-window').remove()
 
 }
+
 
 async function sendToserver(){
     
@@ -136,9 +140,6 @@ async function sendToserver(){
         console.log('intvalid input');
         return
     }
-    
-    
-
     //send to server if valid
     const sendData = await fetch('http://localhost:5000/save-order', {
         method: 'POST', 
@@ -150,6 +151,7 @@ async function sendToserver(){
     const responseFromServer = await sendData.json()
     console.log(responseFromServer);
 }
+
 
 function checkFormValidity(){
     const inputFields = orderForm.querySelectorAll('input')
@@ -178,7 +180,7 @@ function checkFormValidity(){
     })
     //is there an invalid field?
     const notAllValid = Array.from(inputFields).find(field => !field.value)
-    
+
     //no invalid fields - demand final confirmation
     if(!notAllValid) {
 
@@ -212,4 +214,13 @@ function getFormData(){
         }
     }
     return completeOrderDetails
+}
+
+
+function displayOrderPlacedMessage(){
+
+}
+
+function sendConfirmationEmail(email){
+
 }
