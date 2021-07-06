@@ -223,6 +223,7 @@ main{
       background-color: rgb(7, 1, 31);
       display: grid;
       grid-template-columns: 1fr auto;
+      position: relative;
   }
   .footer-links{
       margin: 0;
@@ -257,8 +258,10 @@ main{
 
   .bubble{
       position: absolute;
-      max-width: 300px;
-      animation: bubble 10s linear;
+      max-width: 600px;
+      top: 0;
+      animation: bubble 8s linear forwards;
+      transform: translateX(10px) translateY(0px);
   }
   @keyframes bubble {
    0%{transform: translateX(10px) translateY(0px);}   

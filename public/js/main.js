@@ -70,10 +70,20 @@ function bubble(){
     </svg>
     
     `
-    const radius = Math.floor(Math.random() * 300)
+    function getRandomInt(min, max) {      
+        return Math.random() * (max - min) + min;
+      }
+    const radius = getRandomInt(1,2)
+    console.log(radius);
+    const left = Math.floor(Math.random() * 500)
     // bubble.style.background = 'url(../img/deco/Ellipse3.svg)'
     
-    // bubble.style.width = radius + 'px'
-    // bubble.style.height = radius + 'px'
+    bubble.style.position = `absolute`
+    bubble.style.transform = `scale(${radius})`
+    bubble.children[0].style.left = left + 'px'
     document.body.querySelector('.bubble-birth').appendChild(bubble)
+
+    setTimeout(() => {
+        bubble.remove()
+    }, 8000);
 }
