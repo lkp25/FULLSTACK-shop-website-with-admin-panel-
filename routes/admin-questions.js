@@ -45,13 +45,25 @@ router.get('/delete-question', async (req, res, next) =>{
 })
 
 //for admin panel display all questions:
-router.get('/get-all-questions', (req, res, next) =>{
+// router.get('/get-all-questions', (req, res, next) =>{
     
-  sqlConnection.query("SELECT * FROM questions", function (err, result, fields) {
-    if (err) throw err;
-    console.log('HERE ARE ALL ORDERS FROM DB:' , result);
-    res.send(result)
-  });
+//   sqlConnection.query("SELECT * FROM questions", function (err, result, fields) {
+//     if (err) throw err;
+//     console.log('HERE ARE ALL ORDERS FROM DB:' , result);
+//     res.send(result)
+//   });
+// })
+
+
+const db = require('../util/mySQLdb')
+//for admin panel display all questions:
+router.get('/get-all-questions', (req, res, next) =>{
+  db.execute('SELECT * FROM questions')
+    .then(([recordsArray, fieldsDataArray] )=>{
+      
+      res.send(recordsArray)
+    })
+    .catch((error)=>{console.log(error);})
 })
 
 
