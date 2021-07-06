@@ -3,6 +3,7 @@ const navLinks = document.querySelector('.nav-links')
 const nav = document.querySelector('nav')
 const currentYear = document.querySelector('.date')
 
+let bubbleMaker = true
 //animate body
 setTimeout(() => {
     
@@ -51,7 +52,10 @@ function toggleLinks(){
 
 
 
-function bubble(){
+function makeBubble(){
+    if(!bubbleMaker){
+        return
+    }
     const bubble = document.createElement('div')
     bubble.innerHTML = `<svg class="bubble" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="39.5664" cy="39.5664" r="28.1867" transform="rotate(141.982 39.5664 39.5664)" fill="url(#paint0_radial)"/>
@@ -73,9 +77,9 @@ function bubble(){
     function getRandomInt(min, max) {      
         return Math.random() * (max - min) + min;
       }
-    const radius = getRandomInt(1,2)
+    const radius = getRandomInt(0.6,2,4)
     console.log(radius);
-    const left = Math.floor(Math.random() * 500)
+    const left = Math.floor(Math.random() * window.innerWidth - 100)
     // bubble.style.background = 'url(../img/deco/Ellipse3.svg)'
     
     bubble.style.position = `absolute`
@@ -85,5 +89,14 @@ function bubble(){
 
     setTimeout(() => {
         bubble.remove()
-    }, 8000);
+    }, 11000);
+    setTimeout(() => {
+        makeBubble()
+    }, getRandomInt(100, 700));
 }
+function stopBubbles(){
+    bubbleMaker = false
+}
+document.querySelector('.stop-bubbles').onclick = stopBubbles
+
+makeBubble()

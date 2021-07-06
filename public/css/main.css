@@ -218,12 +218,13 @@ main{
   FOOTER
   */
   footer{
-      height: 50px;
+      min-height: 200px;
       width: 100%;
       background-color: rgb(7, 1, 31);
       display: grid;
       grid-template-columns: 1fr auto;
       position: relative;
+      z-index: 2;
   }
   .footer-links{
       margin: 0;
@@ -259,8 +260,9 @@ main{
   .bubble{
       position: absolute;
       max-width: 600px;
+      opacity: 0.5;
       top: 0;
-      animation: bubble 8s linear forwards;
+      animation: bubble 11s linear forwards;
       transform: translateX(10px) translateY(0px);
   }
   @keyframes bubble {
