@@ -11,10 +11,10 @@ app.use(express.json())
 
 const rootDir = require('./util/path')
 
-const mongoConnect = require('./util/mongoDBconnect')
+const {mongoConnect} = require('./util/mongoDBconnect')
   
-mongoConnect( (client)=>{
-console.log(client);
+mongoConnect( ()=>{
+    console.log('connected');
 })
 
 const publicRoutes = require('./routes/public')
