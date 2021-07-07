@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const db = require('../util/mySQLdb')
 
 const express = require('express');
 
@@ -26,35 +27,38 @@ sqlConnection.connect(function(err) {
 ////////ROUTES FROM ORDERS TAB////////
 //admin route for getting all orders
 router.get('/getorders', (req, res, next) =>{
-    sqlConnection.query("SELECT * FROM orders", function (err, result, fields) {
-      if (err) throw err;
-      console.log('HERE ARE ALL ORDERS FROM DB:' , result);
-      res.send(result)
-    });
+  db.execute("SELECT * FROM orders")
+  .then(([recordsArray, fieldsDataArray] )=>{
     
+    res.send(recordsArray)
   })
+  .catch((error)=>{console.log(error);})   
+    
+})
   
   //update single order
-  router.post('/update-order-status',  (req, res, next) =>{
+  router.post('/update-order-status',  (req, res, next) =>{    
     
-    //headers first!!
-    // res.header({"Content-Type": "application/json"})
-    const requestBody =  req.body
-    
+    const requestBody =  req.body    
     //echo back the request + send response messages
-    res.json({
-      requestBody: req.body,
-      responseMessage: 'order status updated!'
-    })
-    //save order in the database
-    console.log(requestBody);
-    sqlConnection.query(`UPDATE orders SET orderData='${JSON.stringify(requestBody.orderData) }' WHERE id=${requestBody.id}`, function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-      // res.send(result)
-    });
     
-    //write new file for order to JSONdatabase 
+    //save order in the database
+    db.execute(`UPDATE orders SET orderData='${JSON.stringify(requestBody.orderData) }' WHERE id=${requestBody.id}`)
+    .then(([recordsArray, fieldsDataArray] )=>{
+      res.json({
+        requestBody: requestBody,
+        responseMessage: 'order status updated!'
+      })
+      
+    })
+    .catch((error)=>{console.log(error);}) 
+
+    // sqlConnection.query(`UPDATE orders SET orderData='${JSON.stringify(requestBody.orderData) }' WHERE id=${requestBody.id}`, function (err, result, fields) {
+    //   if (err) throw err;
+    //   console.log(result);
+      
+    // });
+    
   })
 
   module.exports = router
