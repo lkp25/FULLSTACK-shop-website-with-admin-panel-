@@ -1,6 +1,6 @@
 Still to do:
 -separate page for each product - design it
--send email to customer to confirm order
+-send email to customer to confirm order + when status in db is changed to sent.
 -login logic
 - admin statistics page? nm of orders, site visits, customer questions
 -how do you feel today questionare on homepage
