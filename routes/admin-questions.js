@@ -25,38 +25,23 @@ router.post('/new-customer-question', async (req, res, next) =>{
     
     res.send(recordsArray)
   })
-  .catch((error)=>{console.log(error);})
-    
-    // sqlConnection.query(`INSERT INTO questions(value) VALUES('${JSON.stringify(req.body)}')`, function (err, result, fields) {
-    //     if (err) throw err;
-    //     console.log(result);
-    //     res.send(result)
-    //   });
-
+  .catch((error)=>{console.log(error);})   
     
 })
 //admin panel delete question
 router.get('/delete-question', async (req, res, next) =>{
   console.log(req.query);
 
-  sqlConnection.query(`DELETE FROM questions WHERE id=${req.query.id}`, function (err, result, fields) {
-    if (err) throw err;
-    console.log('HERE ARE ALL ORDERS FROM DB:' , result);
-    res.send(req.query)
-  });
+  db.execute(`DELETE FROM questions WHERE id=${req.query.id}`)
+    .then(([recordsArray, fieldsDataArray] )=>{
+      
+      res.send(`${req.query} deleted`)
+    })
+    .catch((error)=>{console.log(error);})
+
+  
 
 })
-
-//for admin panel display all questions:
-// router.get('/get-all-questions', (req, res, next) =>{
-    
-//   sqlConnection.query("SELECT * FROM questions", function (err, result, fields) {
-//     if (err) throw err;
-//     console.log('HERE ARE ALL ORDERS FROM DB:' , result);
-//     res.send(result)
-//   });
-// })
-
 
 
 //for admin panel display all questions:
