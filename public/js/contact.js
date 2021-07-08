@@ -60,15 +60,23 @@ contactForm.addEventListener('submit', (e)=>{
 })
 
 async function sendCustomerQuestionToServer(newQuestion){
-    const sendQuestionData = await fetch('http://localhost:5000/new-customer-question', {
-            method: 'POST', 
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newQuestion),
-          })
-        const responseFromServer = await sendQuestionData.json()
-        console.log(responseFromServer);
+    try {
+      const sendQuestionData = await fetch('http://localhost:5000/new-customer-question', {
+                method: 'POST', 
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newQuestion),
+              })
+            const responseFromServer = await sendQuestionData.json()
+            .then(()=>{
+              displayConfirmation()
+            })
+            console.log(responseFromServer);
+      
+    } catch (error) {
+      console.log(error);
+    }
 
 }
 function displayConfirmation(){
