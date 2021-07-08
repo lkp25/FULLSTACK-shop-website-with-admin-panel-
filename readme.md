@@ -4,7 +4,7 @@ Still to do:
 -login logic
 - admin statistics page? nm of orders, site visits, customer questions
 -how do you feel today questionare on homepage
--fancy up the homepage!
+
 
 This is an advanced full-stack online shop application, divided into two parts:
 1. Public part - available for everyone

@@ -41,7 +41,7 @@ function openOrderModal() {
     }
     //modal takes entire screen
     orderModal.style.display = 'flex'
-    orderModal.style.height = `${document.body.scrollHeight}px`
+    orderModal.style.height = `${document.body.clientHeight + 300}px`
     populateModalWithOrderData()
 }
 
@@ -128,7 +128,7 @@ function demandCustomerConfirmation(e){
     
     orderModalMainSection.appendChild(confirmWindow)
     
-    orderModal.style.height = `${document.body.scrollHeight}px`
+    orderModal.style.height = `${document.body.clientHeight + 200}px`
     orderNowBtn.style.display = 'none'
 }
 

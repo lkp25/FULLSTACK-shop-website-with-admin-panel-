@@ -33,7 +33,7 @@
       padding: 0.5rem;
       z-index: 1000;
       border-radius:10% 0% 0% 15% / 0% 8% 23% 50%  ;
-       transform: scale(1) rotateZ(-90deg);
+       transform: translateZ(300px) scale(1) rotateZ(-90deg);
        transform-origin: top right;
        
     }
@@ -54,19 +54,19 @@
         animation: swing-forwards 0.5s ease-in-out 0.1s forwards;
     }
     .hide-cart{
-        transform: scale(1) rotateZ(0deg);
+        transform: translateZ(300px) scale(1) rotateZ(0deg);
         animation: swing-backwards 0.5s ease-in-out 0.1s forwards;
         display: grid;
         
     }
 
     @keyframes swing-forwards {
-        from {transform: scale(0) rotateZ(-90deg);}
-        to {transform: scale(1) rotateZ(0deg);}
+        from {transform: translateZ(300px) scale(0) rotateZ(-90deg);}
+        to {transform: translateZ(300px) scale(1) rotateZ(0deg);}
     }
     @keyframes swing-backwards {
-        from {transform: scale(1) rotateZ(0deg);}
-        to {transform: scale(0) rotateZ(-90deg);}
+        from {transform: translateZ(300px) scale(1) rotateZ(0deg);}
+        to {transform: translateZ(300px) scale(0) rotateZ(-90deg);}
     }
     .sum{
     background-color: rgb(230, 221, 221);
