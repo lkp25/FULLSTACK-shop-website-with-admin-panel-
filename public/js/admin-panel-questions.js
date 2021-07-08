@@ -10,11 +10,7 @@ async function getAllQuestionsFromDB(){
     const nww = await n.json()
     allQuestions = nww
     console.log(allQuestions);
-    allQuestions.map(question => {
-
-        return question.value.replace('v', 'FDFSD')
-        // = JSON.parse(question.value))
-    } )
+    allQuestions.forEach(question =>  question.value = JSON.parse(question.value))
     console.log(allQuestions);
 
     renderAllQuestions(allQuestions)
@@ -37,7 +33,7 @@ function renderAllQuestions(allQuestions){
        template.children[0].dataset.index = index
     //    template.dataset.allData = question
        
-    template.querySelector('.db-question-content').textContent = info.text 
+    template.querySelector('.db-question-content').textContent = info.text.replaceAll('LINEBREAK', "\n") 
     template.querySelector('.db-question-date').textContent = info.date 
     template.querySelector('.db-question-email').textContent = info.email 
     template.querySelector('.db-question-email').dataset.email = info.email

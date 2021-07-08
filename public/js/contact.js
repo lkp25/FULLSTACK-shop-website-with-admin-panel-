@@ -33,7 +33,7 @@ contactForm.addEventListener('submit', (e)=>{
     const customerEmailField = contactForm.querySelector('.contact-page-input')
     let potentiallyDangerousInput = false
     
-    console.log(customerQuestionField.value);
+    console.log(customerQuestionField.value.replace(/\n/g, "xxxxx"));
     ;[customerEmailField, customerQuestionField].forEach(field => {
       if(sanitizeUserInput(field.value)) {
             
@@ -52,7 +52,7 @@ contactForm.addEventListener('submit', (e)=>{
       return
     }
 
-    const newQuestion = {text:customerQuestionField.value,email:customerEmailField.value,date:new Date().toUTCString()}
+    const newQuestion = {text:customerQuestionField.value.replace(/\n/g, "LINEBREAK"),email:customerEmailField.value,date:new Date().toUTCString()}
     sendCustomerQuestionToServer(newQuestion)
     customerEmailField.value = null
     customerQuestionField.value = null
