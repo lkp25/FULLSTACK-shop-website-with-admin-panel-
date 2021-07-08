@@ -36,8 +36,10 @@ router.get('/delete-question', async (req, res, next) =>{
 
 //for admin panel display all questions:
 router.get('/get-all-questions', (req, res, next) =>{
-  const getMongoDB = mongoDB()        
-  getMongoDB.collection('questions').insertOne({name:"dsf",price:243})
+  // const getMongoDB = mongoDB()        
+  // getMongoDB.collection('questions').insertOne({name:"dsf",price:243})
+  // .then(result => console.log(result))
+  // .catch(err => console.log(err))
       
       
 

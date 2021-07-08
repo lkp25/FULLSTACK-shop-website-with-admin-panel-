@@ -10,7 +10,9 @@ async function getAllQuestionsFromDB(){
     const nww = await n.json()
     allQuestions = nww
     console.log(allQuestions);
-    allQuestions.forEach(question => question.value = JSON.parse(question.value))
+    // allQuestions.forEach(question => {
+    //     question.value = JSON.parse(question.value)
+    // })
     console.log(allQuestions);
 
     renderAllQuestions(allQuestions)

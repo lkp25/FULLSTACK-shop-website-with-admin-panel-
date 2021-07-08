@@ -30,7 +30,7 @@ document.body.style.overflowX = 'hidden'
 contactForm.addEventListener('submit', (e)=>{
     e.preventDefault()
     const customerQuestionField = contactForm.querySelector('textarea')
-    const customerEmailField = contactForm.querySelector('textarea')
+    const customerEmailField = contactForm.querySelector('.contact-page-input')
     let potentiallyDangerousInput = false
     
     ;[customerEmailField, customerQuestionField].forEach(field => {
@@ -51,8 +51,7 @@ contactForm.addEventListener('submit', (e)=>{
       return
     }
 
-    const newQuestion = {text: customerQuestionField.value,email: customerEmailField.value,date: new Date().toUTCString()
-    }
+    const newQuestion = {text:customerQuestionField.value,email:customerEmailField.value,date:new Date().toUTCString()}
     sendCustomerQuestionToServer(newQuestion)
     customerEmailField.value = null
     customerQuestionField.value = null
