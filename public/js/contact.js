@@ -52,7 +52,7 @@ contactForm.addEventListener('submit', (e)=>{
       return
     }
 
-    const newQuestion = {text:customerQuestionField.value.replace(/\n/g, "LINEBREAK"),email:customerEmailField.value,date:new Date().toUTCString()}
+    const newQuestion = {text:customerQuestionField.value.replace(/\n/g, "xxxxx"),email:customerEmailField.value,date:new Date().toUTCString()}
     sendCustomerQuestionToServer(newQuestion)
     customerEmailField.value = null
     customerQuestionField.value = null
@@ -70,6 +70,23 @@ async function sendCustomerQuestionToServer(newQuestion){
         const responseFromServer = await sendQuestionData.json()
         console.log(responseFromServer);
 
+}
+function displayConfirmation(){
+  const conf = document.createElement('div')
+  conf.textContent = "question sent successfully!"
+  const form = document.querySelector('.box')
+  conf.classList.add('confirmation-message')
+  formClone = form.cloneNode(true)
+  form.classList.add('disappear')
+  setTimeout(() => {
+    form.remove()
+  }, 500);
+  form.parentElement.appendChild(conf)
+  
+  setTimeout(() => {
+    conf.parentElement.appendChild(formClone)
+    conf.remove()
+  }, 4000);
 }
 
 

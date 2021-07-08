@@ -64,7 +64,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .box{
-    
+    animation: appear 0.5s forwards;
     place-self: center;
     
     width: 350px;
@@ -97,4 +97,32 @@ button:active{
 .intro-text-container{
     position: absolute;
     top: 10px
+}
+.confirmation-message{
+    
+    width: 100%;
+    height: 100%;
+    background-color: rgb(101, 223, 166);
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+    animation: fadeinout 4s forwards ;
+}
+.disappear{
+    animation: disappear 0.5s forwards;
+}
+@keyframes fadeinout {
+    0%{opacity: 0;}
+    10%{opacity: 0;}
+    50%{opacity: 1;}
+    80%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@keyframes disappear {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes appear {
+    from{opacity: 0;}
+    to{opacity: 1;}
 }

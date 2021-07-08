@@ -33,7 +33,7 @@ function renderAllQuestions(allQuestions){
        template.children[0].dataset.index = index
     //    template.dataset.allData = question
        
-    template.querySelector('.db-question-content').textContent = info.text.replaceAll('LINEBREAK', "\n") 
+    template.querySelector('.db-question-content').textContent = info.text.replaceAll('xxxxx', "\n") 
     template.querySelector('.db-question-date').textContent = info.date 
     template.querySelector('.db-question-email').textContent = info.email 
     template.querySelector('.db-question-email').dataset.email = info.email
