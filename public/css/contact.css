@@ -4,9 +4,6 @@
     place-items: center;
     gap: 0.2rem
 }
-*{
-    transform-style: preserve-3d;
-}
 
 .cont, .contact-page-input{
     width: clamp(300px, 40%, 500px);
