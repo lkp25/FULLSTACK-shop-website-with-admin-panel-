@@ -33,6 +33,7 @@ contactForm.addEventListener('submit', (e)=>{
     const customerEmailField = contactForm.querySelector('.contact-page-input')
     let potentiallyDangerousInput = false
     
+    console.log(customerQuestionField.value);
     ;[customerEmailField, customerQuestionField].forEach(field => {
       if(sanitizeUserInput(field.value)) {
             
