@@ -4,3 +4,32 @@
     background-color: green;
     padding: 1rem;
 }
+.indprod-name{
+    background-color: rgb(100, 204, 100);
+}
+.indprod-desc-card{
+    background-color: rgb(73, 128, 0);
+}
+.indprod-category{
+    background-color: rgb(0, 113, 128);
+}
+.indprod-image-preview{
+    background-color: rgb(55, 0, 128);
+    
+}
+.indprod-description{
+    background-color: rgb(28, 0, 128);
+    
+}
+.indprod-footer{
+    background-color: rgb(90, 128, 0);
+    
+}
+.indprod-price{
+    background-color: rgb(15, 128, 0);
+    
+}
+.indprod-buynow-btn{
+    background-color: rgb(128, 0, 117);
+
+}
