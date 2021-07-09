@@ -19,6 +19,7 @@ html{
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    border-bottom: 1px solid rgb(4, 109, 74);
 }
 @media only screen and (min-width: 500px) {
     .indprod-desc-card{
@@ -29,6 +30,7 @@ html{
 .indprod-category{
     background-color: var(--backgr);
     margin-bottom: var(--margin);
+    border-bottom: 1px solid rgb(4, 109, 74);
 }
 .indprod-image-preview{
     background-color: var(--backgr); 
@@ -62,6 +64,7 @@ html{
     grid-template-columns: 1fr auto;
     gap: 1rem; 
     position: relative;
+    margin-top: 0.5rem;
 }
 .indprod-price{
     background-color: var(--backgr);  
@@ -81,6 +84,7 @@ html{
     border-radius: 3px;
     transition: 0.3s ease; 
     max-width: 50%;
+    min-width: 40%;
     place-self: end;
 }
 .indprod-buynow-btn:hover{
