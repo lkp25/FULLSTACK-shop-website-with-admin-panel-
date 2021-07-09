@@ -33,6 +33,23 @@ html{
 .indprod-image-preview{
     background-color: var(--backgr); 
     margin-bottom: var(--margin);   
+    z-index: 30;
+    
+}
+.indprod-image-preview img{
+    outline: 1px solid black;
+    outline-offset: -5px;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 1px rgba(3, 12, 3, 0.774);
+    transition: 1s ease;
+    transform-origin: right;
+}
+.indprod-image-preview img:hover{
+    transform: scale(1.5);
 }
 .indprod-description{
     background-color: var(--backgr);  
@@ -40,12 +57,41 @@ html{
 }
 .indprod-footer{
     background-color: var(--backgr);
-    padding-bottom: var(--margin);  
+    padding-bottom: var(--margin); 
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem; 
+    position: relative;
 }
 .indprod-price{
-    background-color: var(--backgr);    
+    background-color: var(--backgr);  
+    color:var(--text-color);
+    font-weight: bold;  
+    padding-top: 1rem;
+    text-align: right;
+    transition: 0.3s ease;
+    transform-origin: right;
+    position: absolute;
+    left:0;
+    
 }
 .indprod-buynow-btn{
-    background-color: rgb(128, 0, 117);
+    background-color: rgb(76, 110, 160);
+    padding: 0.5rem;
+    border-radius: 3px;
+    transition: 0.3s ease; 
+    max-width: 50%;
+    place-self: end;
+}
+.indprod-buynow-btn:hover{
+cursor: pointer;
+color: white;
+background-color: rgb(8, 124, 112);
+}
+.indprod-buynow-btn:hover ~ .indprod-price{
 
+    color: white;
+    transform: scale(1.6) translateX(100%)  rotateZ(360deg);
+    opacity: 0.5;
+    border-radius: 50%;
 }

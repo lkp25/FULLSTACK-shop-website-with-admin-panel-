@@ -173,8 +173,8 @@ class Template  {
       </div>
     </div>
     <div class="indprod-footer">
-      <div class="indprod-price">$ 2444</div>
-      <button class="indprod-buynow-btn">BUY NOW</button>
+    <button class="indprod-buynow-btn">BUY NOW</button>
+      <span class="indprod-price">$ 2444</span>
     </div>
   </div>
 </main>
