@@ -34,7 +34,9 @@ class Template  {
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/cart.css">
   <link rel="stylesheet" href="/css/order-modal.css">
-  <link rel="stylesheet" href="/css/contact.css">
+  
+  <link rel="stylesheet" href="/css/individual-product-page.css">
+
   <script src="../js/sanitize-user-input.js" defer></script>
   <script src="../js/main.js" defer></script>
   <script src="../js/cart.js" defer></script>
@@ -159,10 +161,23 @@ class Template  {
 
   </div>
   
+  <main>
   <h1>individual page for product id: ${this.id}</h1>
   <h1>individual page for product id: ${this.getIndividualProductData().category}</h1>
-<main>
-  
+  <div class="indprod-container">
+    <h1 class="indprod-name">PRODUCT NAME</h1>
+    <p class="indprod-category">category</p>
+    <div class="indprod-desc-card">
+      <div class="indprod-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas libero natus repellendus esse. Non, odit. Enim recusandae minima nobis sapiente, excepturi fugit officia quos voluptates dolores numquam voluptatibus perferendis iste repudiandae in veniam facere asperiores dolore, velit neque, cumque nostrum quibusdam. Dolorem, vero recusandae fugit quas perspiciatis repudiandae et? Provident tempore incidunt illo autem vel dolores voluptatem dicta nesciunt quisquam!</div>
+      <div class="indprod-image-preview">
+        <img src="../img/img-large/black.png" alt="">
+      </div>
+    </div>
+    <div class="indprod-footer">
+      <div class="indprod-price">$ 2444</div>
+      <div class="indprod-buynow-btn">BUY NOW</div>
+    </div>
+  </div>
 </main>
 
 <footer>
