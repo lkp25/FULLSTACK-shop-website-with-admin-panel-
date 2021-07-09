@@ -162,8 +162,7 @@ class Template  {
   </div>
   
   <main>
-  <h1>individual page for product id: ${this.id}</h1>
-  <h1>individual page for product id: ${this.getIndividualProductData().category}</h1>
+  
   <div class="indprod-container">
     <h1 class="indprod-name">PRODUCT NAME</h1>
     <p class="indprod-category">category</p>
