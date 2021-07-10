@@ -41,17 +41,18 @@ router.get('/delete-question', async (req, res, next) =>{
 
 
 //for admin panel display all questions:
-router.get('/get-all-questions', (req, res, next) =>{
-   
+router.get('/get-all-questions', async (req, res, next) =>{
+  const getMongoDB = mongoDB()        
+  const data = await getMongoDB.collection('questions').find().toArray()      
+  res.send(data)
+  
+  // db.execute('SELECT * FROM questions')
+  //   .then(([recordsArray, fieldsDataArray] )=>{
       
 
-  db.execute('SELECT * FROM questions')
-    .then(([recordsArray, fieldsDataArray] )=>{
-      
-
-      res.send(recordsArray)
-    })
-    .catch((error)=>{console.log(error);})
+  //     res.send(recordsArray)
+  //   })
+  //   .catch((error)=>{console.log(error);})
 })
 
 

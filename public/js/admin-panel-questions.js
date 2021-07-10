@@ -10,7 +10,11 @@ async function getAllQuestionsFromDB(){
     const nww = await n.json()
     allQuestions = nww
     console.log(allQuestions);
-    allQuestions.forEach(question =>  question.value = JSON.parse(question.value))
+
+    //line for data USING MY-SQL:
+    // allQuestions.forEach(question =>  question.value = JSON.parse(question.value))
+    //line for data using MONGO DB:
+    allQuestions.forEach(question =>  question.value = question)
     console.log(allQuestions);
 
     renderAllQuestions(allQuestions)
