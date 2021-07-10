@@ -30,7 +30,7 @@ function checkIfItemIsInCart(){
     if(alreadyThere){
         buyBtn.textContent = 'Already in Cart!'.toUpperCase()
         buyBtn.classList.add('already-in-cart')
-        
+        performShakeAnimation()
         setTimeout(() => {
             buyBtn.classList.remove('already-in-cart')
             buyBtn.textContent = "BUY NOW"
@@ -39,6 +39,14 @@ function checkIfItemIsInCart(){
         return
     }
     performAddToCartAnimation()
+}
+function performShakeAnimation(){
+    itemCard.classList.add('shake-animation')
+
+    setTimeout(() => {
+        
+        itemCard.classList.remove('shake-animation')
+    }, 1000);
 }
 
  function performAddToCartAnimation(){

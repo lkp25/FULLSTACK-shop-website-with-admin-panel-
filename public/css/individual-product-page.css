@@ -140,8 +140,19 @@ background-color: rgb(8, 124, 112);
         opacity: 0.2;
     }
 }
-/* @keyframes to-cart {
-    0%{transform: scale(1) translateY(var(--top))}
-    50%{transform: scale(0.3) translateY(var(--top));}
-    100%{transform: scale(1) translateY(var(--top));}
-} */
+.shake-animation{
+    animation: shake 0.5s forwards;
+}
+@keyframes shake {
+    0%{transform: translateY(0px) rotateZ(0deg);}
+    10%{transform: translateY(2px) rotateZ(-0.5deg);}
+    20%{transform: translateY(-2px) rotateZ(0.5deg);}
+    30%{transform: translateY(2px) rotateZ(-0.5deg);}
+    40%{transform: translateY(-2px) rotateZ(0.5deg);}
+    50%{transform: translateY(2px) rotateZ(-0.5deg);}
+    60%{transform: translateY(-2px) rotateZ(0.5deg);}
+    70%{transform: translateY(2px) rotateZ(-0.5deg);}
+    80%{transform: translateY(-2px) rotateZ(0.5deg);}
+    90%{transform: translateY(2px) rotateZ(-0.5deg);}
+    100%{transform: translateY(0px) rotateZ(0deg);}    
+}
