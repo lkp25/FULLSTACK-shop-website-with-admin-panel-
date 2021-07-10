@@ -2,6 +2,11 @@ html{
     --text-color: rgb(9, 7, 97);
     --backgr: rgb(131, 131, 204);
     --margin: 1rem;
+    --top: 0;
+    --left: 0;
+}
+main{
+    position: relative;
 }
 .indprod-container{
     width: 100%;
@@ -9,6 +14,7 @@ html{
     background-color: var(--backgr);
     padding: 1rem;
     box-shadow: 2px 2px 5px 1px black;
+    position: relative;
 }
 .indprod-name{
     background-color: var(--backgr);
@@ -98,4 +104,29 @@ background-color: rgb(8, 124, 112);
     transform: scale(1.6) translateX(100%)  rotateZ(360deg);
     opacity: 0.5;
     border-radius: 50%;
+}
+.already-in-cart{
+    color: white;
+    background-color: crimson;
+    transition: 0.5s ease;
+}
+.already-in-cart:hover{
+    color: white;
+    background-color: crimson;
+    transition: 0.5s ease;
+}
+.to-cart-animation{
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: to-cart 3s forwards;
+    backdrop-filter: blur;
+    /* background-color: indigo; */
+    z-index: 10;
+    
+}
+@keyframes to-cart {
+    0%{transform: scale(1) translateY(var(--top))}
+    50%{transform: scale(0.3) translateY(var(--top));}
+    100%{transform: scale(1) translateY(var(--top));}
 }
