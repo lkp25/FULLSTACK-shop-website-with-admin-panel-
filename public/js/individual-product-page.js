@@ -52,6 +52,9 @@ function checkIfItemIsInCart(){
             
             itemsInCart.push(newOrder)
     performAddToCartAnimation()
+    saveCartInSessionStorage()
+       
+    showNumberOfItemsInCart()
 }
 function performShakeAnimation(){
     itemCard.classList.add('shake-animation')
