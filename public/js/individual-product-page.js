@@ -26,7 +26,7 @@ document.addEventListener('click' , e=>{
     }
 })
 function checkIfItemIsInCart(){
-    const alreadyThere = itemsInCart.find(item=> item.id = getItemData().id)
+    const alreadyThere = itemsInCart.find(item=> item.id === getItemData().id)
     if(alreadyThere){
         buyBtn.textContent = 'Already in Cart!'.toUpperCase()
         buyBtn.classList.add('already-in-cart')
@@ -38,6 +38,19 @@ function checkIfItemIsInCart(){
         }, 3000);
         return
     }
+    //not in cart yet -add
+    console.log('NOT YET ORDERED');
+    const product = getItemData()
+    console.log(product);
+            const newOrder = {
+                id: product.id,
+                image: product.image,
+                price: product.priceInCents,
+                name: product.name,
+                quantity: 1
+            }    
+            
+            itemsInCart.push(newOrder)
     performAddToCartAnimation()
 }
 function performShakeAnimation(){
