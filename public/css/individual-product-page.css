@@ -119,14 +119,29 @@ background-color: rgb(8, 124, 112);
     position: absolute;
     top: 0;
     left: 0;
-    animation: to-cart 3s forwards;
-    backdrop-filter: blur;
+    /* animation: to-cart 3s forwards; */
+    animation: goToCart 1.5s forwards;
+    
     /* background-color: indigo; */
-    z-index: 10;
+    z-index: 101;
     
 }
-@keyframes to-cart {
+@keyframes goToCart {
+    0%{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+    60%{
+        transform: scale(0.3)  translateX(10px) translateY(-10px);
+       opacity: 1;
+    }
+    100%{
+        transform: scale(0.3) translateX(var(--left)) translateY(var(--top));
+        opacity: 0.2;
+    }
+}
+/* @keyframes to-cart {
     0%{transform: scale(1) translateY(var(--top))}
     50%{transform: scale(0.3) translateY(var(--top));}
     100%{transform: scale(1) translateY(var(--top));}
-}
+} */

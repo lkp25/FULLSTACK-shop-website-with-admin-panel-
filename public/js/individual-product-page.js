@@ -43,18 +43,18 @@ function checkIfItemIsInCart(){
 
  function performAddToCartAnimation(){
    const clone = itemCard.cloneNode(true)
-   clone.classList.add('to-cart-animation')
-   itemCard.appendChild(clone)
-
+   
    let root = document.documentElement;
    root.style.setProperty(
-       '--top', -1 * 16 - itemCard.getBoundingClientRect().bottom + document.body.scrollTop + "px"
+       '--top', -1 * 16 - itemCard.getBoundingClientRect().bottom + document.body.scrollTop - 300 + "px"
        );
-   root.style.setProperty(
-       '--left', cartIcon.getBoundingClientRect().left - itemCard.getBoundingClientRect().left + "px"
-       );
-
+       root.style.setProperty(
+           '--left', cartIcon.getBoundingClientRect().left - itemCard.getBoundingClientRect().left + 300 +"px"
+           );
+           clone.classList.add('to-cart-animation')
+           itemCard.appendChild(clone)
+           
    setTimeout(() => {
        clone.remove()
-   }, 3000);
+   }, 1500);
 }
