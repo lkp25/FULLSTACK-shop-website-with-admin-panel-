@@ -76,6 +76,8 @@
 .product-card:hover{
     transform: scale(1.1);
     cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(207, 204, 204, 0.384);
+    box-shadow: 5px 5px 10px rgba(189, 185, 185, 0.747);
 }
 .to-cart-animation{
     position: absolute;

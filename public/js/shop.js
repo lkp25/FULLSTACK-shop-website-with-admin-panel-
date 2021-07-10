@@ -123,7 +123,7 @@ document.addEventListener('click', (e)=>{
     if(     
         e.target.classList.contains('product-card')
         ||
-        e.target.closest('.product-card').classList.contains('product-card') 
+        e.target.closest('.product-card')?.classList.contains('product-card') 
         && 
         !e.target.classList.contains('product-add-to-cart-btn')
     ){
