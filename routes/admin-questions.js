@@ -10,6 +10,12 @@ require('dotenv').config()
 
 //save new customer question 
 router.post('/new-customer-question', async (req, res, next) =>{
+ const getMongoDB = mongoDB()        
+  getMongoDB.collection('questions').insertOne(req.body)
+  .then(result => console.log(result))
+  .catch(err => console.log(err))
+    
+
   db.execute(`INSERT INTO questions(value) VALUES('${JSON.stringify(req.body)}')`)
   .then(([recordsArray, fieldsDataArray] )=>{
     
@@ -36,11 +42,7 @@ router.get('/delete-question', async (req, res, next) =>{
 
 //for admin panel display all questions:
 router.get('/get-all-questions', (req, res, next) =>{
-  // const getMongoDB = mongoDB()        
-  // getMongoDB.collection('questions').insertOne({name:"dsf",price:243})
-  // .then(result => console.log(result))
-  // .catch(err => console.log(err))
-      
+   
       
 
   db.execute('SELECT * FROM questions')

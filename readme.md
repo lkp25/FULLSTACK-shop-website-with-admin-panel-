@@ -1,5 +1,5 @@
 Still to do:
--indiv page - display info if item is in cart!
+
 -send email to customer to confirm order + when status in db is changed to sent.
 -login logic
 - admin statistics page? nm of orders, site visits, customer questions
