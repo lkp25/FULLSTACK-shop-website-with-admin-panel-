@@ -51,6 +51,9 @@ app.use(adminOrdersRoutes)
 const loginUserRoutes = require('./routes/auth/login')
 app.use(loginUserRoutes)
 
+const logoutRoutes = require('./routes/auth/logout')
+app.use(logoutRoutes)
+
 // app.use(  (req, res, next) =>{
 //     req.user = 'admin'
 //     next()
