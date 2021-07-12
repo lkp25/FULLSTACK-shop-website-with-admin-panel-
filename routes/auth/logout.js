@@ -7,9 +7,11 @@ const rootDir = require('../../util/path')
 require('dotenv').config()
 
 router.post('/logout', (req, res, next) =>{
-  req.session.isLoggedIn = false
-  console.log('user logged out');
-  res.redirect('/index')
+  req.session.destroy(()=>{
+      
+      res.redirect('/index')
+      console.log('user logged out');
+  })
 })
 
 

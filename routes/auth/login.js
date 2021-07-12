@@ -13,13 +13,12 @@ router.get('/login', (req, res, next) =>{
 
 router.post('/login', (req, res, next) =>{
   req.session.isLoggedIn = true
-  //  res.setHeader('Set-Cookie', 'loggedIn=true')
-  res.redirect('/index')
+  req.session.save(()=>{
+
+    res.redirect('/index')
+  })
+ 
 })
 
 
-router.get('/register', (req, res, next) =>{
-  console.log('hey');
-  res.sendFile(path.join(rootDir, 'views', 'register-new-acc.html'))
-})
 module.exports = router
