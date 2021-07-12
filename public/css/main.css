@@ -288,3 +288,23 @@ main{
    90%{transform: translateX(10px) translateY(-900px);}   
    100%{transform: translateX(-10px) translateY(-1000px);}   
   }
+
+
+  .logout-btn{
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      padding: 0.5rem;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: rgb(107, 97, 97);
+    transition: 0.2s;
+  }
+  
+.logout-btn:hover, 
+.logout-btn:active {
+    text-decoration: underline;
+    color: tomato;
+}
