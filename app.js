@@ -35,6 +35,9 @@ app.use(adminProductsRoutes)
 const adminOrdersRoutes = require('./routes/admin-orders')
 app.use(adminOrdersRoutes)
 
+const loginUserRoutes = require('./routes/auth/login')
+app.use(loginUserRoutes)
+
 
 app.use('/', (req, res, next) =>{
     console.log('no such address');

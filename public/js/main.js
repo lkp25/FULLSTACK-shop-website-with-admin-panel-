@@ -11,10 +11,7 @@ setTimeout(() => {
     
 }, 150);
 
-window.onbeforeunload = function() {
-    myfun()
-    alert('Bye.');
-}
+
 function myfun(){
     // Write your business logic here
     console.log('hello');
