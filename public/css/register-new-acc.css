@@ -1,0 +1,57 @@
+.register-card{
+    padding: 1rem;
+    
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.register-form{
+    background-color: rgba(128, 128, 128, 0.384);
+padding: 1rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 0.7rem;
+
+}
+.register-inputs{
+    background-color: rgba(159, 193, 214, 0.671);
+    width: 100%;
+    place-items: center;
+    padding: 1rem;
+    place-self: center;
+    display: grid;
+grid-template-columns: 1fr;
+gap: 0.7rem;
+}
+.register-form input{
+    background-color: rgb(233, 221, 221);
+    max-width: 300px;
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.register-form input[type="submit"]{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    max-width: 200px;
+    height: 30px;
+    width: 7rem;
+    cursor: pointer;
+}
+.register-form input[type="submit"]:hover{
+    color: rgb(77, 76, 76);
+    background-color: rgb(146, 219, 195);
+}
+
+input:focus {
+    outline: 2px solid rgb(110, 165, 124);
+  }
+input::placeholder {
+    color: rgb(95, 95, 104);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  input:focus::placeholder {
+    /* color: rgb(47, 47, 54); */
+    transform: translateX(-100%);
+    /* transform: translateY(-30px); */
+    opacity: .5;
+    
+  }

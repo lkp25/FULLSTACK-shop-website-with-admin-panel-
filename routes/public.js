@@ -23,6 +23,10 @@ router.get('/login', (req, res, next) =>{
     console.log('hey');
     res.sendFile(path.join(rootDir, 'views', 'login.html'))
 })
+router.get('/register', (req, res, next) =>{
+    console.log('hey');
+    res.sendFile(path.join(rootDir, 'views', 'register-new-acc.html'))
+})
 
 
 
