@@ -1,9 +1,15 @@
 const express = require('express');
 const path = require('path');
-
+const session = require('express-session')
 require('dotenv').config()
 
 const app = express()
+
+app.use(session({
+    secret: "mysecret",
+    resave: false,
+    saveUninitialized: false,
+}))
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -38,10 +44,10 @@ app.use(adminOrdersRoutes)
 const loginUserRoutes = require('./routes/auth/login')
 app.use(loginUserRoutes)
 
-app.use(  (req, res, next) =>{
-    req.user = 'admin'
-    next()
-})
+// app.use(  (req, res, next) =>{
+//     req.user = 'admin'
+//     next()
+// })
 
 app.use('/', (req, res, next) =>{
     console.log('no such address');

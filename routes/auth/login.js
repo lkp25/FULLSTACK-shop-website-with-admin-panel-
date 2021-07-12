@@ -7,7 +7,8 @@ const rootDir = require('../../util/path')
 require('dotenv').config()
 
 router.get('/login', (req, res, next) =>{
-  console.log(req.get('Cookie').split(';')[1]);
+  console.log(req.get('Cookie').split(';')[1].trim().split('=')[0]);
+  const logged = req.get('Cookie').split(';')[1].trim().split('=')[0]
   res.sendFile(path.join(rootDir, 'views', 'login.html'))
 })
 
