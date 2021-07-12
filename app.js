@@ -21,6 +21,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(express.json())
+app.use(express.urlencoded())
 
 const rootDir = require('./util/path')
 
@@ -29,6 +30,9 @@ const {mongoConnect} = require('./util/mongoDBconnect')
 mongoConnect( ()=>{
     console.log('con');
 })
+
+const mongoose = require('mongoose')
+mongoose.connect('mongodb+srv://123:NabugsJzLbHcZJqI@cluster0.cc96k.mongodb.net/data?retryWrites=true&w=majority?authSource=admin')
 
 const publicRoutes = require('./routes/public')
 app.use(publicRoutes)

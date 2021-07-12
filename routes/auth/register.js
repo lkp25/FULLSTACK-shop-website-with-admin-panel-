@@ -7,21 +7,29 @@ const rootDir = require('../../util/path')
 require('dotenv').config()
 const mongoDB = require('../../util/mongoDBconnect').getDB
 
+    
+
+
+
 router.post('/register', async (req, res, next) =>{
     const email = req.body.email
     const password = req.body.password
     const getMongoDB = mongoDB()
-    const user = await getMongoDB.collection('questions').findOne({email: email}).
+    const user = await getMongoDB.collection('users').findOne({email: email}).
     then((user)=>{
+        //user already exists?
         if(user){
            return res.redirect('/contact')
         }
+
          const newUser =  new User({
              email: email,
              password: password
          })
          console.log(newUser)
-         res.redirect('/index')
+         const db = mongoDB();
+         return db.collection('users').insertOne(newUser);
+        //  res.redirect('/index')
          
     })      
     
