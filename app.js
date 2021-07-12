@@ -1,14 +1,21 @@
 const express = require('express');
 const path = require('path');
-const session = require('express-session')
 require('dotenv').config()
 
 const app = express()
 
+const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session)
+const store = new MongoDBStore({
+    uri: 'mongodb+srv://123:NabugsJzLbHcZJqI@cluster0.cc96k.mongodb.net/data?retryWrites=true&w=majority?authSource=admin',
+    collection: 'sessions'
+
+})
 app.use(session({
     secret: "mysecret",
     resave: false,
     saveUninitialized: false,
+    store: store
 }))
 
 app.use(express.static(path.join(__dirname, 'public')))
