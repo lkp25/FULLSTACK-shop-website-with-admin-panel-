@@ -7,13 +7,12 @@ const rootDir = require('../../util/path')
 require('dotenv').config()
 
 router.get('/login', (req, res, next) =>{
-  console.log('hey');
+  console.log(req.get('Cookie').split(';')[1]);
   res.sendFile(path.join(rootDir, 'views', 'login.html'))
 })
 
 router.post('/login', (req, res, next) =>{
-  console.log(req.body);
-  console.log('userlogin reached');
+ res.setHeader('Set-Cookie', 'loggedIn=true')
   res.redirect('/index')
 })
 

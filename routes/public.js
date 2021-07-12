@@ -6,8 +6,13 @@ const router = express.Router()
 const rootDir = require('../util/path')
 const Template = require('../util/individual-product-template')
 
+
+
+
+
 router.get('/index', (req, res, next) =>{
     console.log('hey');
+    
     res.sendFile(path.join(rootDir, 'views', 'index.html'))
 })
 

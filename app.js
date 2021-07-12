@@ -38,6 +38,10 @@ app.use(adminOrdersRoutes)
 const loginUserRoutes = require('./routes/auth/login')
 app.use(loginUserRoutes)
 
+app.use(  (req, res, next) =>{
+    req.user = 'admin'
+    next()
+})
 
 app.use('/', (req, res, next) =>{
     console.log('no such address');
