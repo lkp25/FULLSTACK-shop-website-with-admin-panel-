@@ -43,7 +43,7 @@ router.get('/delete-question', async (req, res, next) =>{
 //for admin panel display all questions:
 router.get('/get-all-questions', async (req, res, next) =>{
   const getMongoDB = mongoDB()        
-  const data = await getMongoDB.collection('questions').find().toArray()      
+  const data = await getMongoDB.collection('questions').find().toArray().then()      
   res.send(data)
   
   // db.execute('SELECT * FROM questions')
