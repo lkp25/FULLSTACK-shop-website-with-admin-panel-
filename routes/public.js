@@ -19,6 +19,10 @@ router.get('/contact', (req, res, next) =>{
     console.log('hey');
     res.sendFile(path.join(rootDir, 'views', 'contact.html'))
 })
+router.get('/login', (req, res, next) =>{
+    console.log('hey');
+    res.sendFile(path.join(rootDir, 'views', 'login.html'))
+})
 
 
 
