@@ -161,7 +161,7 @@ function removeAllProductsFromView(){
 }
 
 function disableChanges(){
-    const allButtons = Array.from(document.querySelectorAll('button'))
+    const allButtons = Array.from(document.querySelectorAll('button:not(.logout-btn)'))
     allButtons.forEach(field => field.disabled = true)
     
     const allInputs = document.querySelectorAll('input')

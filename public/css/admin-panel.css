@@ -28,7 +28,7 @@ header{
 ul{
     list-style-type: none;
     display: grid;
-    grid-template-columns: 1fr auto auto auto;
+    grid-template-columns: 1fr auto auto auto auto;
     align-items: center;
     padding: 0.5rem 3rem;
     gap: 2rem;
@@ -440,4 +440,25 @@ tr:nth-child(odd):not(:first-child){
     0%{transform: translateY(-20px) scaleY(0.2); opacity: 0;}
     100%{transform: translateY(0px) scaleY(1); opacity: 1;}
    
+}
+
+
+.logout-btn{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-decoration: none;
+  color: rgb(107, 97, 97);
+  transition: 0.2s;
+  width: fit-content;
+}
+
+.logout-btn:hover, 
+.logout-btn:active {
+  text-decoration: underline;
+  color: tomato;
 }
