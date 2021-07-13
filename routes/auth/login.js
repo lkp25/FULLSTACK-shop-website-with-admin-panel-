@@ -24,7 +24,8 @@ router.post('/login', async (req, res, next) =>{
   const user = await getMongoDB.collection('users').findOne({email: email})
   .then((user)=>{
     if(!user){
-      res.redirect('/login')
+      console.log('user doesnt exist!')
+      return res.redirect('/login')
     }
     bcrypt.compare(password, user.password) //makes it to then block EVEN if passwords dont match!!
     .then((doMatch)=>{
@@ -34,10 +35,11 @@ router.post('/login', async (req, res, next) =>{
         //passwords match - return with saving session object
         return req.session.save(()=>{
           res.redirect('/index')
-
+         
         })
       }
       res.redirect('/login')
+      console.log('wrong password')
       
     })
     .catch(err => {

@@ -23,7 +23,8 @@ router.post('/register', async (req, res, next) =>{
             
            return res.redirect('/register')
         }
-        return bcrypt.hash(password, 12)
+        return bcrypt
+        .hash(password, 12)
         .then((hashedPassword)=>{
             const newUser =  new User({
                 email: email,
@@ -46,7 +47,7 @@ router.post('/register', async (req, res, next) =>{
 })
 
 router.get('/register', (req, res, next) =>{
-  console.log('hey');
+  console.log('current logged user:' + req.session.user);
   res.sendFile(path.join(rootDir, 'views', 'register-new-acc.html'))
 })
 module.exports = router

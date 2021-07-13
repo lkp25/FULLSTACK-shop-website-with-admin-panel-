@@ -10,7 +10,8 @@ const { writeFile } = require('fs');
 
 require('dotenv').config()
 
-router.use(isAdmin)
+// router.use(isAdmin)
+router.use(isLoggedIn)
 //serve HTML:
 router.get('/admin-products', (req, res, next) =>{
   console.log('welcome to admin page - products');
@@ -39,5 +40,13 @@ function isAdmin(req, res, next){
   } else {
     res.send('ERROR: You must be an admin')
   }
+
+}
+function isLoggedIn(req, res, next){
+ 
+  if (!req.session.isLoggedIn) {
+    return res.send('ERROR: You must be logged in as admin')
+  } 
+  next()
 
 }
