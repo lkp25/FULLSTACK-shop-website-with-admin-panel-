@@ -1,11 +1,11 @@
 const mongoDB = require('mongodb')
 const mongoClient = mongoDB.mongoClient
-
+require('dotenv').config()
 let _db
 
 const mongoConnect = (cb) => {    
     mongoDB.MongoClient.connect
-    ('mongodb+srv://123:NabugsJzLbHcZJqI@cluster0.cc96k.mongodb.net/data?retryWrites=true&w=majority?authSource=admin')
+    (process.env.MONGODB_URI)
     .then((client)=>{
         _db = client.db()
         cb(client)

@@ -9,7 +9,7 @@ const app = express()
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
 const store = new MongoDBStore({
-    uri: 'mongodb+srv://123:NabugsJzLbHcZJqI@cluster0.cc96k.mongodb.net/data?retryWrites=true&w=majority?authSource=admin',
+    uri: process.env.MONGODB_URI,
     collection: 'sessions'
 
 })
@@ -35,7 +35,7 @@ mongoConnect( ()=>{
     console.log('con');
 })
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://123:NabugsJzLbHcZJqI@cluster0.cc96k.mongodb.net/data?retryWrites=true&w=majority?authSource=admin')
+mongoose.connect(process.env.MONGODB_URI)
 
 
 //all routes
@@ -44,6 +44,15 @@ app.use(publicRoutes)
 
 const newOrderRoutes = require('./routes/new-order-data')
 app.use(newOrderRoutes)
+
+const registerRoutes = require('./routes/auth/register')
+app.use(registerRoutes)
+
+const loginUserRoutes = require('./routes/auth/login')
+app.use(loginUserRoutes)
+
+const logoutRoutes = require('./routes/auth/logout')
+app.use(logoutRoutes)
 
 const adminMainRoutes = require('./routes/admin-main')
 app.use(adminMainRoutes)
@@ -57,14 +66,6 @@ app.use(adminProductsRoutes)
 const adminOrdersRoutes = require('./routes/admin-orders')
 app.use(adminOrdersRoutes)
 
-const registerRoutes = require('./routes/auth/register')
-app.use(registerRoutes)
-
-const loginUserRoutes = require('./routes/auth/login')
-app.use(loginUserRoutes)
-
-const logoutRoutes = require('./routes/auth/logout')
-app.use(logoutRoutes)
 
 
 //404 page

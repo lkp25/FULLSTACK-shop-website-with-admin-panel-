@@ -14,6 +14,7 @@ router.use(isAdmin)
 //serve HTML:
 router.get('/admin-products', (req, res, next) =>{
   console.log('welcome to admin page - products');
+  console.log(req.admin)
   res.sendFile(path.join(rootDir, 'views', 'admin-panel-products.html'))
 })
 router.get('/admin-orders', (req, res, next) =>{
@@ -33,6 +34,7 @@ module.exports = router
 function isAdmin(req, res, next){
   console.log(`${new Date().toISOString()}: ${req.originalUrl}`)
   if (req.query.admin === 'true') {
+    req.admin = true
     next()
   } else {
     res.send('ERROR: You must be an admin')
