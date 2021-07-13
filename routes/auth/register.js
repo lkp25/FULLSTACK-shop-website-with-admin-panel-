@@ -6,7 +6,7 @@ const router = express.Router()
 const rootDir = require('../../util/path')
 require('dotenv').config()
 const mongoDB = require('../../util/mongoDBconnect').getDB
-
+const bcrypt = require('bcrypt')
     
 
 
@@ -20,21 +20,27 @@ router.post('/register', async (req, res, next) =>{
     then((user)=>{
         //user already exists?
         if(user){
-           return res.redirect('/contact')
+            
+           return res.redirect('/register')
         }
+        return bcrypt.hash(password, 12)
+        .then((hashedPassword)=>{
+            const newUser =  new User({
+                email: email,
+                password: hashedPassword
+            })
+            console.log(newUser)
+            console.log('newUser created')
+            
+            const db = mongoDB();
+            db.collection('users').insertOne(newUser)
 
-         const newUser =  new User({
-             email: email,
-             password: password
-         })
-         console.log(newUser)
-         console.log('newUser created')
+        })         
+        .then(()=>{
+             res.redirect('/login')
+        })
          
-         const db = mongoDB();
-         db.collection('users').insertOne(newUser);
-         res.redirect('/index')
-         
-    })      
+    }).catch(err => console.log(err))      
     
  
 })
