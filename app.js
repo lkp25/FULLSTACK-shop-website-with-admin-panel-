@@ -4,6 +4,9 @@ require('dotenv').config()
 const rootDir = require('./util/path')
 const app = express()
 
+const csurf = require('csurf')
+const csrfProtection = csurf({})
+
 
 //setup for managing sessions and storing them in mongoDB
 const session = require('express-session')
@@ -20,7 +23,8 @@ app.use(session({
     store: store
 }))
 
-
+//protection for the session
+app.use(csrfProtection)
 
 //main middlewares
 app.use(express.static(path.join(__dirname, 'public')))

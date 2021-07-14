@@ -10,20 +10,22 @@ const { writeFile } = require('fs');
 
 require('dotenv').config()
 
-// router.use(isAdmin)
-router.use(isLoggedIn)
+const isLoggedInCheck = require('../middleware/is-logged-in')
+
+
 //serve HTML:
-router.get('/admin-products', (req, res, next) =>{
+router.get('/admin-products', isLoggedInCheck, (req, res, next) =>{
   console.log('welcome to admin page - products');
   console.log(req.admin)
   res.sendFile(path.join(rootDir, 'views', 'admin-panel-products.html'))
 })
-router.get('/admin-orders', (req, res, next) =>{
+router.get('/admin-orders', isLoggedInCheck, (req, res, next) =>{
   console.log('welcome to admin page - orders');
   res.sendFile(path.join(rootDir, 'views', 'admin-panel-orders.html'))
 })
-router.get('/admin-questions', (req, res, next) =>{
+router.get('/admin-questions', isLoggedInCheck, (req, res, next) =>{
   console.log('welcome to admin page - questions');
+  
   res.sendFile(path.join(rootDir, 'views', 'admin-panel-questions.html'))
 
 
@@ -40,13 +42,5 @@ function isAdmin(req, res, next){
   } else {
     res.send('ERROR: You must be an admin')
   }
-
-}
-function isLoggedIn(req, res, next){
- 
-  if (!req.session.isLoggedIn) {
-    return res.send('ERROR: You must be logged in as admin')
-  } 
-  next()
 
 }
