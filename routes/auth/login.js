@@ -24,6 +24,7 @@ router.post('/login', async (req, res, next) =>{
   const user = await getMongoDB.collection('users').findOne({email: email})
   .then((user)=>{
     if(!user){
+      req.flash("error", "invalid email or password")
       console.log('user doesnt exist!')
       return res.redirect('/login')
     }
