@@ -1,7 +1,9 @@
 Still to do:
 
 -send email to customer to confirm order + when status in db is changed to sent.
--login logic
+-login logic partly added? 
+- add error handling
+-csrf token? only in templating engine......
 - admin statistics page? nm of orders, site visits, customer questions
 -how do you feel today questionare on homepage
 
