@@ -15,7 +15,7 @@ require('dotenv').config()
 //admin route for getting all orders
 router.get('/getorders', (req, res, next) =>{
   db.execute("SELECT * FROM orders")
-  .then(([recordsArray, fieldsDataArray] )=>{
+  .then(([recordsArray] )=>{
     
     res.send(recordsArray)
   })

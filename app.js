@@ -4,6 +4,7 @@ require('dotenv').config()
 const rootDir = require('./util/path')
 const app = express()
 
+const flash = require('connect-flash')
 const helmet = require('helmet')
 
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(helmet())
+app.use(flash())
 
 
 
