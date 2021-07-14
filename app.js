@@ -4,8 +4,7 @@ require('dotenv').config()
 const rootDir = require('./util/path')
 const app = express()
 
-const csurf = require('csurf')
-const csrfProtection = csurf({})
+const helmet = require('helmet')
 
 
 //setup for managing sessions and storing them in mongoDB
@@ -14,7 +13,7 @@ const MongoDBStore = require('connect-mongodb-session')(session)
 const store = new MongoDBStore({
     uri: process.env.MONGODB_URI,
     collection: 'sessions'
-
+    
 })
 app.use(session({
     secret: "mysecret",
@@ -22,6 +21,8 @@ app.use(session({
     saveUninitialized: false,
     store: store
 }))
+const csurf = require('csurf')
+const csrfProtection = csurf({})
 
 //protection for the session
 app.use(csrfProtection)
@@ -30,6 +31,7 @@ app.use(csrfProtection)
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded())
+app.use(helmet())
 
 
 
