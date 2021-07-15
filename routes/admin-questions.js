@@ -61,12 +61,31 @@ router.get('/get-all-questions', async (req, res, next) =>{
   
   // db.execute('SELECT * FROM questions')
   //   .then(([recordsArray, fieldsDataArray] )=>{
+    
+    
+    //     res.send(recordsArray)
+    //   })
+    //   .catch((error)=>{console.log(error);})
+  })
+  
+  //send reply to question:
+  router.post('/reply-to-customer-email', async (req, res, next) =>{
+    const requestBody = await req.body
+    sendEmail(requestBody.email, 
+      `Reply to your question`, 
+      "order shipped",
+      `
+      <h1>You wrote:</h1>
+      <p>${requestBody.original}</p>
+      <br>
+      <h1>Here is our reply:</h1>
+      <p>${requestBody.reply}</p>
       
+      `)
+      res.redirect('/admin-questions')
+  })
+  
 
-  //     res.send(recordsArray)
-  //   })
-  //   .catch((error)=>{console.log(error);})
-})
 
 
 module.exports = router

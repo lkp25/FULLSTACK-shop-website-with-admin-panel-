@@ -91,6 +91,24 @@ document.addEventListener('click', e=>{
         e.target.closest('.question-reply-container').remove()
     }
 })
+// document.addEventListener('submit', e=>{
+//     if(e.target.classList.contains('reply-to-customer')){
+//         e.preventDefault()
+//         const replyDetails = {
+
+//         }
+
+//         const sendData = await fetch('http://localhost:5000/reply-to-customer-email', {
+//         method: 'POST', 
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(replyDetails),
+//       })
+//     const responseFromServer = await sendData.json()
+//     }
+// })
+
 
 function openEmailEditor(emailAddress, originalEmail){
     console.log(emailAddress)
@@ -98,9 +116,11 @@ function openEmailEditor(emailAddress, originalEmail){
     const emailText = document.createElement('div')
     emailText.innerHTML = `
     <div class="question-reply-towho-msg">Replying to: ${emailAddress}</div>
-        <form action="/reply-to-email" method="post">
+        <form class="reply-to-customer" action="/reply-to-customer-email" method="post">
         <div class="question-reply-original-msg">original message:<br>${originalEmail}</div>
-        <div class="question-reply-admin-msg"><textarea></textarea></div>
+        <div class="question-reply-admin-msg"><textarea name="reply"></textarea></div>
+        <input style="display:none;" name="original" value="${originalEmail}">
+        <input style="display:none;" name="email" value="${emailAddress}">
         <div class="question-reply-btns">
         <button class="question-reply-cancel-btn">Cancel</button>
             <input type="submit" value="send reply">
@@ -109,9 +129,5 @@ function openEmailEditor(emailAddress, originalEmail){
     `
     emailText.classList.add('question-reply-container')
     document.body.appendChild(emailText)
-    // sendEmailToCustomer()
-}
-
-async function sendEmailToCustomer(){
-
+    
 }
