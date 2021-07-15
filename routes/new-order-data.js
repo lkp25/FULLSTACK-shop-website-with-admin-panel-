@@ -6,6 +6,7 @@ const router = express.Router()
 const db = require('../util/mySQLdb')
 
 require('dotenv').config()
+const sendEmail = require('../util/nodemailer')
 
 
 router.post('/save-order', async (req, res, next) =>{
@@ -16,7 +17,10 @@ router.post('/save-order', async (req, res, next) =>{
       res.send({
         requestBody: req.body,
         responseMessage: 'your order was successfuly created'
-    })
+      })
+      //order confirm email
+      sendEmail(requestBody.email, `Order successfully created ${requestBody.email}`, "welcome to store")
+
     })
     .catch((error)=>{console.log(error);}) 
     
