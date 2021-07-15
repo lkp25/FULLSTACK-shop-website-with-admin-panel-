@@ -5,11 +5,13 @@ const mongoDB = require('../util/mongoDBconnect').getDB
 const express = require('express');
 const router = express.Router()
 require('dotenv').config()
+const sendEmail = require('../util/nodemailer')
 
 
 
 //save new customer question 
 router.post('/new-customer-question', async (req, res, next) =>{
+  const requestBody = req.body
  const getMongoDB = mongoDB()        
   getMongoDB.collection('questions').insertOne(req.body)
   .then(result => console.log(result))
@@ -20,6 +22,17 @@ router.post('/new-customer-question', async (req, res, next) =>{
   .then(([recordsArray, fieldsDataArray] )=>{
     
     res.send(recordsArray)
+    //send confirmation email
+    const text = requestBody.text.replace(/xxxxx/g, `<br>`, )
+    sendEmail(requestBody.email, 
+      `Thank you for interest in our offer!`, 
+      "order shipped",
+      `
+      <h1>We will reply as soon as possible to your email:</h1>
+      <p>${text}</p>
+      `)
+
+
   })
   .catch((error)=>{console.log(error);})   
     

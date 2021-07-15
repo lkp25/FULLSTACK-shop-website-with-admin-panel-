@@ -10,7 +10,7 @@ const rootDir = require('../util/path');
 const { writeFile } = require('fs');
 
 require('dotenv').config()
-
+const sendEmail = require('../util/nodemailer')
 ////////ROUTES FROM ORDERS TAB////////
 //admin route for getting all orders
 router.get('/getorders', (req, res, next) =>{
@@ -27,8 +27,17 @@ router.get('/getorders', (req, res, next) =>{
   router.post('/update-order-status',  (req, res, next) =>{    
     
     const requestBody =  req.body    
-    //echo back the request + send response messages
-    
+    //send email to client with shipping confirmation
+    if(requestBody.orderData.sent){
+      sendEmail(requestBody.orderData.email, 
+        `Order ${requestBody.orderData.orderId} was shipped`, 
+        "order shipped",
+        `
+        <h1>${requestBody.orderData.orderId} was shipped!</h1>
+        <p>Thank you for your trust. We hope you'll love our products!</p>
+        `)
+
+    }
     //save order in the database
     db.execute(`UPDATE orders SET orderData='${JSON.stringify(requestBody.orderData) }' WHERE id=${requestBody.id}`)
     .then(([recordsArray, fieldsDataArray] )=>{
