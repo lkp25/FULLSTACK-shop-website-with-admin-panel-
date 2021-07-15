@@ -35,7 +35,7 @@ button{
     inset: 0;
     border-radius: 5px;
     margin: auto;
-    width: 300px;
+    width: clamp(350px, 600px, 90vw);
     max-height: 40vh;
     background-color: rgb(47, 51, 47);
     display: grid;
@@ -45,20 +45,36 @@ button{
 .question-reply-container textarea{
 width: 100%;
 min-height: 6rem;
+background-color: rgb(119, 129, 111);
+}
+.question-reply-container input{
+width: 100%;
+cursor: pointer;
+transition: 0.3s ease;
+}
+.question-reply-container input:hover{
+background-color: seagreen;
+transform: scale(0.95);
 }
 .question-reply-original-msg{
     border-bottom: 1px solid rgb(66, 2, 2);
     margin-bottom: 1rem;
 }
-.question-reply-admin-msg{
-    
-}
-.question-reply-towho{
+
+.question-reply-towho-msg{
     border-bottom: 1px solid rgb(66, 2, 2);
     margin-bottom: 1rem;
-
+    font-size: 1.3rem;
+    color:rgb(99, 134, 199)
 }
 .question-reply-btns{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+.question-reply-btns button{
+    transition: 0.3s ease;
+}
+.question-reply-btns button:hover{
+   background-color: rgb(107, 19, 10);
+   transform: scale(0.95);
 }

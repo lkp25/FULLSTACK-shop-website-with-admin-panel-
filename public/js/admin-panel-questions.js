@@ -81,7 +81,17 @@ questionsList.addEventListener('click', e =>{
         const originalEmail = e.target.closest('.db-single-question').querySelector('textarea').value
         openEmailEditor(e.target.dataset.email, originalEmail)
     }
+    
+    
 })
+//cancel reply to email
+document.addEventListener('click', e=>{
+    if(e.target.classList.contains('question-reply-cancel-btn')){
+        e.preventDefault()
+        e.target.closest('.question-reply-container').remove()
+    }
+})
+
 function openEmailEditor(emailAddress, originalEmail){
     console.log(emailAddress)
     console.log(originalEmail)
@@ -92,10 +102,10 @@ function openEmailEditor(emailAddress, originalEmail){
         <div class="question-reply-original-msg">original message:<br>${originalEmail}</div>
         <div class="question-reply-admin-msg"><textarea></textarea></div>
         <div class="question-reply-btns">
+        <button class="question-reply-cancel-btn">Cancel</button>
             <input type="submit" value="send reply">
-            <button class="question-reply-cancel-btn">Cancel</button>
-        </div>
-        </form>
+            </div>
+            </form>
     `
     emailText.classList.add('question-reply-container')
     document.body.appendChild(emailText)
