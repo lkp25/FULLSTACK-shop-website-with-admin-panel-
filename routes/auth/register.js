@@ -8,7 +8,7 @@ require('dotenv').config()
 const mongoDB = require('../../util/mongoDBconnect').getDB
 const bcrypt = require('bcrypt')
     
-
+const sendEmail = require('../../util/nodemailer')
 
 
 router.post('/register', async (req, res, next) =>{
@@ -36,9 +36,11 @@ router.post('/register', async (req, res, next) =>{
             const db = mongoDB();
             db.collection('users').insertOne(newUser)
 
+            
         })         
         .then(()=>{
              res.redirect('/login')
+             sendEmail(email, `Shop account registered ${email}`, "welcome to store")
         })
          
     }).catch(err => console.log(err))      
