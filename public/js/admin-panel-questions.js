@@ -77,4 +77,31 @@ questionsList.addEventListener('click', e =>{
         const thisMessageRow = e.target.closest('.db-single-question')
         removeSingleMessage(thisMessageRow)
     }
+    if(e.target.classList.contains('db-question-email')){
+        const originalEmail = e.target.closest('.db-single-question').querySelector('textarea').value
+        openEmailEditor(e.target.dataset.email, originalEmail)
+    }
 })
+function openEmailEditor(emailAddress, originalEmail){
+    console.log(emailAddress)
+    console.log(originalEmail)
+    const emailText = document.createElement('div')
+    emailText.innerHTML = `
+    <div class="question-reply-towho-msg">Replying to: ${emailAddress}</div>
+        <form action="/reply-to-email" method="post">
+        <div class="question-reply-original-msg">original message:<br>${originalEmail}</div>
+        <div class="question-reply-admin-msg"><textarea></textarea></div>
+        <div class="question-reply-btns">
+            <input type="submit" value="send reply">
+            <button class="question-reply-cancel-btn">Cancel</button>
+        </div>
+        </form>
+    `
+    emailText.classList.add('question-reply-container')
+    document.body.appendChild(emailText)
+    // sendEmailToCustomer()
+}
+
+async function sendEmailToCustomer(){
+
+}

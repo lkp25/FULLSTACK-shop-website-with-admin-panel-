@@ -1,3 +1,6 @@
+body{
+    position: relative;
+}
 #db-all-questions{
     width: fit-content;
 }
@@ -23,4 +26,39 @@ tr,td{
 }
 button{
     width: 100%;
+}
+
+.question-reply-container{
+    box-shadow: 0 0  10px 5px black;
+    padding: 1rem;
+    position: fixed;
+    inset: 0;
+    border-radius: 5px;
+    margin: auto;
+    width: 300px;
+    max-height: 40vh;
+    background-color: rgb(47, 51, 47);
+    display: grid;
+    grid-template-columns: auto;
+    
+}
+.question-reply-container textarea{
+width: 100%;
+min-height: 6rem;
+}
+.question-reply-original-msg{
+    border-bottom: 1px solid rgb(66, 2, 2);
+    margin-bottom: 1rem;
+}
+.question-reply-admin-msg{
+    
+}
+.question-reply-towho{
+    border-bottom: 1px solid rgb(66, 2, 2);
+    margin-bottom: 1rem;
+
+}
+.question-reply-btns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
