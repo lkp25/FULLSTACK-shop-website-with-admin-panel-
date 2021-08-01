@@ -13,43 +13,46 @@ const sendEmail = require('../../util/nodemailer')
 const {check, validationResult} = require('express-validator/check')
 
 
-router.post('/register', check('email').isEmail().withMessage('please neter valid email'), async (req, res, next) =>{
-    const email = req.body.email
-    const password = req.body.password
-    const getMongoDB = mongoDB()
+router.post('/register', 
+    check('email',' please enter valid email').isEmail().isAlphanumeric().isLength({min:5}),
 
-    const errors = validationResult(req)
-    if(!errors.isEmpty()){
-        console.log(errors.array())
-    }
-    const user = await getMongoDB.collection('users').findOne({email: email}).
-    then((user)=>{
-        //user already exists?
-        if(user){
-            
-           return res.redirect('/register')
+    async (req, res, next) =>{
+        const email = req.body.email
+        const password = req.body.password
+        const getMongoDB = mongoDB()
+
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            console.log(errors.array())
         }
-        return bcrypt
-        .hash(password, 12)
-        .then((hashedPassword)=>{
-            const newUser =  new User({
-                email: email,
-                password: hashedPassword
-            })
-            console.log(newUser)
-            console.log('newUser created')
-            
-            const db = mongoDB();
-            db.collection('users').insertOne(newUser)
+        const user = await getMongoDB.collection('users').findOne({email: email}).
+        then((user)=>{
+            //user already exists?
+            if(user){
+                
+            return res.redirect('/register')
+            }
+            return bcrypt
+            .hash(password, 12)
+            .then((hashedPassword)=>{
+                const newUser =  new User({
+                    email: email,
+                    password: hashedPassword
+                })
+                console.log(newUser)
+                console.log('newUser created')
+                
+                const db = mongoDB();
+                db.collection('users').insertOne(newUser)
 
+                
+            })         
+            .then(()=>{
+                res.redirect('/login')
+                sendEmail(email, `Shop account registered ${email}`, "welcome to store")
+            })
             
-        })         
-        .then(()=>{
-             res.redirect('/login')
-             sendEmail(email, `Shop account registered ${email}`, "welcome to store")
-        })
-         
-    }).catch(err => console.log(err))      
+        }).catch(err => console.log(err))      
     
  
 })
