@@ -1,11 +1,9 @@
 Still to do:
+- add error handling for login/register fail - only in templating engine via flash....
+- csrf token? only in templating engine......
 
--send email to customer to confirm order + when status in db is changed to sent.
--login logic partly added? 
-- add error handling
--csrf token? only in templating engine......
 - admin statistics page? nm of orders, site visits, customer questions
--how do you feel today questionare on homepage
+- how do you feel today questionare on homepage
 
 
 This is an advanced full-stack online shop application, divided into two parts:

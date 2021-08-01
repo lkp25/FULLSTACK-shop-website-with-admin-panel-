@@ -4,14 +4,16 @@ const User = require('../../models/User-model')
 const router = express.Router()
 
 const rootDir = require('../../util/path')
-require('dotenv').config()
 const mongoDB = require('../../util/mongoDBconnect').getDB
 const bcrypt = require('bcrypt')
-    
+
+require('dotenv').config()
 const sendEmail = require('../../util/nodemailer')
 
+const {check, validationResult} = require('express-validator/check')
 
-router.post('/register', async (req, res, next) =>{
+
+router.post('/register', check('email').isEmail(), async (req, res, next) =>{
     const email = req.body.email
     const password = req.body.password
     const getMongoDB = mongoDB()

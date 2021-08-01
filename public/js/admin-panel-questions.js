@@ -41,7 +41,7 @@ function renderAllQuestions(allQuestions){
     template.querySelector('.db-question-date').textContent = info.date 
     template.querySelector('.db-question-email').textContent = info.email 
     template.querySelector('.db-question-email').dataset.email = info.email
-    template.querySelector('.db-question-email').parentElement.setAttribute('href', `mailto:${info.email}`) 
+    template.querySelector('.db-question-email').parentElement.setAttribute('href', ``) 
 
     template.querySelector('.db-question-remove').dataset.index = index 
     template.querySelector('.db-question-remove').dataset.id = question.id

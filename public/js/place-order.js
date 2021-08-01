@@ -150,12 +150,12 @@ async function sendToserver(){
         return
     }
     //send to server if valid
-    const sendData = await fetch('http://localhost:5000/reply-to-customer-email', {
+    const sendData = await fetch('http://localhost:5000/save-order', {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(sendData),
+        body: JSON.stringify(orderDetails),
       })
     const responseFromServer = await sendData.json()
     console.log(responseFromServer);
