@@ -14,7 +14,7 @@ const {check, validationResult} = require('express-validator/check')
 
 
 router.post('/register', 
-    check('email',' please enter valid email').isEmail().isAlphanumeric().isLength({min:5}),
+    check('email',' please enter valid email').isEmail().isAlphanumeric().isLength({min:5}).normalizeEmail(),
 
     async (req, res, next) =>{
         const email = req.body.email

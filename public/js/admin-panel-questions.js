@@ -33,7 +33,7 @@ function renderAllQuestions(allQuestions){
        const template = document.getElementById('db-questions-template').content.cloneNode(true)
        
        const info = question.value
-       template.children[0].dataset.id = question.id
+       template.children[0].dataset.id = info.id
        template.children[0].dataset.index = index
     //    template.dataset.allData = question
        
@@ -44,7 +44,7 @@ function renderAllQuestions(allQuestions){
     template.querySelector('.db-question-email').parentElement.setAttribute('href', ``) 
 
     template.querySelector('.db-question-remove').dataset.index = index 
-    template.querySelector('.db-question-remove').dataset.id = question.id
+    template.querySelector('.db-question-remove').dataset.id = info.id
        questionsList.appendChild(template)
     })
 }

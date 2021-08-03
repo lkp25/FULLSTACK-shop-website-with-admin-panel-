@@ -52,7 +52,7 @@ contactForm.addEventListener('submit', (e)=>{
       return
     }
 
-    const newQuestion = {text:customerQuestionField.value.replace(/\n/g, "xxxxx"),email:customerEmailField.value,date:new Date().toUTCString()}
+    const newQuestion = {id:(Math.random()*10000000000000000).toString(),text:customerQuestionField.value.replace(/\n/g, "xxxxx"),email:customerEmailField.value,date:new Date().toUTCString()}
     sendCustomerQuestionToServer(newQuestion)
     customerEmailField.value = null
     customerQuestionField.value = null

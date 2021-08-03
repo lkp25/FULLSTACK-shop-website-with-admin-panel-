@@ -41,12 +41,17 @@ router.post('/new-customer-question', async (req, res, next) =>{
 router.get('/delete-question', async (req, res, next) =>{
   console.log(req.query);
 
-  db.execute(`DELETE FROM questions WHERE id=${req.query.id}`)
-    .then(([recordsArray, fieldsDataArray] )=>{
+  const getMongoDB = mongoDB()        
+  getMongoDB.collection('questions').deleteOne({id:req.query.id})
+  .then(result => console.log(result))
+  .catch(err => console.log(err))
+
+  // db.execute(`DELETE FROM questions WHERE id=${req.query.id}`)
+  //   .then(([recordsArray, fieldsDataArray] )=>{
       
-      res.send(`${req.query} deleted`)
-    })
-    .catch((error)=>{console.log(error);})
+  //     res.send(`${req.query} deleted`)
+  //   })
+  //   .catch((error)=>{console.log(error);})
 
   
 
