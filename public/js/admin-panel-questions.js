@@ -60,7 +60,7 @@ async function removeSingleMessage(target){
     //remove from db
     
     try {
-        const sendData = await fetch(`http://localhost:5000/delete-question?id=${parseInt(targetDBId)}`, {
+        const sendData = await fetch(`http://localhost:5000/delete-question?id=${targetDBId}`, {
              
         })
             

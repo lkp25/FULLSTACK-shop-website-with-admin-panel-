@@ -45,7 +45,7 @@ router.get('/delete-question', async (req, res, next) =>{
   getMongoDB.collection('questions').deleteOne({id:req.query.id})
   .then(result => console.log(result))
   .catch(err => console.log(err))
-
+  res.send(`${req.query} deleted`)
   // db.execute(`DELETE FROM questions WHERE id=${req.query.id}`)
   //   .then(([recordsArray, fieldsDataArray] )=>{
       
