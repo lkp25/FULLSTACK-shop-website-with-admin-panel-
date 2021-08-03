@@ -4,81 +4,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop</title>
+  <title>Home</title>
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/shop.css">
   <link rel="stylesheet" href="/css/cart.css">
   <link rel="stylesheet" href="/css/order-modal.css">
+
   <script src="./js/sanitize-user-input.js" defer></script>
   <script src="./js/main.js" defer></script>
-  <script src="./js/shop.js" defer></script>
   <script src="./js/cart.js" defer></script>
- 
- 
+  <script src="./js/bubbles-animation.js" defer></script>
+  
+
 </head>
 <body>
-<div class="order-modal">
-  <div class="order-modal-main-section">
-    <h1>You are about to order:</h1>
-    <div id="order-table">     
-      <div id="order-table-header" class="order-table-single-item">
-        <div>Item</div>
-        <div>Quantity</div>
-        <div>Price</div>
-      </div>
-      <template id="order-table-single-item-template">
-        <div class="order-table-single-item">
-          <div >Item</div>
-          <div>3333</div>
-          <div>42</div>
+
+  <div class="order-modal">
+    <div class="order-modal-main-section">
+      <h1>You are about to order:</h1>
+      <div id="order-table">     
+        <div id="order-table-header" class="order-table-single-item">
+          <div>Item</div>
+          <div>Quantity</div>
+          <div>Price</div>
         </div>
-      </template>
-           
+        <template id="order-table-single-item-template">
+          <div class="order-table-single-item">
+            <div >Item</div>
+            <div>3333</div>
+            <div>42</div>
+          </div>
+        </template>
+             
+      </div>
+  
+      <div class="order-modal-total">Total: <span id='grand-total'>453453</span></div>
+      <button class="order-modal-resign-btn">I'm not ready yet</button>
+  
+      <form class="order-form" action="">
+        <p>If order is correct, please fill out the form:</p>
+        <div>
+            <label>Name</label><br>
+            <input type="text" class="order-form-name" required placeholder="">
+        </div>
+        <div>
+            <label>Surname</label><br>
+            <input type="text" class="order-form-surname" required placeholder="">
+        </div>
+        <div>
+            <label>E-mail</label><br>
+            <input type="email" class="order-form-email" required placeholder="">
+        </div>
+        <div>
+            <label>E-mail (confirm)</label><br>
+            <input type="email" class="order-form-email-conf" required placeholder="">
+        </div>
+        <div>
+            <label>City</label><br>
+            <input type="text" class="order-form-city" required placeholder="">
+        </div>
+        <div>
+            <label>Street</label><br>
+            <input type="text" class="order-form-street" required placeholder="">
+        </div>
+        <div>
+            <label>House number</label><br>
+            <input type="number" class="order-form-house-number" required placeholder="">
+        </div>
+        <div>
+            <label>Postal code</label><br>
+            <input type="number" class="order-form-postal-code" required placeholder="">
+        </div>
+        
+        <input type="submit" class="order-now-btn" value="ORDER NOW">
+      </form>
+  
     </div>
-
-    <div class="order-modal-total">Total: <span id='grand-total'>453453</span></div>
-    <button class="order-modal-resign-btn">I'm not ready yet</button>
-
-    <form class="order-form" action="">
-      <p>If order is correct, please fill out the form:</p>
-      <div>
-          <label>Name</label><br>
-          <input type="text" class="order-form-name" required maxlength="30" placeholder="">
-      </div>
-      <div>
-          <label>Surname</label><br>
-          <input type="text" class="order-form-surname" required maxlength="30" placeholder="">
-      </div>
-      <div>
-          <label>E-mail</label><br>
-          <input type="email" class="order-form-email" required maxlength="100" placeholder="">
-      </div>
-      <div>
-          <label>E-mail (confirm)</label><br>
-          <input type="email" class="order-form-email-conf" required maxlength="100" placeholder="">
-      </div>
-      <div>
-          <label>City</label><br>
-          <input type="text" class="order-form-city" required maxlength="30" placeholder="">
-      </div>
-      <div>
-          <label>Street</label><br>
-          <input type="text" class="order-form-street" required maxlength="40" placeholder="" >
-      </div>
-      <div>
-          <label>House number</label><br>
-          <input type="number" class="order-form-house-number" required maxlength="10" placeholder="">
-      </div>
-      <div>
-          <label>Postal code</label><br>
-          <input type="number" class="order-form-postal-code" required maxlength="10" placeholder="">
-      </div>
-      
-      <input type="submit" class="order-now-btn" value="ORDER NOW">
-    </form>
-
   </div>
-</div>
 
 <header>
   <nav class="hide-links">
@@ -86,11 +87,15 @@
     <ul class="nav-links">
       <a href="/index"><li class="nav-link">Home</li></a>
       <a href="/shop"><li class="nav-link">Shop</li></a>
-      <a href="/contact"><li class="nav-link">Contact</li></a>     
-      <a href="/login"><li class="nav-link login-link">Log-in</li></a> 
-      <form action="/logout" method="POST" ><button type="submit" class="logout-btn">Log-out</button></form> 
+      <a href="/contact"><li class="nav-link">Contact</li></a> 
+      <%if (!isAuthenticated) { %>
+        <a href="/login"><li class="nav-link login-link">Log-in</li></a> 
+        <% } %>
+        <!-- show logOUT only if user is not logged in -->
+      <%if (isAuthenticated) { %>
+        <form action="/logout" method="POST" ><button type="submit" class="logout-btn">Log-out</button></form> 
+      <% } %>
 
- 
     </ul>
     <div class="menu-icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V86a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v340a6 6 0 0 1-6 6zm-42-92v24c0 6.627-5.373 12-12 12H204c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12zm0-96v24c0 6.627-5.373 12-12 12H204c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12zm0-96v24c0 6.627-5.373 12-12 12H204c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12zm-252 12c0 19.882-16.118 36-36 36s-36-16.118-36-36 16.118-36 36-36 36 16.118 36 36zm0 96c0 19.882-16.118 36-36 36s-36-16.118-36-36 16.118-36 36-36 36 16.118 36 36zm0 96c0 19.882-16.118 36-36 36s-36-16.118-36-36 16.118-36 36-36 36 16.118 36 36z"/></svg>
@@ -107,7 +112,6 @@
   <div class="sum">Total:  <span class="cart-total">543</span></div>
   <button class="place-order-btn">PLACE ORDER</button>
   <button class="clear-cart-btn">CLEAR CART</button>
-  
   <!-- templ -->
   <template id="item-in-cart-template">
     <div class="product-in-cart">
@@ -138,45 +142,22 @@
 
 <!-- MAIN CONTENT -->
 <main>
-  <h1>OUR AMAZING OFFER:</h1>
-  <p>click on the product card to display individual product page with more details.</p>
-  <!-- categories ribbon -->
-  <ul id="products-categories-ribbon">
-    
-  </ul>
-
-  <div class="products-grid">
-
-  <template id="product-template">
-  <!-- single product -->
-  <div class="product-card">
-    <div class="product-img">
-      <img src="./img/img-large/red.png" alt="">
-    </div>
-    <div class="product-name">RED</div>
-    <div class="product-category">primary</div>
-    <div class="product-description">Lorem ipsu elit. Accusantium quaerat quibusdam quos voluptatem ullam magnam, ratione explicabo! Perspiciatis, soluta beatae.</div>
-    <div class="product-rest-info">
-      <button class="product-add-to-cart-btn">Add to cart</button>
-      <div class="product-price">19.90</div>
-    </div>
-  </div>
-  <!-- end of single product -->
-  </template>
-    
-
-  </div>
+  <h1>Welcome</h1>
+  <h2>to our store!</h2>
+  <button class="stop-bubbles">Stop bubbles</button>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat aut vel impedit inventore! Atque, exercitationem voluptatibus fugit rerum nihil beatae fugiat consequatur facere ut iste! Enim consectetur labore tempore deserunt.</p>
 </main>
 
+<div class="bubble-birth"></div>
 <footer>
   <ul class="nav-links footer-links">
     <a href="/index"><li class="nav-link">Home</li></a>
     <a href="/shop"><li class="nav-link">Shop</li></a>
-    <a href="/contact"><li class="nav-link">Contact</li></a>    
+    <a href="/contact"><li class="nav-link">Contact</li></a>     
   </ul>
   <p class="copyright">@copyright lkp25 <span class="date"></span></p>
 </footer>
-
+  
 </body>
 
 </html>

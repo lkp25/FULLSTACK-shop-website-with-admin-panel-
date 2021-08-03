@@ -13,12 +13,16 @@ const Template = require('../util/individual-product-template')
 router.get('/index', (req, res, next) =>{
     console.log('main page hit!');
     
-    res.sendFile(path.join(rootDir, 'views', 'index.html'))
+    res.render(path.join(rootDir, 'views', 'index.ejs'), {
+        isAuthenticated: req.session.isLoggedIn
+    })
 })
 
 router.get('/shop', (req, res, next) =>{
     console.log('shop page hit!');
-    res.sendFile(path.join(rootDir, 'views', 'shop.html'))
+    res.render(path.join(rootDir, 'views', 'shop.ejs'), {
+        isAuthenticated: req.session.isLoggedIn
+    })
 })
 router.get('/contact', (req, res, next) =>{
     console.log('contact page hit!');
