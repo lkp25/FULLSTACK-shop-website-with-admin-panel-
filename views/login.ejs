@@ -142,8 +142,9 @@
   <h1>Welcome guest, please log in or register new account:</h1>
   <article class="login-card">
       <form class="login-form" name="login-form" action="/login" method="post">
-          <div class="login-inputs">
-
+        <div class="login-inputs">
+          
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">  
               <input placeholder="email" name="email" class="login-email" type="text">
               <input placeholder="password" name="password" class="login-pass" type="password">
               <input value="Log in" type="submit">

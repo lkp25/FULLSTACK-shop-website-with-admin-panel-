@@ -19,6 +19,13 @@ const store = new MongoDBStore({
     collection: 'sessions'
     
 })
+//main middlewares
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.json())
+app.use(express.urlencoded())
+app.use(helmet())
+app.use(flash())
+
 app.use(session({
     secret: "mysecret",
     resave: false,
@@ -31,12 +38,13 @@ const csrfProtection = csurf({})
 //protection for the session
 app.use(csrfProtection)
 
-//main middlewares
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.json())
-app.use(express.urlencoded())
-app.use(helmet())
-app.use(flash())
+app.use((req, res, next)=>{
+    res.locals.isAuthenticated = req.session.isLoggedIn,
+    res.locals.csrfToken = req.csrfToken()
+    next()
+})
+
+
 
 
 

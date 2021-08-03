@@ -12,7 +12,7 @@ const bcrypt = require('bcrypt')
 
 
 router.get('/login', (req, res, next) =>{
-  res.sendFile(path.join(rootDir, 'views', 'login.html'))
+  res.render(path.join(rootDir, 'views', 'login.ejs'))
   console.log(req.session.isLoggedIn);
 })
 
