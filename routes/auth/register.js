@@ -59,6 +59,6 @@ router.post('/register',
 
 router.get('/register', (req, res, next) =>{
   console.log('current logged user:' + req.session.user);
-  res.sendFile(path.join(rootDir, 'views', 'register-new-acc.html'))
+  res.render(path.join(rootDir, 'views', 'register-new-acc.ejs'))
 })
 module.exports = router

@@ -79,6 +79,8 @@
         </div>
         
         <input type="submit" class="order-now-btn" value="ORDER NOW">
+        <!-- csrf!! -->
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">  
       </form>
   
     </div>
@@ -91,8 +93,17 @@
       <a href="/index"><li class="nav-link">Home</li></a>
       <a href="/shop"><li class="nav-link">Shop</li></a>
       <a href="/contact"><li class="nav-link">Contact</li></a> 
-      <a href="/login"><li class="nav-link login-link">Log-in</li></a> 
-      <form action="/logout" method="POST" ><button type="submit" class="logout-btn">Log-out</button></form> 
+      <%if (!isAuthenticated) { %>
+        <a href="/login"><li class="nav-link login-link">Log-in</li></a> 
+        <% } %>
+        <!-- show logOUT only if user is not logged in -->
+      <%if (isAuthenticated) { %>
+        <form action="/logout" method="POST" >
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <button type="submit" class="logout-btn">Log-out</button>
+        </form> 
+      <% } %>
+      </form> 
 
 
     </ul>
@@ -145,7 +156,8 @@
   <article class="register-card">
       <form class="register-form" name="register-form" method="POST" action="/register">
           
-
+        <!-- csrf!! -->
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">  
               <input placeholder="login" name="login" class="register-name" type="text">
               <input placeholder="password" name="password" class="register-pass" type="password">
               <input placeholder="name" name="name" class="register-pass" type="password">

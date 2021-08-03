@@ -163,8 +163,8 @@ function removeAllProductsFromView(){
 function disableChanges(){
     const allButtons = Array.from(document.querySelectorAll('button:not(.logout-btn)'))
     allButtons.forEach(field => field.disabled = true)
-    
-    const allInputs = document.querySelectorAll('input')
+    //select all but the hidden input with csrftoken!!! if disabled will not allow logout.
+    const allInputs = document.querySelectorAll('input:not([type=hidden])')
     allInputs.forEach(field => field.disabled = true)
     const masterBtn = allButtons.find(field =>field.classList.contains('enable-disable-changes-btn'))
     masterBtn.disabled = false

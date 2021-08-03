@@ -20,16 +20,16 @@ router.get('/admin-products', isLoggedInCheck, isAdminCheck, (req, res, next) =>
   
   console.log('is this the real admin?')
   console.log(req.admin)
-  res.sendFile(path.join(rootDir, 'views', 'admin-panel-products.html'))
+  res.render(path.join(rootDir, 'views', 'admin-panel-products.ejs'))
 })
 router.get('/admin-orders', isLoggedInCheck, isAdminCheck, (req, res, next) =>{
   console.log('welcome to admin page - orders');
-  res.sendFile(path.join(rootDir, 'views', 'admin-panel-orders.html'))
+  res.render(path.join(rootDir, 'views', 'admin-panel-orders.ejs'))
 })
 router.get('/admin-questions', isLoggedInCheck, isAdminCheck,(req, res, next) =>{
   console.log('welcome to admin page - questions');
   
-  res.sendFile(path.join(rootDir, 'views', 'admin-panel-questions.html'))
+  res.render(path.join(rootDir, 'views', 'admin-panel-questions.ejs'))
 
 
   

@@ -25,7 +25,10 @@
             <a href="/admin-questions">QUESTIONS</a>
            </li>
            <li>
-            <form action="/logout" method="POST" ><button type="submit" class="logout-btn">Log-out</button></form> 
+            <form action="/logout" method="POST" >
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+                <button type="submit" class="logout-btn">Log-out</button>
+            </form> 
            </li>
        </ul>      
     </header>

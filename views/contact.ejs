@@ -77,6 +77,8 @@
         </div>
         
         <input type="submit" class="order-now-btn" value="ORDER NOW">
+        <!-- csrf!! -->
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">  
       </form>
   
     </div>
@@ -161,6 +163,8 @@
           <div class="customer-message-chars-left">Characters left: <span></span></div>
           <br>
           <button class="cont">Send message</button>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
         </form>
     </div>
   </div>

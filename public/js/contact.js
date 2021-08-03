@@ -61,10 +61,13 @@ contactForm.addEventListener('submit', (e)=>{
 
 async function sendCustomerQuestionToServer(newQuestion){
     try {
+      const csrfToken = document.querySelector('[name=_csrf]').value
+      console.log(csrfToken)
       const sendQuestionData = await fetch('http://localhost:5000/new-customer-question', {
                 method: 'POST', 
                 headers: {
-                  'Content-Type': 'application/json',
+                  'X-CSRF-Token': csrfToken,
+                  'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(newQuestion),
               })
