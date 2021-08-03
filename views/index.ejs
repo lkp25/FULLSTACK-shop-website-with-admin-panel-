@@ -93,7 +93,9 @@
         <% } %>
         <!-- show logOUT only if user is not logged in -->
       <%if (isAuthenticated) { %>
-        <form action="/logout" method="POST" ><button type="submit" class="logout-btn">Log-out</button></form> 
+        <form action="/logout" method="POST" >
+          <input type="hidden" value="<%= csrfToken %>">
+          <button type="submit" class="logout-btn">Log-out</button></form> 
       <% } %>
 
     </ul>

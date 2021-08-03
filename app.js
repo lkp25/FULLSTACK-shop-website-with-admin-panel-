@@ -25,11 +25,11 @@ app.use(session({
     saveUninitialized: false,
     store: store
 }))
-// const csurf = require('csurf')
-// const csrfProtection = csurf({})
+const csurf = require('csurf')
+const csrfProtection = csurf({})
 
 //protection for the session
-// app.use(csrfProtection)
+app.use(csrfProtection)
 
 //main middlewares
 app.use(express.static(path.join(__dirname, 'public')))
