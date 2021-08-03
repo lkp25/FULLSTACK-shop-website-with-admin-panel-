@@ -22,7 +22,7 @@ router.get('/shop', (req, res, next) =>{
 })
 router.get('/contact', (req, res, next) =>{
     console.log('contact page hit!');
-    res.sendFile(path.join(rootDir, 'views', 'contact.html'))
+    res.render(path.join(rootDir, 'views', 'contact.ejs'))
 })
 
 

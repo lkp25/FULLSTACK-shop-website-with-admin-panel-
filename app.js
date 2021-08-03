@@ -9,7 +9,7 @@ const helmet = require('helmet')
 
 // const handlebars = require('express-handlebars')
 
-
+app.set('view engine', 'ejs');
 
 //setup for managing sessions and storing them in mongoDB
 const session = require('express-session')
