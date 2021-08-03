@@ -22,7 +22,9 @@ router.get('/shop', (req, res, next) =>{
 })
 router.get('/contact', (req, res, next) =>{
     console.log('contact page hit!');
-    res.render(path.join(rootDir, 'views', 'contact.ejs'))
+    res.render(path.join(rootDir, 'views', 'contact.ejs'), {
+        isAuthenticated: req.session.isLoggedIn
+    })
 })
 
 
