@@ -246,11 +246,13 @@ function newProductAddedMessage(){
 }
 
 async function sendUpdatedProductListToDB(allProducts){
+    const csrfToken = document.querySelector('[name=_csrf]').value
     try {
         const sendData = await fetch('http://localhost:5000/update-products-in-offer', {
             method: 'POST', 
             headers: {
-              'Content-Type': 'application/json',
+              'X-CSRF-Token': csrfToken,
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify(allProducts) 
           

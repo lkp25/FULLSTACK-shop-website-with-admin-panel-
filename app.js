@@ -35,14 +35,9 @@ app.use(session({
 const csurf = require('csurf')
 const csrfProtection = csurf({})
 
-//protection for the session
-app.use(csrfProtection)
 
-app.use((req, res, next)=>{
-    res.locals.isAuthenticated = req.session.isLoggedIn,
-    res.locals.csrfToken = req.csrfToken()
-    next()
-})
+
+
 
 
 
@@ -58,6 +53,17 @@ mongoose.connect(process.env.MONGODB_URI)
 
 
 //all routes
+const adminProductsRoutes = require('./routes/admin-products')
+app.use(adminProductsRoutes)
+
+//protection for the session
+app.use(csrfProtection)
+app.use((req, res, next)=>{
+    res.locals.isAuthenticated = req.session.isLoggedIn,
+    res.locals.csrfToken = req.csrfToken()
+    next()
+})
+
 const publicRoutes = require('./routes/public')
 app.use(publicRoutes)
 
@@ -79,8 +85,7 @@ app.use(adminMainRoutes)
 const adminQuestionsRoutes = require('./routes/admin-questions')
 app.use(adminQuestionsRoutes)
 
-const adminProductsRoutes = require('./routes/admin-products')
-app.use(adminProductsRoutes)
+
 
 const adminOrdersRoutes = require('./routes/admin-orders')
 app.use(adminOrdersRoutes)

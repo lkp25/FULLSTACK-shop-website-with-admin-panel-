@@ -10,11 +10,13 @@ const root = document.documentElement
 const currencyFormatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD"})
 
 async function updateOrderStatusInDB(itemData){
+    const csrfToken = document.querySelector('[name=_csrf]').value
     try {
         const sendData = await fetch('http://localhost:5000/update-order-status', {
             method: 'POST', 
             headers: {
-              'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken,
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify(itemData) 
           

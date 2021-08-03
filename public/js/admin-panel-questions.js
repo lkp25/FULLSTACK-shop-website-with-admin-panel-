@@ -121,6 +121,7 @@ function openEmailEditor(emailAddress, originalEmail){
         <div class="question-reply-admin-msg"><textarea name="reply"></textarea></div>
         <input style="display:none;" name="original" value="${originalEmail}">
         <input style="display:none;" name="email" value="${emailAddress}">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <div class="question-reply-btns">
         <button class="question-reply-cancel-btn">Cancel</button>
             <input type="submit" value="send reply">

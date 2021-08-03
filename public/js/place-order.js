@@ -150,10 +150,12 @@ async function sendToserver(){
         return
     }
     //send to server if valid
+    const csrfToken = document.querySelector('[name=_csrf]').value
     const sendData = await fetch('http://localhost:5000/save-order', {
         method: 'POST', 
         headers: {
-          'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken,
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(orderDetails),
       })
