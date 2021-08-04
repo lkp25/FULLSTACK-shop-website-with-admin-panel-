@@ -95,7 +95,7 @@
       <a href="/contact"><li class="nav-link">Contact</li></a> 
       <%if (!isAuthenticated) { %>
         <a href="/login"><li class="nav-link login-link">Log-in</li></a> 
-        <% } %>
+      <% } %>
         <!-- show logOUT only if user is not logged in -->
       <%if (isAuthenticated) { %>
         <form action="/logout" method="POST" >
@@ -170,7 +170,10 @@
               <input placeholder="confim-email" name="confim-email" class="register-pass" type="password">
               <input placeholder="telephone" name="telephone" class="register-pass" type="password">
               <input value="Register" type="submit">
-         
+              <!-- EJS flash error - user with this email exists already -->
+              <% if(errorMessage.length > 0) { %>
+                <div class="flash-error"><%= errorMessage[0] %> </div> 
+                <% } %> 
       </form>
   </article>
   

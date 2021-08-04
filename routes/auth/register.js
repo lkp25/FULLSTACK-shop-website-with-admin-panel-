@@ -29,8 +29,9 @@ router.post('/register',
         then((user)=>{
             //user already exists?
             if(user){
-                
-            return res.redirect('/register')
+                //flash error message:
+                req.flash('error', "user with this email exists already.")
+                return res.redirect('/register')
             }
             return bcrypt
             .hash(password, 12)
@@ -59,6 +60,8 @@ router.post('/register',
 
 router.get('/register', (req, res, next) =>{
   console.log('current logged user:' + req.session.user);
-  res.render(path.join(rootDir, 'views', 'register-new-acc.ejs'))
+  res.render(path.join(rootDir, 'views', 'register-new-acc.ejs'),{
+      errorMessage: req.flash('error')
+  })
 })
 module.exports = router
