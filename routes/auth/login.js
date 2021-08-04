@@ -12,8 +12,21 @@ const bcrypt = require('bcrypt')
 
 
 router.get('/login', (req, res, next) =>{
-  res.render(path.join(rootDir, 'views', 'login.ejs'))
+  //flash error handling - if no errors - it will be empty array (truthy so we need to set it to null)
+  let message = req.flash('error')
+  if(message.length > 0){
+    message = message[0]
+  }else{
+    message = null
+  }
+
+  res.render(path.join(rootDir, 'views', 'login.ejs'),{
+    //render options for EJS:
+    errorMessage: message,
+  })
+  console.log(req.flash('error'))
   console.log(req.session.isLoggedIn);
+  // console.log(req.get("Cookie").split(';')[1].trim.split('=')[1])
 })
 
 router.post('/login', async (req, res, next) =>{
@@ -24,7 +37,8 @@ router.post('/login', async (req, res, next) =>{
   const user = await getMongoDB.collection('users').findOne({email: email})
   .then((user)=>{
     if(!user){
-      req.flash("error", "invalid email or password")
+      //display flash error message if no such user exist
+      req.flash('error', "invalid email or password")
       console.log('user doesnt exist!')
       return res.redirect('/login')
     }
@@ -35,10 +49,12 @@ router.post('/login', async (req, res, next) =>{
         req.session.user = user
         //passwords match - return with saving session object
         return req.session.save(()=>{
+          
           res.redirect('/index')
          
         })
       }
+      //invalid pass
       res.redirect('/login')
       console.log('wrong password')
       

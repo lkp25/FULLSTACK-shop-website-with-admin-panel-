@@ -7,8 +7,7 @@ const app = express()
 const flash = require('connect-flash')
 const helmet = require('helmet')
 
-// const handlebars = require('express-handlebars')
-
+//setup EJS as view engine
 app.set('view engine', 'ejs');
 
 //setup for managing sessions and storing them in mongoDB
@@ -24,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(helmet())
-app.use(flash())
+
 
 app.use(session({
     secret: "mysecret",
@@ -34,7 +33,7 @@ app.use(session({
 }))
 const csurf = require('csurf')
 const csrfProtection = csurf({})
-
+app.use(flash())
 
 
 
