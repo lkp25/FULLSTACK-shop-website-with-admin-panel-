@@ -23,6 +23,7 @@ router.get('/login', (req, res, next) =>{
   res.render(path.join(rootDir, 'views', 'login.ejs'),{
     //render options for EJS:
     errorMessage: message,
+    successRegister: req.flash('successRegister')
   })
   
   console.log(req.session.isLoggedIn);

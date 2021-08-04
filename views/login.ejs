@@ -152,7 +152,9 @@
     <article class="login-card">
       <form class="login-form" name="login-form" action="/login" method="post">
         <div class="login-inputs">
-          
+          <% if(successRegister.length > 0) { %>
+            <div class="flash-success"> <%= successRegister[0] %></div> 
+          <% } %>
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">  
           <input placeholder="email" name="email" class="login-email" type="text">
           <input placeholder="password" name="password" class="login-pass" type="password">
