@@ -54,13 +54,39 @@ router.get('/set-new-password/:token', (req, res, next) =>{
   User.findOne({resetToken:token, resetTokenExpiration: {$gt:Date.now()}})
   .then(user =>{
     res.render(path.join(rootDir, 'views', 'new-password-form.ejs'),{
-     
+      passwordToken: token,
       userId: user._id.toString()
   })
   })
   .catch(err => console.log(err))
 
   
+})
+
+
+router.post('/finally-set-new-password', (req, res, next) =>{
+  const newPassword = req.body.password
+  const passwordToken = req.body.passwordToken
+  const userId = req.body.userId
+  //store the user object for use in all then blocks
+  let foundUser
+     
+  User.findOne({resetToken: passwordToken, _id:userId, resetTokenExpiration:{$gt: Date.now()}})
+  .then(user=>{
+    foundUser = user
+    return bcrypt.hash(newPassword, 12)
+  })
+  .then(hashedPassword =>{
+    foundUser.password = hashedPassword
+    foundUser.passwordToken = null
+    foundUser.passwordTokenExpiration = null
+    return foundUser.save()
+  })
+  .then(result=>{
+    res.redirect('/login')
+  })
+  .catch(err => console.log(err))
+   
 })
 
 
