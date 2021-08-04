@@ -24,9 +24,9 @@ router.get('/login', (req, res, next) =>{
     //render options for EJS:
     errorMessage: message,
   })
-  console.log(req.flash('error'))
+  
   console.log(req.session.isLoggedIn);
-  // console.log(req.get("Cookie").split(';')[1].trim.split('=')[1])
+ 
 })
 
 router.post('/login', async (req, res, next) =>{
@@ -46,6 +46,7 @@ router.post('/login', async (req, res, next) =>{
     .then((doMatch)=>{
       if(doMatch){
         req.session.isLoggedIn = true
+        //IMPORTANT FOR STORING ALL INFO ABOUT LOGGED USER IN THE SESSION!!!
         req.session.user = user
         //passwords match - return with saving session object
         return req.session.save(()=>{
@@ -55,6 +56,8 @@ router.post('/login', async (req, res, next) =>{
         })
       }
       //invalid pass
+      //display flash error message for invalid pass
+      req.flash('error', "invalid email or password")
       res.redirect('/login')
       console.log('wrong password')
       

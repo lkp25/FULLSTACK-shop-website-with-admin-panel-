@@ -146,8 +146,14 @@
 
 <!-- MAIN CONTENT -->
 <main>
+  <!-- EJS welcome logged user or Guest -->
   <h1>Welcome</h1>
-  <h2>to our store!</h2>
+  <% if(loggedUser) { %>
+    <h2>to our store dear <%= loggedUser.email %>!</h2>   
+  <%} else { %>
+    <h2>to our store dear Guest!</h2>
+  <% } %>  
+
   <button class="stop-bubbles">Stop bubbles</button>
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat aut vel impedit inventore! Atque, exercitationem voluptatibus fugit rerum nihil beatae fugiat consequatur facere ut iste! Enim consectetur labore tempore deserunt.</p>
 </main>

@@ -15,7 +15,7 @@ router.get('/index', (req, res, next) =>{
     
     res.render(path.join(rootDir, 'views', 'index.ejs'), {
         isAuthenticated: req.session.isLoggedIn,
-        
+        loggedUser: req.session.user
     })
 })
 

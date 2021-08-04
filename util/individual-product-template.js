@@ -14,6 +14,7 @@ const allProducts = require('../public/products-json/products.json')
 
 class Template  {
     constructor(id){
+      //substring because it begins with colon ':2343432423432'
         this.id = id.substring(1, id.length)
         this.productData = this.getIndividualProductData()
     }

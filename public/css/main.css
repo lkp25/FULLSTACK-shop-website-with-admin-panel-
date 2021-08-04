@@ -314,7 +314,9 @@ main{
     border-radius: 5px;
     font-weight: bold;
     width: 100%;
-    /* padding: 0.5rem; */
+    padding: 0.5rem;
+    text-align: center;
+    background-color: rgb(216, 153, 141);
 }
 .flash-success{
     color: green;
