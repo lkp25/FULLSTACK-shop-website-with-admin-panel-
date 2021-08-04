@@ -33,7 +33,8 @@ router.post('/reset-password', (req, res, next) =>{
       res.redirect('/index')
       sendEmail(req.body.email, `change password for ${req.body.email}`, "sometext",
       `<p>you requested a password reset, click this link to set a new password</p>
-      <p>click this link: <a href="http://localhost:5000/reset-password/${token}"></a></p>
+      <p>click this link:</p> 
+       http://localhost:5000/set-new-password/${token}
       `
       )
     })
@@ -46,6 +47,20 @@ router.get('/reset-password', (req, res, next) =>{
   res.render(path.join(rootDir, 'views', 'reset-password.ejs'),{
       errorMessage: req.flash('noUserError')
   })
+})
+//the latter part - setting new password after user has a token:
+router.get('/set-new-password/:token', (req, res, next) =>{
+  const token = req.params.token
+  User.findOne({resetToken:token, resetTokenExpiration: {$gt:Date.now()}})
+  .then(user =>{
+    res.render(path.join(rootDir, 'views', 'new-password-form.ejs'),{
+     
+      userId: user._id.toString()
+  })
+  })
+  .catch(err => console.log(err))
+
+  
 })
 
 
