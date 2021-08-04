@@ -14,17 +14,14 @@ const {check, validationResult} = require('express-validator/check')
 
 
 router.post('/register', 
-    check('email',' please enter valid email').isEmail().isAlphanumeric().isLength({min:5}).normalizeEmail(),
+    
 
     async (req, res, next) =>{
         const email = req.body.email
         const password = req.body.password
         const getMongoDB = mongoDB()
 
-        const errors = validationResult(req)
-        if(!errors.isEmpty()){
-            console.log(errors.array())
-        }
+        
         const user = await getMongoDB.collection('users').findOne({email: email}).
         then((user)=>{
             //user already exists?

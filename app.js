@@ -72,6 +72,9 @@ app.use(newOrderRoutes)
 const registerRoutes = require('./routes/auth/register')
 app.use(registerRoutes)
 
+const passwordResetRoutes = require('./routes/auth/reset-password')
+app.use(passwordResetRoutes)
+
 const loginUserRoutes = require('./routes/auth/login')
 app.use(loginUserRoutes)
 
