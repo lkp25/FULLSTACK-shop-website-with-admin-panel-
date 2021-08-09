@@ -35,13 +35,6 @@ const csurf = require('csurf')
 const csrfProtection = csurf({})
 app.use(flash())
 
-
-
-
-
-
-
-
 //MONGO & MONGOOSE
 const {mongoConnect} = require('./util/mongoDBconnect')  
 mongoConnect( ()=>{
@@ -50,7 +43,14 @@ mongoConnect( ()=>{
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI)
 
+//CORS middleware
+app.use((req,res,next)=>{
+    res.setHeader("Access-Control-Allow-Origin", '*')
+    res.setHeader("Access-Control-Allow-Methods", 'POST, GET, OPTIONS')
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type"
+})
 
+////////ROUTES!!!
 //all routes
 const adminProductsRoutes = require('./routes/admin-products')
 app.use(adminProductsRoutes)
