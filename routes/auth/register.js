@@ -16,7 +16,7 @@ const {check, validationResult} = require('express-validator');
 
 
 router.post('/register', 
-check(['email','confirm-email']).isEmail(),
+check(['email','confirm-email']).isEmail().withMessage('invalid email'),
     
 
     async (req, res, next) =>{
@@ -28,7 +28,8 @@ check(['email','confirm-email']).isEmail(),
         if(!errors.isEmpty()){
             console.log(errors.array())
             return res.status(422).render(path.join(rootDir, 'views', 'register-new-acc.ejs'),{
-                errorMessage: errors.array()
+                validationError: errors.array()[0].msg,
+                errorMessage: ''
             })
         }
 
