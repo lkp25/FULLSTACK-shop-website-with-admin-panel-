@@ -44,11 +44,11 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI)
 
 //CORS middleware
-app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin", '*')
-    res.setHeader("Access-Control-Allow-Methods", 'POST, GET, OPTIONS')
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type"
-})
+// app.use((req,res,next)=>{
+//     // res.setHeader("Access-Control-Allow-Origin", '*')
+//     // res.setHeader("Access-Control-Allow-Methods", 'POST, GET, OPTIONS')
+//     // res.setHeader("Access-Control-Allow-Headers", "Content-Type")
+// })
 
 ////////ROUTES!!!
 //all routes
@@ -103,3 +103,4 @@ app.use('/', (req, res, next) =>{
 
 //start server
 app.listen(5000)
+    

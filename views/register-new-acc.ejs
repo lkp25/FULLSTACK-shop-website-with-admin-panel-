@@ -158,17 +158,17 @@
           
         <!-- csrf!! -->
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">  
-              <input placeholder="login" name="login" class="register-name" type="text">
+              <!-- <input placeholder="login" name="login" class="register-name" type="text"> -->
+              <input placeholder="email" name="email" class="register-pass" type="text">
+              <input placeholder="confim-email" name="confirm-email" class="register-pass" type="password">
               <input placeholder="password" name="password" class="register-pass" type="password">
-              <input placeholder="name" name="name" class="register-pass" type="password">
-              <input placeholder="surname" name="surname" class="register-pass" type="password">
-              <input placeholder="street"name="street" class="register-pass" type="password">
-              <input placeholder="house number" name="housenumber" class="register-pass" type="password">
-              <input placeholder="zip-code" name="zip-code" class="register-pass" type="password">
-              <input placeholder="city" name="city" class="register-pass" type="password">
-              <input placeholder="email" name="email" class="register-pass" type="password">
-              <input placeholder="confim-email" name="confim-email" class="register-pass" type="password">
-              <input placeholder="telephone" name="telephone" class="register-pass" type="password">
+              <!-- <input placeholder="name" name="name" class="register-pass" type="password"> -->
+              <!-- <input placeholder="surname" name="surname" class="register-pass" type="password"> -->
+              <!-- <input placeholder="street"name="street" class="register-pass" type="password"> -->
+              <!-- <input placeholder="house number" name="housenumber" class="register-pass" type="password"> -->
+              <!-- <input placeholder="zip-code" name="zip-code" class="register-pass" type="password"> -->
+              <!-- <input placeholder="city" name="city" class="register-pass" type="password"> -->
+              <!-- <input placeholder="telephone" name="telephone" class="register-pass" type="password"> -->
               <input value="Register" type="submit">
               <!-- EJS flash error - user with this email exists already -->
               <% if(errorMessage.length > 0) { %>

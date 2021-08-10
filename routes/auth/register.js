@@ -10,15 +10,28 @@ const bcrypt = require('bcrypt')
 require('dotenv').config()
 const sendEmail = require('../../util/nodemailer')
 
-const {check, validationResult} = require('express-validator/check')
+//validation:
+const {check, validationResult} = require('express-validator');
+
 
 
 router.post('/register', 
+check(['email','confirm-email']).isEmail(),
     
 
     async (req, res, next) =>{
         const email = req.body.email
         const password = req.body.password
+        const confirmEmail = req.body.confirmEmail
+        //express validation errors
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            console.log(errors.array())
+            return res.status(422).render(path.join(rootDir, 'views', 'register-new-acc.ejs'),{
+                errorMessage: errors.array()
+            })
+        }
+
         const getMongoDB = mongoDB()
 
         
