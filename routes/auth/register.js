@@ -89,7 +89,9 @@ router.post('/register',
 router.get('/register', (req, res, next) =>{
   console.log('current logged user:' + req.session.user);
   res.render(path.join(rootDir, 'views', 'register-new-acc.ejs'),{
-      errorMessage: req.flash('errorMail')
+      errorMessage: req.flash('errorMail'),
+      //for first load there is no old user input - pass empty strings
+      oldInput:{email: '', password: '', confirmEmail: ''}
   })
 })
 module.exports = router
