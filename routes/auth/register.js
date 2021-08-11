@@ -16,14 +16,18 @@ const {check, validationResult} = require('express-validator');
 
 
 router.post('/register', 
-check(['email','confirm-email']).isEmail().withMessage('invalid email')
-.custom((value, {req})=>{
-    if(value === "lll@o2.pl"){
-        throw new Error('this email is forbidden')
-    }
-    //wazne ze musi zwrocic tru po przejsciu testow
-    return true
-}),
+[
+    check(['email','confirm-email']).isEmail().withMessage('invalid email')
+    .custom((value, {req})=>{
+        if(value === "lll@o2.pl"){
+            throw new Error('this email is forbidden')
+        }
+        //wazne ze musi zwrocic tru po przejsciu testow
+        return true
+    }),
+    body('password', "the password is must be 5-40alphanumeric chars").isLength({min: 5, max: 40}).isAlphanumeric()
+],
+
     
 
     async (req, res, next) =>{
