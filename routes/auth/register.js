@@ -33,9 +33,6 @@ router.post('/register',
         return true
     })
 ],
-
-    
-
     async (req, res, next) =>{
         const email = req.body.email
         const password = req.body.password
@@ -46,7 +43,9 @@ router.post('/register',
             console.log(errors.array())
             return res.status(422).render(path.join(rootDir, 'views', 'register-new-acc.ejs'),{
                 validationError: errors.array()[0].msg,
-                errorMessage: ''
+                errorMessage: '',
+                //for storing data user enetered iven if are invalid - display them back.
+                oldInput:{email: email, password: password, confirmEmail: confirmEmail}
             })
         }
 
