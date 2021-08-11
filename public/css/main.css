@@ -321,3 +321,8 @@ main{
 .flash-success{
     color: green;
 }
+
+/* must break through all other style definitions, important for error display */
+.invalid-user-input{
+    border: 1px solid crimson !important;
+ }

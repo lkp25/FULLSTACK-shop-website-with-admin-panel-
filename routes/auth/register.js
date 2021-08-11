@@ -45,7 +45,9 @@ router.post('/register',
                 validationError: errors.array()[0].msg,
                 errorMessage: '',
                 //for storing data user enetered iven if are invalid - display them back.
-                oldInput:{email: email, password: password, confirmEmail: confirmEmail}
+                oldInput:{email: email, password: password, confirmEmail: confirmEmail},
+                //for extracting the param containing name of the error field to be used for conditional class addition in view.
+                validationErrorsArray: errors.array()
             })
         }
 
@@ -91,7 +93,9 @@ router.get('/register', (req, res, next) =>{
   res.render(path.join(rootDir, 'views', 'register-new-acc.ejs'),{
       errorMessage: req.flash('errorMail'),
       //for first load there is no old user input - pass empty strings
-      oldInput:{email: '', password: '', confirmEmail: ''}
+      oldInput:{email: 'email', password:'dfdsfdsfdsf', confirmEmail: 'confirm-email'},
+      validationErrorsArray: [],
+      validationError: ''
   })
 })
 module.exports = router

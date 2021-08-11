@@ -55,3 +55,6 @@ input::placeholder {
     opacity: .5;
     
   }
+  .invalid-user-input{
+    border: 1px solid crimson !important;
+ }
