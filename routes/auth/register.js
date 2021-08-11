@@ -16,7 +16,14 @@ const {check, validationResult} = require('express-validator');
 
 
 router.post('/register', 
-check(['email','confirm-email']).isEmail().withMessage('invalid email'),
+check(['email','confirm-email']).isEmail().withMessage('invalid email')
+.custom((value, {req})=>{
+    if(value === "lll@o2.pl"){
+        throw new Error('this email is forbidden')
+    }
+    //wazne ze musi zwrocic tru po przejsciu testow
+    return true
+}),
     
 
     async (req, res, next) =>{
