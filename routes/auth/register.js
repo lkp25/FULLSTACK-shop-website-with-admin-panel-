@@ -11,7 +11,7 @@ require('dotenv').config()
 const sendEmail = require('../../util/nodemailer')
 
 //validation:
-const {check, validationResult} = require('express-validator');
+const {check, validationResult, body} = require('express-validator');
 
 
 
@@ -25,7 +25,13 @@ router.post('/register',
         //wazne ze musi zwrocic tru po przejsciu testow
         return true
     }),
-    body('password', "the password is must be 5-40alphanumeric chars").isLength({min: 5, max: 40}).isAlphanumeric()
+    body('password', "the password is must be 5-40alphanumeric chars").isLength({min: 5, max: 40}).isAlphanumeric(),
+    body('confirm-email').custom((value,{req})=>{
+        if(value !== req.body.email){
+            throw new Error('emails must match!')
+        }
+        return true
+    })
 ],
 
     
