@@ -38,7 +38,11 @@ router.post('/reset-password', (req, res, next) =>{
       `
       )
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      const error = new Error (err)
+      error.htppStatusCode = 500
+      return next(error)
+    })  
   })
 })
 
@@ -58,8 +62,11 @@ router.get('/set-new-password/:token', (req, res, next) =>{
       userId: user._id.toString()
   })
   })
-  .catch(err => console.log(err))
-
+  .catch(err => {
+    const error = new Error (err)
+    error.htppStatusCode = 500
+    return next(error)
+  })  
   
 })
 
@@ -85,8 +92,11 @@ router.post('/finally-set-new-password', (req, res, next) =>{
   .then(result=>{
     res.redirect('/login')
   })
-  .catch(err => console.log(err))
-   
+  .catch(err => {
+    const error = new Error (err)
+    error.htppStatusCode = 500
+    return next(error)
+  })  
 })
 
 

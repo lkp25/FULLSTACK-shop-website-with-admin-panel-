@@ -102,7 +102,7 @@ app.use('/', (req, res, next) =>{
 
 //SPECIAL error handling middleware:::
 app.use((error, req,res, next=>{
-    res.status(error.httpStatusCode).render(path.join(rootDir, 'views', 'register-new-acc.ejs'),{
+    res.status(error.httpStatusCode).render(path.join(rootDir, 'views', '500.ejs'),{
         errorMessage: 'internal server error'
     })
 }))

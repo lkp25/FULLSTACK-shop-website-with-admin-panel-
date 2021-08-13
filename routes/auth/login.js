@@ -64,10 +64,10 @@ router.post('/login', async (req, res, next) =>{
       
     })
     .catch(err => {
-      console.log(err)
-      res.redirect('/login')
-
-    })
+      const error = new Error (err)
+      error.htppStatusCode = 500
+      return next(error)
+    })  
   })  
  
 })
