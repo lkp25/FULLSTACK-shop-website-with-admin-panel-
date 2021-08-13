@@ -83,7 +83,11 @@ router.post('/register',
                 sendEmail(email, `Shop account registered ${email}`, "welcome to store")
             })
             
-        }).catch(err => console.log(err))      
+        }).catch(err => {
+            const error = new Error (err)
+            error.htppStatusCode = 500
+            return next(error)
+        })      
     
  
 })
