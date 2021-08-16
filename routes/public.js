@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
-
+const fs = require('fs');
 const router = express.Router()
 
 const rootDir = require('../util/path')
 const Template = require('../util/individual-product-template')
 
-
+const isLoggedIn = require('../middleware/is-logged-in')
 
 
 
@@ -52,6 +52,26 @@ router.get('/display-products/:id', (req, res, next) =>{
     templateToSend.getIndividualProductData()
     res.setHeader('content-type', 'text/html')
     res.send(templateToSend.render())    
+})
+
+//test route for checking downloading files
+router.get('/download/:orderId', isLoggedIn, (req, res, next) =>{
+
+   const orderId =  req.params.orderId
+   const invoiceName = 'invoice'+ orderId + '.pdf'
+   const invoicePath = path.join(rootDir, 'public', 'dummyInvoices', invoiceName)
+   fs.readFile(invoicePath, (err, data)=>{
+    if(err){
+       return next(err)
+    }
+    res.setHeader(
+        "Content-Type","application/pdf"        
+    )
+    res.setHeader(
+        'Content-Disposition', 'attachment; filename=" '+ invoiceName +'"'    
+    )
+    res.send(data)
+   })
 })
 
 module.exports = router

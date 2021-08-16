@@ -11,14 +11,14 @@ const storage = multer.diskStorage({
   filename: (req, file, cb)=> {
     const {originalname} = file
     cb(null, originalname + '-' + new Date().toISOString())
-  },
-  fileFilter: (req, file, cb) => {
-    if(file.mimetype === 'image.png' || file.mimetype === 'image.jpeg'){
-      cb(null, true)
-    }else{
-      cb(null, false)
-    }
   }
+  // fileFilter: (req, file, cb) => {
+  //   if(file.mimetype === 'image.png' || file.mimetype === 'image.jpeg'){
+  //     cb(null, true)
+  //   }else{
+  //     cb(null, false)
+  //   }
+  // }
 })
 const upload = multer({ storage });
 

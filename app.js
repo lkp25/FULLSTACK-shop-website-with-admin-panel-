@@ -101,11 +101,11 @@ app.use('/', (req, res, next) =>{
 })
 
 //SPECIAL error handling middleware:::
-app.use((error, req,res, next=>{
+app.use((error, req,res, next)=>{
     res.status(error.httpStatusCode).render(path.join(rootDir, 'views', '500.ejs'),{
         errorMessage: 'internal server error'
     })
-}))
+})
 
 //start server
 app.listen(5000)
