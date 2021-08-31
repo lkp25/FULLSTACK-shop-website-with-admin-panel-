@@ -85,8 +85,8 @@ router.post('/finally-set-new-password', (req, res, next) =>{
   })
   .then(hashedPassword =>{
     foundUser.password = hashedPassword
-    foundUser.passwordToken = null
-    foundUser.passwordTokenExpiration = null
+    foundUser.resetToken = null
+    foundUser.resetTokenExpiration = null
     return foundUser.save()
   })
   .then(result=>{
