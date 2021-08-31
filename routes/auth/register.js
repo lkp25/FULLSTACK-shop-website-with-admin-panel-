@@ -8,8 +8,8 @@ const mongoDB = require('../../util/mongoDBconnect').getDB
 const bcrypt = require('bcrypt')
 
 require('dotenv').config()
-const sendEmail = require('../../util/nodemailer')
-
+// const sendEmail = require('../../util/nodemailer')
+const sendRegEmail = require('../../emails/reg-mail')
 //validation:
 const {check, validationResult, body} = require('express-validator');
 
@@ -17,7 +17,7 @@ const {check, validationResult, body} = require('express-validator');
 
 router.post('/register', 
 [
-    check(['email','confirm-email']).isEmail().withMessage('invalid email')
+    body('email')
     .custom((value, {req})=>{
         if(value === "lll@o2.pl"){
             throw new Error('this email is forbidden')
@@ -26,12 +26,12 @@ router.post('/register',
         return true
     }),
     body('password', "the password is must be 5-40alphanumeric chars").isLength({min: 5, max: 40}).isAlphanumeric(),
-    body('confirm-email').custom((value,{req})=>{
-        if(value !== req.body.email){
-            throw new Error('emails must match!')
-        }
-        return true
-    })
+    // body('confirm-email').custom((value,{req})=>{
+    //     if(value !== req.body.email){
+    //         throw new Error('emails must match!')
+    //     }
+    //     return true
+    // })
 ],
     async (req, res, next) =>{
         const email = req.body.email
@@ -80,7 +80,7 @@ router.post('/register',
             .then(()=>{
                 req.flash('successRegister', "your account was successfully created")
                 res.redirect('/login')
-                sendEmail(email, `Shop account registered ${email}`, "welcome to store")
+                sendRegEmail(email)
             })
             
         }).catch(err => {
