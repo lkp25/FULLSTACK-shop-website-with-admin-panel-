@@ -3,10 +3,16 @@
 This is an advanced full-stack online shop application, divided into two parts:
 1. Public part - available for everyone
 2. Admin panel - available only for store admin. 
+Built with vanilla JS for the front-end views and Node.js (express framework) for the back-end. Uses my-SQL and MongoDB databaseses for storing different data.
 
 public part consists of:
  - main page with just bubble animation and welcome text (greets the logged-in user by name)
- - shop page - dynamically displayed product-cards with a ribbon above that lets to sort and display them by categories. When a card is clicked, an individual product page is rendered with uniqe URL, containing more details for the product.
+ - shop page - dynamically displayed product-cards with a ribbon above that lets to sort and display them by categories. When a card is clicked, an individual product page is rendered with uniqe URL, containing more details for the selected product.
+ - contact page - contains a form for customers who want to ask questions.
+ - login page - just for logging in, contains link to registration page
+ - registration page with password restoring link
+ - a cart module available from everywhere upon a click on the cart icon, containing all items that were added to it. It uses local storage for remembering all the items just for the session duration.
+ strictly connected with 'place-order' module that displays a quick summary of all the items and a form requiring all customer details.
 
 admin panel has three tabs:
 1. PRODUCTS:
