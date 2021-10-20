@@ -8,10 +8,19 @@ closeCartButton.classList.add('close-cart-btn')
 closeCartButton.textContent = "X"
 cartContent.appendChild(closeCartButton)
 
+cartContent.style.height = window.innerHeight - 80 + 'px'
+
 window.addEventListener('scroll', (e)=>{
     cartContent.style.top = window.scrollY + 80 + 'px'
-    
-    
+    // const scroll = (parseInt(window.scrollY))
+    // const docHeight = (document.body.getBoundingClientRect().height)
+    // const cartHeight = (cartContent.getBoundingClientRect().height)
+    // console.log(docHeight - scroll)
+    // if(scroll > docHeight){
+    //     // cartContent.style.height = '200px'
+
+    //     window.scrollTo(0, 0)
+    // }
 })
 //get items from session storage. if empty, return empty array
 let itemsInCart = JSON.parse(sessionStorage.getItem("cart")) || []

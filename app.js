@@ -22,7 +22,9 @@ const store = new MongoDBStore({
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded())
-app.use(helmet())
+// app.use(helmet())
+
+
 
 
 app.use(session({
@@ -52,6 +54,9 @@ mongoose.connect(process.env.MONGODB_URI)
 
 ////////ROUTES!!!
 //all routes
+
+
+
 const adminProductsRoutes = require('./routes/admin-products')
 app.use(adminProductsRoutes)
 
@@ -91,7 +96,6 @@ app.use(adminQuestionsRoutes)
 
 const adminOrdersRoutes = require('./routes/admin-orders')
 app.use(adminOrdersRoutes)
-
 
 
 //404 page

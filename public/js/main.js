@@ -12,10 +12,6 @@ setTimeout(() => {
 }, 150);
 
 
-function myfun(){
-    // Write your business logic here
-    console.log('hello');
-}
 //date in footer
 const date = new Date()
 currentYear.innerText = date.getFullYear()

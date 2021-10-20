@@ -34,7 +34,7 @@ input:focus textarea:focus{
     outline: 1px solid rgb(240, 228, 230);
   }
 input::placeholder, textarea::placeholder {
-    
+    color:rgb(47, 47, 54);
     transition: opacity 1s ease, transform 1s ease;
   }
   input:focus::placeholder, textarea:focus::placeholder {

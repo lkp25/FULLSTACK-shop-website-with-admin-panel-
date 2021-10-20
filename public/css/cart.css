@@ -25,25 +25,29 @@
   .cart-content{
       width: 300px;
       max-height: 500px;
-      overflow-y: scroll;
-      background-color: rgb(229, 160, 160);
+     overflow-x: hidden;
+      /* background-color: rgb(229, 160, 160); */
+      background: linear-gradient(0deg, rgba(180,169,169,1) 18%, rgba(197,208,208,1) 47%, rgba(174,188,194,1) 100%);
       position: absolute;
       right: 0px;
       display: none;
-      padding: 0.5rem;
+      padding: 0.7rem;
+      padding-bottom: 0;
       z-index: 1000;
       border-radius:10% 0% 0% 15% / 0% 8% 23% 50%  ;
        transform: translateZ(300px) scale(1) rotateZ(-90deg);
        transform-origin: top right;
-       
+     
+       box-shadow: 0 0 4px 1px rgba(0, 47, 255, 0.692);
     }
     .cart-content::after{
         content: '';
         bottom: -10px;
         width: 100%;
         height: 60px;
-        background:linear-gradient(0deg, lightcoral, rgba(0, 0, 255, 0));
+        background:linear-gradient(0deg, rgb(114, 130, 133), rgba(0, 0, 255, 0));
         position: sticky;
+        padding-right: 0.7rem;
     }
     
 
