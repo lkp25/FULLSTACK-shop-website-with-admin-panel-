@@ -100,10 +100,10 @@ orderModal.addEventListener('click', (e)=>{
     if(e.target.classList.contains('order-deny')){
         hideConfirmationWindow()
     }
-    //confirmation-granted
+    //user-confirmation-granted
     if(e.target.classList.contains('order-confirm')){
         sendToserver()
-
+        window.scrollTo(0,0)
         showMessageOrderPlacedSuccessfully()
 
         setTimeout(() => {            

@@ -125,11 +125,12 @@
     grid-template-columns: 1fr 1fr;
     padding:1rem;
 }
-.order-deny{
-
+.order-deny:hover{
+ background: rgba(220, 20, 60, 0.527);
 }
-.order-confirm{
-
+.order-confirm:hover{
+    background: rgba(5, 90, 33, 0.527);
+    
 }
 .demand-confirmation-window{
     
