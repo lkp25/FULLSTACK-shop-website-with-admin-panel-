@@ -12,6 +12,7 @@ body{
     /* transform: translateZ(-300px); */
     opacity: 0;
     transition: 0.3s ease-out;
+    z-index: 1;
 }
 .body-fade-in{
     opacity: 1;
@@ -38,13 +39,14 @@ h1, h2, p{
 nav{
     
     width: 100%;
-    background-color: lightblue;
+    background: linear-gradient(0deg, rgb(195, 219, 203) 3%, rgba(186,210,210,1) 34%, rgba(158,210,210,1) 68%, rgba(138,151,157,1) 100%)
+    ;
     display: grid;
     grid-template-columns: 1fr;
     padding: 1rem;
     position: relative;
     box-shadow: 0px 0px 10px blue;
-   
+    transition: 1s ease;
 }
 
 /* logo */
@@ -60,7 +62,7 @@ nav{
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     background-size: 200%;
-    animation: background-move 3s ease-in-out infinite;
+    /* animation: background-move 3s ease-in-out infinite; */
     transform: scale(1) skew(-5deg);
     transition: 0.3s;
 }
@@ -76,12 +78,16 @@ nav{
     margin: 0;
     display: grid;
     gap: 0.2rem;
+    height: auto;
     grid-template-columns: auto;
     place-self: center;
-    
+    animation: fade-in 2s ease;
+    transition: 1s ease;
 }
 .hide-links{
-    max-height: 80px;
+    transition: 1s ease;
+    
+    height: 80px;
     overflow: hidden;
 }
 .nav-links a{
@@ -107,7 +113,8 @@ nav{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: cadetblue;
+    background: radial-gradient(circle, cadetblue 51%, rgba(158,210,210,1) 84%, rgba(138,151,157,0) 100%);
+
     display: grid;
     place-items: center;
     cursor: pointer;
@@ -123,7 +130,7 @@ nav{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: cadetblue;
+    background: radial-gradient(circle, cadetblue 51%, rgba(158,210,210,1) 84%, rgba(138,151,157,0) 100%);
     display: grid;
     place-items: center;
     position: absolute;
@@ -135,7 +142,7 @@ nav{
 }
 .menu-icon:hover,.cart-icon:hover{
     transform: scale(1.1);
-    border-radius: 6px;
+    border-radius: 10px;
 }
 .cart-icon-shake{
     animation: shake 1s ease forwards;
@@ -162,7 +169,7 @@ nav{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: rgb(207, 37, 45);
+    background-color: rgb(161, 45, 51);
     position: absolute;
     right: 10%;
     top:10%;
@@ -228,13 +235,35 @@ main{
   FOOTER
   */
   footer{
+      /* border-top: 5px solid darkgray; */
       min-height: 200px;
       width: 100%;
       background-color: rgb(7, 1, 31);
       display: grid;
       grid-template-columns: 1fr auto;
       position: relative;
+      /* transform: translateY(0px); */
       z-index: 2;
+      transform-style: preserve-3d;
+  }
+  footer::after{
+    clip-path: polygon(50% 0%, 100% 9%, 100% 94%, 0 97%, 0 9%);
+    position: absolute;
+      left:0;
+      top:0;
+      transform: translateZ(-1px) translateY(-20px);
+      z-index: -1;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: rgba(22, 49, 88, 0.733);
+      /* animation: upndown 4s both infinite; */
+      cursor: pointer;
+  }
+  @keyframes upndown {
+      0%{transform: translateZ(-1px) translateY(-20px);}
+      40%{transform: translateZ(-1px) translateY(-30px);}
+      100%{transform: translateZ(-1px) translateY(-20px);}
   }
   .footer-links{
       margin: 0;

@@ -5,14 +5,18 @@
     border-top-right-radius: 20px;
 }
 .register-form{
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
     background-color: rgba(128, 128, 128, 0.384);
-padding: 1rem;
-display: grid;
-grid-template-columns: 1fr;
-gap: 0.7rem;
-
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    
 }
 .register-inputs{
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
     background-color: rgba(159, 193, 214, 0.671);
     width: 100%;
     place-items: center;
