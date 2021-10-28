@@ -21,3 +21,6 @@ admin panel has three tabs:
  contains all the orders that were successfully placed by users. main view contains only most important data for each order. If more info is needed, 'details' button must be clicked. Orders can be sorted by value, date, surname and sent / not yet sent flag. A flag is a red (for unsent) or green (for sent) square - it changes color upon click. If admin clicks on red flag, it changes to green and immidiately an email is dispatched informing the buyer that his order was already sent. For storing orders my-SQL database was used.
  3. QUESTIONS:
  here are the questions sent via the form on contact page. Admin may response to emails directly by clicking on the e-mail address of the sender and then writing reply in popup screen. all questions can be deleted at any time. Questions are all stored in MongoDB database. 
+
+The goal of this project is to test as many different functionalities on both front end and the server as possible for educational purposes.
+ This is not a production version and project has some security issues creator is aware of - for example it does not use server side validation anywhere except register-new-user form. Raw, direct SQL queries, lack of proper schema and ORM are my counscious choice here.

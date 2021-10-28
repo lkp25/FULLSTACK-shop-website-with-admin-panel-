@@ -16,6 +16,7 @@ const {check, validationResult, body} = require('express-validator');
 
 
 router.post('/register', 
+//VALIDATORS ARRAY
 [
     body('email')
     .custom((value, {req})=>{
@@ -26,12 +27,7 @@ router.post('/register',
         return true
     }),
     body('password', "the password is must be 5-40alphanumeric chars").isLength({min: 5, max: 40}).isAlphanumeric(),
-    // body('confirm-email').custom((value,{req})=>{
-    //     if(value !== req.body.email){
-    //         throw new Error('emails must match!')
-    //     }
-    //     return true
-    // })
+    
 ],
     async (req, res, next) =>{
         const email = req.body.email
